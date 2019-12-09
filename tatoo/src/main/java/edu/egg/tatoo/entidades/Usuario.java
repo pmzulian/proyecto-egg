@@ -17,10 +17,10 @@ public class Usuario {
     private String id;
     private String nombre;
     private String apellido;
-    private Long aocumento;
+    private Long documento;
     private String contrasenia;
     private Long telefono ;
-    private String Mail;
+    private String mail;
     @OneToOne
     Ubicacion ubicacion;
 
@@ -51,15 +51,13 @@ public class Usuario {
         this.apellido = apellido;
     }
 
-    public Long getAocumento() {
-        return aocumento;
+    public Long getDocumento() {
+        return documento;
     }
 
-    public void setAocumento(Long aocumento) {
-        this.aocumento = aocumento;
+    public void setDocumento(Long documento) {
+        this.documento = documento;
     }
-
-    
 
     public String getContrasenia() {
         return contrasenia;
@@ -78,11 +76,11 @@ public class Usuario {
     }
 
     public String getMail() {
-        return Mail;
+        return mail;
     }
 
-    public void setMail(String Mail) {
-        this.Mail = Mail;
+    public void setMail(String mail) {
+        this.mail = mail;
     }
     
     
