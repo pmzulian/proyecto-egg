@@ -4,6 +4,7 @@ package edu.egg.tatoo.entidades;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -23,6 +24,14 @@ public class Usuario {
     private String mail;
     @OneToOne
     Ubicacion ubicacion;
+    @OneToMany 
+    Turno turno;
+    @OneToMany
+    Voto voto;
+    @OneToMany
+    PregResp pregresp;
+    
+    
 
     public Usuario() {
     }
@@ -51,13 +60,15 @@ public class Usuario {
         this.apellido = apellido;
     }
 
-    public Long getDocumento() {
+    public Long getAocumento() {
         return documento;
     }
 
-    public void setDocumento(Long documento) {
-        this.documento = documento;
+    public void setAocumento(Long aocumento) {
+        this.documento = aocumento;
     }
+
+    
 
     public String getContrasenia() {
         return contrasenia;
@@ -79,8 +90,8 @@ public class Usuario {
         return mail;
     }
 
-    public void setMail(String mail) {
-        this.mail = mail;
+    public void setMail(String Mail) {
+        this.mail = Mail;
     }
     
     
