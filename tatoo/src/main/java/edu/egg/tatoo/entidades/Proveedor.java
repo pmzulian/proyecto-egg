@@ -1,39 +1,37 @@
 
 package edu.egg.tatoo.entidades;
 
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
-
 @Entity
-public class Usuario {
-    
-    @Id    
+public class Proveedor {
+
+    @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator (name = "uuid", strategy = "uuid2")
     private String id;
     private String nombre;
     private String apellido;
-    private Long documento;
+    private Long aocumento;
     private String contrasenia;
     private Long telefono ;
-    private String mail;
+    private String Mail;
     @OneToOne
-    Ubicacion ubicacion;
+    private Ubicacion ubicacion;
     @OneToMany 
-    Turno turno;
+    private Turno turno;
     @OneToMany
-    Voto voto;
+    private Voto voto;
     @OneToMany
-    PregResp pregresp;
-    
-    
+    private PregResp pregresp;
+    @OneToMany
+    private Estilo estilo;
+    @OneToMany
+    private Foto foto ;
 
-    public Usuario() {
+    public Proveedor() {
     }
 
     public String getId() {
@@ -42,6 +40,54 @@ public class Usuario {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public Ubicacion getUbicacion() {
+        return ubicacion;
+    }
+
+    public void setUbicacion(Ubicacion ubicacion) {
+        this.ubicacion = ubicacion;
+    }
+
+    public Turno getTurno() {
+        return turno;
+    }
+
+    public void setTurno(Turno turno) {
+        this.turno = turno;
+    }
+
+    public Voto getVoto() {
+        return voto;
+    }
+
+    public void setVoto(Voto voto) {
+        this.voto = voto;
+    }
+
+    public PregResp getPregresp() {
+        return pregresp;
+    }
+
+    public void setPregresp(PregResp pregresp) {
+        this.pregresp = pregresp;
+    }
+
+    public Estilo getEstilo() {
+        return estilo;
+    }
+
+    public void setEstilo(Estilo estilo) {
+        this.estilo = estilo;
+    }
+
+    public Foto getFoto() {
+        return foto;
+    }
+
+    public void setFoto(Foto foto) {
+        this.foto = foto;
     }
 
     public String getNombre() {
@@ -61,14 +107,12 @@ public class Usuario {
     }
 
     public Long getAocumento() {
-        return documento;
+        return aocumento;
     }
 
     public void setAocumento(Long aocumento) {
-        this.documento = aocumento;
+        this.aocumento = aocumento;
     }
-
-    
 
     public String getContrasenia() {
         return contrasenia;
@@ -87,15 +131,12 @@ public class Usuario {
     }
 
     public String getMail() {
-        return mail;
+        return Mail;
     }
 
     public void setMail(String Mail) {
-        this.mail = Mail;
+        this.Mail = Mail;
     }
     
     
-    
-    
-    
-}
+}   

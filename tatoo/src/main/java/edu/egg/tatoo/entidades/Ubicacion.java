@@ -3,7 +3,7 @@ package edu.egg.tatoo.entidades;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-
+//Hola
 @Entity
 public class Ubicacion {
     
