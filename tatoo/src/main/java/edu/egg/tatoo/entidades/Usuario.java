@@ -23,13 +23,23 @@ public class Usuario {
     private Long telefono ;
     private String mail;
     @OneToOne
-    Ubicacion ubicacion;
+    private Ubicacion ubicacion;
     @OneToMany 
-    Turno turno;
+    private Turno turno;
     @OneToMany
-    Voto voto;
+    private Voto voto;
     @OneToMany
-    PregResp pregresp;
+    private PregResp pregresp;
+    @OneToOne
+    private Foto foto;
+
+    public Voto getVoto() {
+        return voto;
+    }
+
+    public void setVoto(Voto voto) {
+        this.voto = voto;
+    }
     
     
 
@@ -60,12 +70,12 @@ public class Usuario {
         this.apellido = apellido;
     }
 
-    public Long getAocumento() {
-        return documento;
+    public Long getDocumento() {
+        return getDocumento();
     }
 
-    public void setAocumento(Long aocumento) {
-        this.documento = aocumento;
+    public void setDocumento(Long aocumento) {
+        this.setDocumento(aocumento);
     }
 
     
@@ -92,6 +102,64 @@ public class Usuario {
 
     public void setMail(String Mail) {
         this.mail = Mail;
+    }
+
+
+
+    /**
+     * @return the ubicacion
+     */
+    public Ubicacion getUbicacion() {
+        return ubicacion;
+    }
+
+    /**
+     * @param ubicacion the ubicacion to set
+     */
+    public void setUbicacion(Ubicacion ubicacion) {
+        this.ubicacion = ubicacion;
+    }
+
+    /**
+     * @return the turno
+     */
+    public Turno getTurno() {
+        return turno;
+    }
+
+    /**
+     * @param turno the turno to set
+     */
+    public void setTurno(Turno turno) {
+        this.turno = turno;
+    }
+
+    /**
+     * @return the pregresp
+     */
+    public PregResp getPregresp() {
+        return pregresp;
+    }
+
+    /**
+     * @param pregresp the pregresp to set
+     */
+    public void setPregresp(PregResp pregresp) {
+        this.pregresp = pregresp;
+    }
+
+    /**
+     * @return the foto
+     */
+    public Foto getFoto() {
+        return foto;
+    }
+
+    /**
+     * @param foto the foto to set
+     */
+    public void setFoto(Foto foto) {
+        this.foto = foto;
     }
     
     
