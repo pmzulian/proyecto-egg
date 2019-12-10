@@ -10,7 +10,7 @@ public class Foto {
 @Id
 @GeneratedValue(generator = "uuid")
 @GenericGenerator (name = "uuid", strategy = "uuid2")
-private String id;
+private String idfoto;
 private String nombre ;
 private String mime;
 
@@ -21,11 +21,11 @@ private byte[] contenido;
     }
 
     public String getId() {
-        return id;
+        return idfoto;
     }
 
     public void setId(String id) {
-        this.id = id;
+        this.idfoto = id;
     }
 
     public String getNombre() {
@@ -44,13 +44,21 @@ private byte[] contenido;
         this.mime = mime;
     }
 
+    /**
+     * @return the contenido
+     */
     public byte[] getContenido() {
         return contenido;
     }
 
+    /**
+     * @param contenido the contenido to set
+     */
     public void setContenido(byte[] contenido) {
         this.contenido = contenido;
     }
+
+ 
 
     
 
