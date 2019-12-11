@@ -12,11 +12,9 @@ public class Voto {
     @GeneratedValue(generator = "uuid")
     @GenericGenerator (name = "uuid", strategy = "uuid2")
     private String id;
-    
-    private Proveedor proveedor;
-    private Usuario Usuario;
     private int calificacion ;
     private String comentario;
+ 
 
     public Voto() {
     }
@@ -27,22 +25,6 @@ public class Voto {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public Proveedor getProveedor() {
-        return proveedor;
-    }
-
-    public void setProveedor(Proveedor proveedor) {
-        this.proveedor = proveedor;
-    }
-
-    public Usuario getUsuario() {
-        return Usuario;
-    }
-
-    public void setUsuario(Usuario Usuario) {
-        this.Usuario = Usuario;
     }
 
     public int getCalificacion() {

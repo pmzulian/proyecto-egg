@@ -12,29 +12,11 @@ public class PregResp {
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
-    
-    private Usuario usuario; 
-    private Proveedor provedor;
+
     private String Pregunta;
     private String Respuesta;
 
     public PregResp() {
-    }
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
-
-    public Proveedor getProvedor() {
-        return provedor;
-    }
-
-    public void setProvedor(Proveedor provedor) {
-        this.provedor = provedor;
     }
 
     public String getPregunta() {

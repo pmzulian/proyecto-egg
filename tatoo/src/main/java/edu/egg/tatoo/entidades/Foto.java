@@ -44,16 +44,11 @@ private byte[] contenido;
         this.mime = mime;
     }
 
-    /**
-     * @return the contenido
-     */
+
     public byte[] getContenido() {
         return contenido;
     }
 
-    /**
-     * @param contenido the contenido to set
-     */
     public void setContenido(byte[] contenido) {
         this.contenido = contenido;
     }

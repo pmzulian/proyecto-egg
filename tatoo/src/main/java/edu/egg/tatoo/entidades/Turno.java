@@ -16,8 +16,6 @@ public class Turno {
     private String id;
     @Temporal(TemporalType.DATE)
     private Date fecha ;
-    private Usuario usuario ;
-    private Proveedor proveedor ;
 
     public Turno() {
     }
@@ -38,21 +36,6 @@ public class Turno {
         this.fecha = fecha;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
-
-    public Proveedor getProveedor() {
-        return proveedor;
-    }
-
-    public void setProveedor(Proveedor proveedor) {
-        this.proveedor = proveedor;
-    }
     
     
     

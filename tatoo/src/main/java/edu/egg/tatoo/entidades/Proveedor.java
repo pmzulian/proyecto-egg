@@ -1,6 +1,7 @@
 
 package edu.egg.tatoo.entidades;
 
+import java.util.List;
 import javax.persistence.GeneratedValue;
 import javax.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
@@ -14,22 +15,22 @@ public class Proveedor {
     private String id;
     private String nombre;
     private String apellido;
-    private Long aocumento;
+    private Long documento;
     private String contrasenia;
     private Long telefono ;
     private String Mail;
     @OneToOne
     private Ubicacion ubicacion;
     @OneToMany 
-    private Turno turno;
+    private Turno turno [];
     @OneToMany
-    private Voto voto;
+    private Voto voto [];
     @OneToMany
-    private PregResp pregresp;
+    private PregResp pregresp [];
     @OneToMany
-    private Estilo estilo;
+    private Estilo estilo [];
     @OneToMany
-    private Foto foto ;
+    private  List <Foto> foto;
 
     public Proveedor() {
     }
@@ -50,46 +51,6 @@ public class Proveedor {
         this.ubicacion = ubicacion;
     }
 
-    public Turno getTurno() {
-        return turno;
-    }
-
-    public void setTurno(Turno turno) {
-        this.turno = turno;
-    }
-
-    public Voto getVoto() {
-        return voto;
-    }
-
-    public void setVoto(Voto voto) {
-        this.voto = voto;
-    }
-
-    public PregResp getPregresp() {
-        return pregresp;
-    }
-
-    public void setPregresp(PregResp pregresp) {
-        this.pregresp = pregresp;
-    }
-
-    public Estilo getEstilo() {
-        return estilo;
-    }
-
-    public void setEstilo(Estilo estilo) {
-        this.estilo = estilo;
-    }
-
-    public Foto getFoto() {
-        return foto;
-    }
-
-    public void setFoto(Foto foto) {
-        this.foto = foto;
-    }
-
     public String getNombre() {
         return nombre;
     }
@@ -106,12 +67,12 @@ public class Proveedor {
         this.apellido = apellido;
     }
 
-    public Long getAocumento() {
-        return aocumento;
+    public Long getDocumento() {
+        return documento;
     }
 
     public void setAocumento(Long aocumento) {
-        this.aocumento = aocumento;
+        this.documento = aocumento;
     }
 
     public String getContrasenia() {
@@ -137,6 +98,48 @@ public class Proveedor {
     public void setMail(String Mail) {
         this.Mail = Mail;
     }
+
+    public Turno[] getTurno() {
+        return turno;
+    }
+
+    public void setTurno(Turno[] turno) {
+        this.turno = turno;
+    }
+
+    public Voto[] getVoto() {
+        return voto;
+    }
+
+    public void setVoto(Voto[] voto) {
+        this.voto = voto;
+    }
+
+    public PregResp[] getPregresp() {
+        return pregresp;
+    }
+
+    public void setPregresp(PregResp[] pregresp) {
+        this.pregresp = pregresp;
+    }
+
+    public Estilo[] getEstilo() {
+        return estilo;
+    }
+
+    public void setEstilo(Estilo[] estilo) {
+        this.estilo = estilo;
+    }
+
+    public List <Foto> getFoto() {
+        return foto;
+    }
+
+    public void setFoto(List <Foto> foto) {
+        this.foto = foto;
+    }
+    
+    
     
     
 }   

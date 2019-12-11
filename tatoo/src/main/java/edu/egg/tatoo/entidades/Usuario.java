@@ -1,6 +1,7 @@
 
 package edu.egg.tatoo.entidades;
 
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -25,26 +26,18 @@ public class Usuario {
     @OneToOne
     private Ubicacion ubicacion;
     @OneToMany 
-    private Turno turno;
+    private List <Turno> turno;
     @OneToMany
-    private Voto voto;
+    private List <Voto> voto [];
     @OneToMany
-    private PregResp pregresp;
+    private List <PregResp> pregresp [];
     @OneToOne
-    private Foto foto;
-
-    public Voto getVoto() {
-        return voto;
-    }
-
-    public void setVoto(Voto voto) {
-        this.voto = voto;
-    }
-    
-    
+    private List <Foto> foto;
 
     public Usuario() {
     }
+    
+    
 
     public String getId() {
         return id;
@@ -69,17 +62,7 @@ public class Usuario {
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
-
-    public Long getDocumento() {
-        return getDocumento();
-    }
-
-    public void setDocumento(Long aocumento) {
-        this.setDocumento(aocumento);
-    }
-
     
-
     public String getContrasenia() {
         return contrasenia;
     }
@@ -104,63 +87,55 @@ public class Usuario {
         this.mail = Mail;
     }
 
-
-
-    /**
-     * @return the ubicacion
-     */
     public Ubicacion getUbicacion() {
         return ubicacion;
     }
 
-    /**
-     * @param ubicacion the ubicacion to set
-     */
     public void setUbicacion(Ubicacion ubicacion) {
         this.ubicacion = ubicacion;
     }
 
-    /**
-     * @return the turno
-     */
-    public Turno getTurno() {
+    public Long getDocumento() {
+        return documento;
+    }
+
+    public void setDocumento(Long documento) {
+        this.documento = documento;
+    }
+
+    public List <Turno> getTurno() {
         return turno;
     }
 
-    /**
-     * @param turno the turno to set
-     */
-    public void setTurno(Turno turno) {
+    public void setTurno(List <Turno> turno) {
         this.turno = turno;
     }
 
-    /**
-     * @return the pregresp
-     */
-    public PregResp getPregresp() {
+    public List <Voto>[] getVoto() {
+        return voto;
+    }
+
+    public void setVoto(List <Voto>[] voto) {
+        this.voto = voto;
+    }
+
+    public List <PregResp>[] getPregresp() {
         return pregresp;
     }
 
-    /**
-     * @param pregresp the pregresp to set
-     */
-    public void setPregresp(PregResp pregresp) {
+    public void setPregresp(List <PregResp>[] pregresp) {
         this.pregresp = pregresp;
     }
 
-    /**
-     * @return the foto
-     */
-    public Foto getFoto() {
+    public List <Foto> getFoto() {
         return foto;
     }
 
-    /**
-     * @param foto the foto to set
-     */
-    public void setFoto(Foto foto) {
+    public void setFoto(List <Foto> foto) {
         this.foto = foto;
     }
+    
+    
     
     
     
