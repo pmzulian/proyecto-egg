@@ -19,9 +19,9 @@ public class EstiloServicio{
         return estilorepositorio.findAll();
     }
     
-    public List buscarEstiloporNombre (String nombre){
-        return estilorepositorio.BuscarEstiloPorNombre(nombre);
-    }
+//    public List buscarEstiloporNombre (String nombre){
+//        return estilorepositorio.BuscarEstiloPorNombre(nombre);
+//    }
 
     
     

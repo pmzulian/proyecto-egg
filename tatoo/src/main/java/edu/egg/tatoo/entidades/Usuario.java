@@ -1,44 +1,43 @@
-
 package edu.egg.tatoo.entidades;
 
 import java.util.List;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import org.hibernate.annotations.GenericGenerator;
 
-
 @Entity
 public class Usuario {
-    
-    @Id    
+
+  
     @GeneratedValue(generator = "uuid")
-    @GenericGenerator (name = "uuid", strategy = "uuid2")
+    @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
     private String nombre;
     private String apellido;
     private Long documento;
     private String contrasenia;
-    private Long telefono ;
+    private Long telefono;
     private String mail;
     @OneToOne
     private Ubicacion ubicacion;
-    @OneToMany 
-    private List <Turno> turno;
-    @OneToMany
-    private List <Voto> voto [];
-    @OneToMany
-    private List <PregResp> pregresp [];
-    @OneToOne
-    private List <Foto> foto;
+
+    private Turno[] turno;
+
+    private Voto[] voto;
+
+    private PregResp[] pregresp;
+
+    private Foto[] foto;
 
     public Usuario() {
     }
     
-    
-
+    @Id
     public String getId() {
         return id;
     }
@@ -62,7 +61,7 @@ public class Usuario {
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
-    
+
     public String getContrasenia() {
         return contrasenia;
     }
@@ -87,6 +86,8 @@ public class Usuario {
         this.mail = Mail;
     }
 
+//    @OneToOne(targetEntity = Ubicacion.class, mappedBy = "usuario", fetch = FetchType.EAGER)
+
     public Ubicacion getUbicacion() {
         return ubicacion;
     }
@@ -103,42 +104,44 @@ public class Usuario {
         this.documento = documento;
     }
 
-    public List <Turno> getTurno() {
+    @OneToMany(targetEntity = Turno.class, mappedBy = "usuario", fetch = FetchType.EAGER)
+
+    public Turno[] getTurno() {
         return turno;
     }
 
-    public void setTurno(List <Turno> turno) {
+    public void setTurno(Turno[] turno) {
         this.turno = turno;
     }
 
-    public List <Voto>[] getVoto() {
+    @OneToMany(targetEntity = Voto.class, mappedBy = "usuario", fetch = FetchType.EAGER)
+
+    public Voto[] getVoto() {
         return voto;
     }
 
-    public void setVoto(List <Voto>[] voto) {
+    public void setVoto(Voto[] voto) {
         this.voto = voto;
     }
 
-    public List <PregResp>[] getPregresp() {
+    @OneToMany(targetEntity = PregResp.class, mappedBy = "usuario", fetch = FetchType.EAGER)
+
+    public PregResp[] getPregresp() {
         return pregresp;
     }
 
-    public void setPregresp(List <PregResp>[] pregresp) {
+    public void setPregresp(PregResp[] pregresp) {
         this.pregresp = pregresp;
     }
 
-    public List <Foto> getFoto() {
+    @OneToMany(targetEntity = Foto.class, mappedBy = "usuario", fetch = FetchType.EAGER)
+
+    public Foto[] getFoto() {
         return foto;
     }
 
-    public void setFoto(List <Foto> foto) {
+    public void setFoto(Foto[] foto) {
         this.foto = foto;
     }
-    
-    
-    
-    
-    
-    
-    
+
 }

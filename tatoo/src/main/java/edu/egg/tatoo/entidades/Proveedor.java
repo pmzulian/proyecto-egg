@@ -1,41 +1,44 @@
-
 package edu.egg.tatoo.entidades;
 
 import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
-import javax.persistence.*;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 public class Proveedor {
 
-    @Id
+@Id
     @GeneratedValue(generator = "uuid")
-    @GenericGenerator (name = "uuid", strategy = "uuid2")
+    @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
     private String nombre;
     private String apellido;
     private Long documento;
     private String contrasenia;
-    private Long telefono ;
+    private Long telefono;
     private String Mail;
     @OneToOne
     private Ubicacion ubicacion;
-    @OneToMany 
-    private Turno turno [] ;
-    @OneToMany
-    private Turno voto [];
-    @OneToMany
-    private PregResp pregresp [];
-    @OneToMany
-    private Estilo estilo [];
-    @OneToMany
-    private  List <Foto> foto;
+@OneToMany(targetEntity = Turno.class, mappedBy = "proveedor", fetch = FetchType.EAGER)
+    private List<Turno> turno;
+@OneToMany(targetEntity = Voto.class, mappedBy = "proveedor", fetch = FetchType.EAGER)
+    private List<Voto> voto;
+@OneToMany(targetEntity = PregResp.class, mappedBy = "proveedor", fetch = FetchType.EAGER)
+    private List<PregResp> pregresp;
+
+@OneToMany(targetEntity = Estilo.class, mappedBy = "proveedor", fetch = FetchType.EAGER)
+    private List<Estilo> estilo;
+
+@OneToMany(targetEntity = Foto.class, mappedBy = "proveedor", fetch = FetchType.EAGER)
+    private List<Foto> foto;
 
     public Proveedor() {
     }
-    
-    
 
     public String getId() {
         return id;
@@ -43,14 +46,6 @@ public class Proveedor {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public Ubicacion getUbicacion() {
-        return ubicacion;
-    }
-
-    public void setUbicacion(Ubicacion ubicacion) {
-        this.ubicacion = ubicacion;
     }
 
     public String getNombre() {
@@ -73,8 +68,8 @@ public class Proveedor {
         return documento;
     }
 
-    public void setAocumento(Long aocumento) {
-        this.documento = aocumento;
+    public void setDocumento(Long documento) {
+        this.documento = documento;
     }
 
     public String getContrasenia() {
@@ -101,47 +96,53 @@ public class Proveedor {
         this.Mail = Mail;
     }
 
-    public PregResp[] getPregresp() {
-        return pregresp;
+//    @OneToOne (targetEntity=Ubicacion.class, mappedBy="proveedor", fetch=FetchType.EAGER)
+    public Ubicacion getUbicacion() {
+        return ubicacion;
     }
 
-    public void setPregresp(PregResp[] pregresp) {
-        this.pregresp = pregresp;
+    public void setUbicacion(Ubicacion ubicacion) {
+        this.ubicacion = ubicacion;
     }
 
-    public Estilo[] getEstilo() {
+    public List<Estilo> getEstilo() {
         return estilo;
     }
 
-    public void setEstilo(Estilo[] estilo) {
+    public void setEstilo(List<Estilo> estilo) {
         this.estilo = estilo;
     }
 
-    public List <Foto> getFoto() {
+    public List<Foto> getFoto() {
         return foto;
     }
 
-    public void setFoto(List <Foto> foto) {
+    public void setFoto(List<Foto> foto) {
         this.foto = foto;
     }
-//
-//    public List <Turno> getTurno() {
-//        return turno;
-//    }
-//
-//    public void setTurno(List <Turno> turno) {
-//        this.turno = turno;
-//    }
-//
-//    public List <Voto> getVoto() {
-//        return voto;
-//    }
-//
-//    public void setVoto(List <Voto> voto) {
-//        this.voto = voto;
-//    }
-    
-    
-    
-    
-}   
+
+    public List<Turno> getTurno() {
+        return turno;
+    }
+
+    public void setTurno(List<Turno> turno) {
+        this.turno = turno;
+    }
+
+    public List<Voto> getVoto() {
+        return voto;
+    }
+
+    public void setVoto(List<Voto> voto) {
+        this.voto = voto;
+    }
+
+    public List<PregResp> getPregresp() {
+        return pregresp;
+    }
+
+    public void setPregresp(List<PregResp> pregresp) {
+        this.pregresp = pregresp;
+    }
+
+}

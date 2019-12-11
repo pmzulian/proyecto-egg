@@ -9,6 +9,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface EstiloRepositorio extends JpaRepository <Estilo, String> {
-    @Query("SELECT c FROM Estilo c WHERE c.nombre LIKE %"+":nombre"+"%")
-    public List<Estilo> BuscarEstiloPorNombre(@Param("nombre")String nombre);
+//    @Query("SELECT c FROM Estilo c WHERE c.nombre LIKE %"+":nombre"+"%")
+//    public List<Estilo> BuscarEstiloPorNombre(@Param("nombre")String nombre);
 }

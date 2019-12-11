@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 @Service
@@ -19,7 +20,7 @@ public class FotoServicio {
     @Autowired
     private FotoRepositorio fotoRepositorio;
     
-    
+    @Transactional
 public Foto AgregarFoto (MultipartFile archivo) throws IOException{
    if(archivo != null){
           Foto foto = new Foto() ;
@@ -33,6 +34,7 @@ public Foto AgregarFoto (MultipartFile archivo) throws IOException{
               return null;
         }
 }
+@Transactional
 public void EliminarFoto(String id, String idFoto){
     Optional<Foto> respuesta= fotoRepositorio.findById(idFoto);
     if(respuesta.isPresent()){

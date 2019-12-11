@@ -24,35 +24,35 @@ public class ProveedorServicio {
     @Autowired
     private FotoServicio fotoservicio;
     
-    @Transactional
-    public void actualizarProveedor(MultipartFile archivo, String id, Long documento, String nombre, String apellido, String domicilio, String telefono) throws errorServicios, Exception {
-
-        Proveedor proveedor = null;
-
-        if (id != null && id != "" && !id.isEmpty()) {
-            proveedor = proveedorrepositorio.getOne(id);
-
-        }
-        if (proveedor == null) {
-            proveedor = new Proveedor();
-        }
-        if (nombre == null || nombre.trim().isEmpty()) {
-            throw new Exception("El nombre no puede ser nulo.");
-        }
-
-        proveedor.setAocumento(documento);
-        proveedor.setNombre(nombre);
-        proveedor.setApellido(apellido);
-        proveedor.setContrasenia(nombre);
-        proveedor.setMail(id);
-        proveedor.setTelefono(documento);
-
-        Foto foto = fotoservicio.AgregarFoto(archivo);
-        proveedor.setFoto((List<Foto>) foto);
-
-        proveedorrepositorio.save(proveedor);
-
-    }
+//    @Transactional
+//    public void actualizarProveedor(MultipartFile archivo, String id, Long documento, String nombre, String apellido, String domicilio, String telefono) throws errorServicios, Exception {
+//
+//        Proveedor proveedor = null;
+//
+//        if (id != null && id != "" && !id.isEmpty()) {
+//            proveedor = proveedorrepositorio.getOne(id);
+//
+//        }
+//        if (proveedor == null) {
+//            proveedor = new Proveedor();
+//        }
+//        if (nombre == null || nombre.trim().isEmpty()) {
+//            throw new Exception("El nombre no puede ser nulo.");
+//        }
+//
+//        proveedor.setAocumento(documento);
+//        proveedor.setNombre(nombre);
+//        proveedor.setApellido(apellido);
+//        proveedor.setContrasenia(nombre);
+//        proveedor.setMail(id);
+//        proveedor.setTelefono(documento);
+//
+//        Foto foto = fotoservicio.AgregarFoto(archivo);
+//        proveedor.setFoto((List<Foto>) foto);
+//
+//        proveedorrepositorio.save(proveedor);
+//
+//    }
     
     @Transactional
     public void borrarProveedor(String id) throws errorServicios {

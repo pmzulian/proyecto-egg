@@ -10,9 +10,9 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TurnoRepositorio extends JpaRepository <Turno, String> {
-    @Query("SELECT c FROM Turno c WHERE c.id LIKE %"+":id"+"%")
-    public List<Turno> BuscarTurnoPorId(@Param("id")String id);
-    
-    @Query("SELECT c FROM Turno c WHERE c.fecha LIKE %"+":fecha"+"%")
-    public List<Turno> BuscarTurnoPorFecha(@Param("fecha")Date fecha);
+//    @Query("SELECT c FROM Turno c WHERE c.id LIKE %"+":id"+"%")
+//    public List<Turno> BuscarTurnoPorId(@Param("id")String id);
+//    
+//    @Query("SELECT c FROM Turno c WHERE c.fecha LIKE %"+":fecha"+"%")
+//    public List<Turno> BuscarTurnoPorFecha(@Param("fecha")Date fecha);
 }

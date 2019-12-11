@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface FotoRepositorio extends JpaRepository <Foto, String> {
-    @Query("SELECT c FROM Foto c WHERE c.nombre LIKE %"+":nombre"+"%")
-    public List<Foto> BuscarFotoPorNombre(@Param("nombre")String nombre);
+//    @Query("SELECT c FROM Foto c WHERE c.nombre LIKE %"+":nombre"+"%")
+//    public List<Foto> BuscarFotoPorNombre(@Param("nombre")String nombre);
     
 }

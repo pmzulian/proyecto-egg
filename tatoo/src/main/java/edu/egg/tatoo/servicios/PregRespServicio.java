@@ -5,6 +5,7 @@ import edu.egg.tatoo.errores.errorServicios;
 import edu.egg.tatoo.repositorios.PregRespRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class PregRespServicio {
@@ -13,7 +14,7 @@ public class PregRespServicio {
     private PregRespRepositorio pgrepsitorio;
     
     
-    
+    @Transactional
     public void preg (String x, String id) {
         PregResp pregresp = null ;
         
@@ -29,7 +30,7 @@ public class PregRespServicio {
 
     }
     
-        
+      @Transactional  
     public void resp (String x, String id) throws Exception {
         PregResp pregresp = null ;
         
