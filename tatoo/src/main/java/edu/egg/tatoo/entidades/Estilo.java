@@ -13,6 +13,10 @@ public class Estilo {
     @GenericGenerator (name = "uuid", strategy = "uuid2")
     private String id;
     private String nombre;
+    
+    @ManyToOne
+    private Proveedor proveedor;
+    
 
     public Estilo() {
     }
@@ -31,6 +35,14 @@ public class Estilo {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public Proveedor getProveedor() {
+        return proveedor;
+    }
+
+    public void setProveedor(Proveedor proveedor) {
+        this.proveedor = proveedor;
     }
     
     

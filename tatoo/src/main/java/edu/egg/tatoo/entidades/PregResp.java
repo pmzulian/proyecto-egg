@@ -3,6 +3,7 @@ package edu.egg.tatoo.entidades;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
@@ -15,6 +16,10 @@ public class PregResp {
 
     private String Pregunta;
     private String Respuesta;
+    @ManyToOne
+    private Proveedor proveedor;
+    @ManyToOne
+    private Usuario usuario;
 
     public PregResp() {
     }

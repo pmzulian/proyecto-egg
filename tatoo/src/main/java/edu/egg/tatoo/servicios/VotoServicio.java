@@ -13,5 +13,10 @@ public class VotoServicio {
 @Autowired
 private VotoRepositorio votoRepositorio;
     
+
+public void votarProveedor  (){
+
+}
+
     
 }

@@ -16,6 +16,13 @@ public class Turno {
     private String id;
     @Temporal(TemporalType.DATE)
     private Date fecha ;
+    
+    @ManyToMany
+    private Proveedor proveedor;
+    
+    @ManyToMany
+    private Usuario usuario;
+           
 
     public Turno() {
     }
@@ -34,6 +41,22 @@ public class Turno {
 
     public void setFecha(Date fecha) {
         this.fecha = fecha;
+    }
+
+    public Proveedor getProveedor() {
+        return proveedor;
+    }
+
+    public void setProveedor(Proveedor proveedor) {
+        this.proveedor = proveedor;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     
