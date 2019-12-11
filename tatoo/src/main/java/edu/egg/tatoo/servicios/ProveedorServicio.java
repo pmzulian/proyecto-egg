@@ -2,9 +2,11 @@ package edu.egg.tatoo.servicios;
 
 import edu.egg.tatoo.entidades.Foto;
 import edu.egg.tatoo.entidades.Proveedor;
+import edu.egg.tatoo.entidades.Turno;
 import edu.egg.tatoo.entidades.Usuario;
 import edu.egg.tatoo.errores.errorServicios;
 import edu.egg.tatoo.repositorios.ProveedorRepositorio;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,7 +66,19 @@ public class ProveedorServicio {
     }
     
     @Transactional
-    public void asignarTurno (String idproveedor, String idUsuario){
+    public void asignarTurno (String idproveedor, String idUsuario, Date fecha) throws Exception{
+        
+        Turno turno = null;
+        
+       if (idproveedor != null && !idproveedor.isEmpty() && idUsuario != null && !idUsuario.isEmpty()) {
+            turno.setFecha(fecha);
+
+        }
+
+        if (idproveedor == null || idUsuario == null || idproveedor.isEmpty() || idUsuario.isEmpty()) {
+            throw new Exception("No se encuentra el proveedor o el Usuario.");
+        }
+        
         
     }
 
