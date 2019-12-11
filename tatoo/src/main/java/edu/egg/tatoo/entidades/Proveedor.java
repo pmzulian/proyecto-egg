@@ -22,7 +22,7 @@ public class Proveedor {
     @OneToOne
     private Ubicacion ubicacion;
     @OneToMany 
-    private Turno turno [];
+    private List <Turno> turno;
     @OneToMany
     private Voto voto [];
     @OneToMany
@@ -34,6 +34,8 @@ public class Proveedor {
 
     public Proveedor() {
     }
+    
+    
 
     public String getId() {
         return id;
@@ -99,14 +101,6 @@ public class Proveedor {
         this.Mail = Mail;
     }
 
-    public Turno[] getTurno() {
-        return turno;
-    }
-
-    public void setTurno(Turno[] turno) {
-        this.turno = turno;
-    }
-
     public Voto[] getVoto() {
         return voto;
     }
@@ -137,6 +131,14 @@ public class Proveedor {
 
     public void setFoto(List <Foto> foto) {
         this.foto = foto;
+    }
+
+    public List <Turno> getTurno() {
+        return turno;
+    }
+
+    public void setTurno(List <Turno> turno) {
+        this.turno = turno;
     }
     
     

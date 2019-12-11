@@ -20,7 +20,7 @@ public class ProveedorServicio {
     private FotoServicio fotoservicio;
     
     @Transactional
-    public void actualizarCliente(MultipartFile archivo, String id, Long documento, String nombre, String apellido, String domicilio, String telefono) throws errorServicios, Exception {
+    public void actualizarProveedor(MultipartFile archivo, String id, Long documento, String nombre, String apellido, String domicilio, String telefono) throws errorServicios, Exception {
 
         Proveedor proveedor = null;
 
@@ -61,6 +61,11 @@ public class ProveedorServicio {
             throw new errorServicios("No se encontro el cliente. ");
         }
 
+    }
+    
+    @Transactional
+    public void asignarTurno (String idproveedor, String idUsuario){
+        
     }
 
     public List<Proveedor> listarProveedor() {
