@@ -22,4 +22,5 @@ edu/egg/tatoo/entidades/Voto.class
 edu/egg/tatoo/entidades/PregResp.class
 edu/egg/tatoo/entidades/Estilo.class
 edu/egg/tatoo/servicios/ProveedorServicio.class
+edu/egg/tatoo/repositorios/PregRespRepositorio.class
 edu/egg/tatoo/repositorios/VotoRepositorio.class

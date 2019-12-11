@@ -1,6 +1,7 @@
 /Users/macbookpro/Documents/GitHub/proyecto-egg/tatoo/src/main/java/edu/egg/tatoo/entidades/Voto.java
 /Users/macbookpro/Documents/GitHub/proyecto-egg/tatoo/src/main/java/edu/egg/tatoo/entidades/Proveedor.java
 /Users/macbookpro/Documents/GitHub/proyecto-egg/tatoo/src/main/java/edu/egg/tatoo/entidades/Estilo.java
+/Users/macbookpro/Documents/GitHub/proyecto-egg/tatoo/src/main/java/edu/egg/tatoo/repositorios/PregRespRepositorio.java
 /Users/macbookpro/Documents/GitHub/proyecto-egg/tatoo/src/main/java/edu/egg/tatoo/repositorios/EstiloRepositorio.java
 /Users/macbookpro/Documents/GitHub/proyecto-egg/tatoo/src/main/java/edu/egg/tatoo/repositorios/VotoRepositorio.java
 /Users/macbookpro/Documents/GitHub/proyecto-egg/tatoo/src/main/java/edu/egg/tatoo/repositorios/UbicacionRepositorio.java

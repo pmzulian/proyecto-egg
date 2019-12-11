@@ -22,9 +22,9 @@ public class Proveedor {
     @OneToOne
     private Ubicacion ubicacion;
     @OneToMany 
-    private List <Turno> turno;
+    private Turno turno [] ;
     @OneToMany
-    private Voto voto [];
+    private Turno voto [];
     @OneToMany
     private PregResp pregresp [];
     @OneToMany
@@ -101,14 +101,6 @@ public class Proveedor {
         this.Mail = Mail;
     }
 
-    public Voto[] getVoto() {
-        return voto;
-    }
-
-    public void setVoto(Voto[] voto) {
-        this.voto = voto;
-    }
-
     public PregResp[] getPregresp() {
         return pregresp;
     }
@@ -132,14 +124,22 @@ public class Proveedor {
     public void setFoto(List <Foto> foto) {
         this.foto = foto;
     }
-
-    public List <Turno> getTurno() {
-        return turno;
-    }
-
-    public void setTurno(List <Turno> turno) {
-        this.turno = turno;
-    }
+//
+//    public List <Turno> getTurno() {
+//        return turno;
+//    }
+//
+//    public void setTurno(List <Turno> turno) {
+//        this.turno = turno;
+//    }
+//
+//    public List <Voto> getVoto() {
+//        return voto;
+//    }
+//
+//    public void setVoto(List <Voto> voto) {
+//        this.voto = voto;
+//    }
     
     
     

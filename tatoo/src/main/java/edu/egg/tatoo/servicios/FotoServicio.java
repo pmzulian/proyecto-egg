@@ -18,6 +18,8 @@ public class FotoServicio {
     private UsuarioRepositorio usuariorepositorio;
     @Autowired
     private FotoRepositorio fotoRepositorio;
+    
+    
 public Foto AgregarFoto (MultipartFile archivo) throws IOException{
    if(archivo != null){
           Foto foto = new Foto() ;

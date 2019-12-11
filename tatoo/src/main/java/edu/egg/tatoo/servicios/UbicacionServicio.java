@@ -5,7 +5,10 @@ import edu.egg.tatoo.errores.errorServicios;
 import edu.egg.tatoo.repositorios.UbicacionRepositorio;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+
+@Service
 public class UbicacionServicio {
 
     @Autowired
