@@ -1,14 +1,17 @@
 
 package edu.egg.tatoo.controladores;
 
+import edu.egg.tatoo.entidades.Usuario;
 import edu.egg.tatoo.servicios.UsuarioServicio;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.mail.Multipart;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -20,33 +23,44 @@ public class UsuarioController {
     @Autowired
     private UsuarioServicio usuarioservicio;
     
-    @GetMapping("/")
-    public String registrar(){
+    
+    
+
+    @GetMapping("/actualizacion")
+    public String actualizacion(@RequestParam (required = false) String id, ModelMap modelo) {
+        
+        Usuario usuario;
+        
+        if(id != null){
+            usuario = usuarioservicio.buscarPorID(id);
+            modelo.put("usuario", usuario);
+        }else{
+            modelo.put("usuario", new Usuario());
+        }
+        
         return "registrousuario.html";
     }
     
-    @GetMapping("/in")
+    
+    @PostMapping("/actualizar")
     public String in (@RequestParam MultipartFile archivo,
                       @RequestParam (required = false) String id,
                       @RequestParam Long documento, 
                       @RequestParam String nombre,
                       @RequestParam String apellido,
-                      @RequestParam String domicilio,
                       @RequestParam Long telefono,
                       @RequestParam String mail,
                       @RequestParam String contrasenia
-                        ){
+                       ) throws Exception{
         
-        try {
+     
             usuarioservicio.actualizarUsuario(archivo, id, nombre, apellido, documento, telefono, mail, contrasenia);
-        } catch (Exception ex) {
-            Logger.getLogger(UsuarioController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+      
         
         
     
-        return null;
-    }   
+            return  "redirect: /usuario/actualizacion";
+            }   
     
 }
 

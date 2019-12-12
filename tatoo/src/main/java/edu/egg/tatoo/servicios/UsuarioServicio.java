@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Service
@@ -19,6 +20,9 @@ public class UsuarioServicio {
     UsuarioRepositorio usuariorepositorio;
     @Autowired
     FotoServicio fotoservicio;
+    
+    
+
 
     @Transactional
     public void actualizarUsuario(MultipartFile archivo, String id, String nombre, String apellido, Long documento, Long telefono, String mail, String contrasenia) throws errorServicios, Exception {
@@ -49,6 +53,12 @@ public class UsuarioServicio {
         usuariorepositorio.save(usuario);
 
     }
+    
+    public Usuario buscarPorID (String id){
+        return usuariorepositorio.getOne(id);
+    }
+    
+    
 
     @Transactional
     public void borrarUsuario(String id) throws errorServicios {
