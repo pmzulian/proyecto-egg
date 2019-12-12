@@ -13,7 +13,7 @@ import org.hibernate.annotations.GenericGenerator;
 @Entity
 public class Proveedor {
 
-@Id
+    @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
@@ -26,24 +26,21 @@ public class Proveedor {
     @OneToOne
     private Ubicacion ubicacion;
 //@OneToMany(targetEntity = Turno.class, mappedBy = "proveedor", fetch = FetchType.EAGER)
-    @ManyToOne
-    private Turno  [] turno;
+    @OneToMany
+    private List<Turno> turno;
 //@OneToMany(targetEntity = Voto.class, mappedBy = "proveedor", fetch = FetchType.EAGER)
-    @ManyToOne
-    private Voto [] voto;
+    @OneToMany
+    private List<Voto> voto;
 //@OneToMany(targetEntity = PregResp.class, mappedBy = "proveedor", fetch = FetchType.EAGER)
-    @ManyToOne
-    private PregResp [] regresp;
-
+    @OneToMany
+    private List<PregResp> regresp;
 //@OneToMany(targetEntity = Estilo.class, mappedBy = "proveedor", fetch = FetchType.EAGER)
-    @ManyToOne
-    private Estilo [] estilo;
-
-//@OneToMany(targetEntity = Foto.class, mappedBy = "proveedor", fetch = FetchType.EAGER)
+    @OneToMany 
+    private List <Estilo> estilo;
     @OneToOne
     private Foto fotoPerfil;
-    @ManyToOne
-    private Foto [] fotoPortfolio;
+    @OneToMany 
+    private List <Foto> fotoPortfolio;
 
     public Proveedor() {
     }
@@ -113,38 +110,38 @@ public class Proveedor {
         this.ubicacion = ubicacion;
     }
 
-    public Turno[] getTurno() {
+    public List<Turno> getTurno() {
         return turno;
     }
 
-    public void setTurno(Turno[] turno) {
+    public void setTurno(List<Turno> turno) {
         this.turno = turno;
     }
 
-    public Voto[] getVoto() {
+    public List<Voto> getVoto() {
         return voto;
     }
 
-    public void setVoto(Voto[] voto) {
+    public void setVoto(List<Voto> voto) {
         this.voto = voto;
     }
 
-    public PregResp[] getRegresp() {
+    public List<PregResp> getRegresp() {
         return regresp;
     }
 
-    public void setRegresp(PregResp[] regresp) {
+    public void setRegresp(List<PregResp> regresp) {
         this.regresp = regresp;
     }
 
-    public Estilo[] getEstilo() {
+    public List <Estilo> getEstilo() {
         return estilo;
     }
 
-    public void setEstilo(Estilo[] estilo) {
+    public void setEstilo(List <Estilo> estilo) {
         this.estilo = estilo;
     }
-
+    
     public Foto getFotoPerfil() {
         return fotoPerfil;
     }
@@ -153,16 +150,11 @@ public class Proveedor {
         this.fotoPerfil = fotoPerfil;
     }
 
-    public Foto[] getFotoPortfolio() {
+    public List <Foto> getFotoPortfolio() {
         return fotoPortfolio;
     }
 
-    public void setFotoPortfolio(Foto []fotoPortfolio) {
+    public void setFotoPortfolio(List <Foto> fotoPortfolio) {
         this.fotoPortfolio = fotoPortfolio;
     }
-
-    
-
-
-
 }

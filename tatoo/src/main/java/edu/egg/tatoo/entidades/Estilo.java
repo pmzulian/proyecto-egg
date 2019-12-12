@@ -14,6 +14,9 @@ public class Estilo {
     private String id;
     private String nombre;
     
+    @ManyToOne
+    private Proveedor proveedor;
+    
     
     
 
@@ -36,6 +39,15 @@ public class Estilo {
         this.nombre = nombre;
     }
 
+    public Proveedor getProveedor() {
+        return proveedor;
+    }
+
+    public void setProveedor(Proveedor proveedor) {
+        this.proveedor = proveedor;
+    }
+
+    
 
     
     

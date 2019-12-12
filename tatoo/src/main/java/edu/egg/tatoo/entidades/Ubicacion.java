@@ -21,6 +21,8 @@ public class Ubicacion {
     private String nombre;
     private int provincia_id ;
     private String provincia_nombre ;
+    
+    
 
     public Ubicacion() {
     }

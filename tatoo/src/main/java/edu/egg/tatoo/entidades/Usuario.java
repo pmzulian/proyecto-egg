@@ -13,8 +13,7 @@ import org.hibernate.annotations.GenericGenerator;
 @Entity
 public class Usuario {
 
-  
-@Id
+    @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
@@ -28,16 +27,17 @@ public class Usuario {
     private Ubicacion ubicacion;
 
 //@OneToMany(targetEntity = Turno.class, mappedBy = "usuario", fetch = FetchType.EAGER)
-    @ManyToOne
-    private Turno[] turno;
+    @OneToMany
+    private List<Turno> turno;
 
 //@OneToMany(targetEntity = Voto.class, mappedBy = "usuario", fetch = FetchType.EAGER)
-    @ManyToOne
-    private Voto[] voto;
+    @OneToMany
+
+    private List<Voto> voto;
 
 //@OneToMany(targetEntity = PregResp.class, mappedBy = "usuario", fetch = FetchType.EAGER)
-    @ManyToOne
-    private PregResp[] pregresp;
+    @OneToMany
+    private List<PregResp> pregresp;
 
 //@OneToMany(targetEntity = Foto.class, mappedBy = "usuario", fetch = FetchType.EAGER)
     @OneToOne
@@ -45,7 +45,7 @@ public class Usuario {
 
     public Usuario() {
     }
-    
+
     public String getId() {
         return id;
     }
@@ -95,7 +95,6 @@ public class Usuario {
     }
 
 //    @OneToOne(targetEntity = Ubicacion.class, mappedBy = "usuario", fetch = FetchType.EAGER)
-
     public Ubicacion getUbicacion() {
         return ubicacion;
     }
@@ -112,27 +111,27 @@ public class Usuario {
         this.documento = documento;
     }
 
-    public Turno[] getTurno() {
+    public List<Turno> getTurno() {
         return turno;
     }
 
-    public void setTurno(Turno[] turno) {
+    public void setTurno(List<Turno> turno) {
         this.turno = turno;
     }
 
-    public Voto[] getVoto() {
+    public List<Voto> getVoto() {
         return voto;
     }
 
-    public void setVoto(Voto[] voto) {
+    public void setVoto(List<Voto> voto) {
         this.voto = voto;
     }
 
-    public PregResp[] getPregresp() {
+    public List<PregResp> getPregresp() {
         return pregresp;
     }
 
-    public void setPregresp(PregResp[] pregresp) {
+    public void setPregresp(List<PregResp> pregresp) {
         this.pregresp = pregresp;
     }
 

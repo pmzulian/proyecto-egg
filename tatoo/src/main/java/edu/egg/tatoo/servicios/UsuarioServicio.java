@@ -42,7 +42,6 @@ public class UsuarioServicio {
         usuario.setContrasenia(nombre);
         usuario.setMail(id);
         usuario.setTelefono(documento);
-
         Foto foto = fotoservicio.AgregarFoto(archivo);
         usuario.setFoto(foto);
 

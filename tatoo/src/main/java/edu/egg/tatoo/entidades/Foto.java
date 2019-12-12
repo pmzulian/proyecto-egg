@@ -14,6 +14,11 @@ private String idfoto;
 private String nombre ;
 private String mime;
 
+@ManyToOne
+private Proveedor proveedor;
+@ManyToOne
+private Usuario usuario;
+
 @Lob @Basic(fetch = FetchType.LAZY)
 private byte[] contenido;
 
@@ -52,6 +57,31 @@ private byte[] contenido;
     public void setContenido(byte[] contenido) {
         this.contenido = contenido;
     }
+
+    public String getIdfoto() {
+        return idfoto;
+    }
+
+    public void setIdfoto(String idfoto) {
+        this.idfoto = idfoto;
+    }
+
+    public Proveedor getProveedor() {
+        return proveedor;
+    }
+
+    public void setProveedor(Proveedor proveedor) {
+        this.proveedor = proveedor;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+    
 
  
 

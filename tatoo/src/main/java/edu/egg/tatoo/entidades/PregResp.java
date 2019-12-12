@@ -1,9 +1,12 @@
 package edu.egg.tatoo.entidades;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
@@ -17,6 +20,11 @@ public class PregResp {
     private String Pregunta;
     private String Respuesta;
 
+   @ManyToOne 
+    private Proveedor proveedor;
+   
+   @ManyToOne
+   private Usuario usuario ;
 
     public PregResp() {
     }
@@ -44,6 +52,24 @@ public class PregResp {
     public void setId(String id) {
         this.id = id;
     }
+
+    public Proveedor getProveedor() {
+        return proveedor;
+    }
+
+    public void setProveedor(Proveedor proveedor) {
+        this.proveedor = proveedor;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+    
+    
     
     
            

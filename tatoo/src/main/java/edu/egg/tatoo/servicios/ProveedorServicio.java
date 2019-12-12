@@ -86,7 +86,7 @@ public class ProveedorServicio {
     
     /////METODO PARA CARGAR FOTOS DE Portfolios sin terminar//////
     
-//    
+    
 //    @Transactional
 //    public void subirFoto(MultipartFile archivo, String id) throws Exception {
 //
@@ -94,8 +94,8 @@ public class ProveedorServicio {
 //
 //        if (id != null && id != "" && !id.isEmpty()) {
 //            proveedor = proveedorrepositorio.getOne(id);
-//            Foto foto = fotoservicio.AgregarFoto(archivo);
-//            proveedor.setFotoPortfolio(foto);
+//            Foto [] foto = {fotoservicio.AgregarFoto(archivo)};
+//            
 //            
 //            
 //        }
