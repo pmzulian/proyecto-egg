@@ -59,6 +59,12 @@ public class UsuarioServicio {
     }
     
     
+    
+    public List buscarporId (String id){
+        return usuariorepositorio.buscarporId(id);
+    }
+    
+    
 
     @Transactional
     public void borrarUsuario(String id) throws errorServicios {
@@ -74,7 +80,7 @@ public class UsuarioServicio {
 
     }
 
-    public List<Usuario> listarClientes() {
+    public List<Usuario> listarusuarios() {
         return usuariorepositorio.findAll();
     }
     
