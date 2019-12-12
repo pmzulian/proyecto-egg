@@ -16,10 +16,7 @@ public class PregResp {
 
     private String Pregunta;
     private String Respuesta;
-    @ManyToOne
-    private Proveedor proveedor;
-    @ManyToOne
-    private Usuario usuario;
+
 
     public PregResp() {
     }

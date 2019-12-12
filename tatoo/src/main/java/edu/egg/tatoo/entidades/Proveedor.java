@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.*;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import org.hibernate.annotations.GenericGenerator;
@@ -24,18 +25,25 @@ public class Proveedor {
     private String Mail;
     @OneToOne
     private Ubicacion ubicacion;
-@OneToMany(targetEntity = Turno.class, mappedBy = "proveedor", fetch = FetchType.EAGER)
-    private List<Turno> turno;
-@OneToMany(targetEntity = Voto.class, mappedBy = "proveedor", fetch = FetchType.EAGER)
-    private List<Voto> voto;
-@OneToMany(targetEntity = PregResp.class, mappedBy = "proveedor", fetch = FetchType.EAGER)
-    private List<PregResp> pregresp;
+//@OneToMany(targetEntity = Turno.class, mappedBy = "proveedor", fetch = FetchType.EAGER)
+    @ManyToOne
+    private Turno  [] turno;
+//@OneToMany(targetEntity = Voto.class, mappedBy = "proveedor", fetch = FetchType.EAGER)
+    @ManyToOne
+    private Voto [] voto;
+//@OneToMany(targetEntity = PregResp.class, mappedBy = "proveedor", fetch = FetchType.EAGER)
+    @ManyToOne
+    private PregResp [] regresp;
 
-@OneToMany(targetEntity = Estilo.class, mappedBy = "proveedor", fetch = FetchType.EAGER)
-    private List<Estilo> estilo;
+//@OneToMany(targetEntity = Estilo.class, mappedBy = "proveedor", fetch = FetchType.EAGER)
+    @ManyToOne
+    private Estilo [] estilo;
 
-@OneToMany(targetEntity = Foto.class, mappedBy = "proveedor", fetch = FetchType.EAGER)
-    private List<Foto> foto;
+//@OneToMany(targetEntity = Foto.class, mappedBy = "proveedor", fetch = FetchType.EAGER)
+    @OneToOne
+    private Foto fotoPerfil;
+    @ManyToOne
+    private Foto [] fotoPortfolio;
 
     public Proveedor() {
     }
@@ -105,44 +113,56 @@ public class Proveedor {
         this.ubicacion = ubicacion;
     }
 
-    public List<Estilo> getEstilo() {
-        return estilo;
-    }
-
-    public void setEstilo(List<Estilo> estilo) {
-        this.estilo = estilo;
-    }
-
-    public List<Foto> getFoto() {
-        return foto;
-    }
-
-    public void setFoto(List<Foto> foto) {
-        this.foto = foto;
-    }
-
-    public List<Turno> getTurno() {
+    public Turno[] getTurno() {
         return turno;
     }
 
-    public void setTurno(List<Turno> turno) {
+    public void setTurno(Turno[] turno) {
         this.turno = turno;
     }
 
-    public List<Voto> getVoto() {
+    public Voto[] getVoto() {
         return voto;
     }
 
-    public void setVoto(List<Voto> voto) {
+    public void setVoto(Voto[] voto) {
         this.voto = voto;
     }
 
-    public List<PregResp> getPregresp() {
-        return pregresp;
+    public PregResp[] getRegresp() {
+        return regresp;
     }
 
-    public void setPregresp(List<PregResp> pregresp) {
-        this.pregresp = pregresp;
+    public void setRegresp(PregResp[] regresp) {
+        this.regresp = regresp;
     }
+
+    public Estilo[] getEstilo() {
+        return estilo;
+    }
+
+    public void setEstilo(Estilo[] estilo) {
+        this.estilo = estilo;
+    }
+
+    public Foto getFotoPerfil() {
+        return fotoPerfil;
+    }
+
+    public void setFotoPerfil(Foto fotoPerfil) {
+        this.fotoPerfil = fotoPerfil;
+    }
+
+    public Foto[] getFotoPortfolio() {
+        return fotoPortfolio;
+    }
+
+    public void setFotoPortfolio(Foto[] fotoPortfolio) {
+        this.fotoPortfolio = fotoPortfolio;
+    }
+
+    
+
+
 
 }

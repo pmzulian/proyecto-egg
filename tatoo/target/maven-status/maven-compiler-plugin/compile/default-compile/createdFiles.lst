@@ -11,6 +11,7 @@ edu/egg/tatoo/TatooApplication.class
 edu/egg/tatoo/repositorios/FotoRepositorio.class
 edu/egg/tatoo/repositorios/UbicacionRepositorio.class
 edu/egg/tatoo/repositorios/EstiloRepositorio.class
+edu/egg/tatoo/controladores/Controlador.class
 edu/egg/tatoo/repositorios/ProveedorRepositorio.class
 edu/egg/tatoo/repositorios/TurnoRepositorio.class
 edu/egg/tatoo/servicios/EstiloServicio.class

@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import javax.persistence.OneToOne;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -14,6 +14,7 @@ import org.hibernate.annotations.GenericGenerator;
 public class Usuario {
 
   
+@Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
@@ -26,18 +27,25 @@ public class Usuario {
     @OneToOne
     private Ubicacion ubicacion;
 
+//@OneToMany(targetEntity = Turno.class, mappedBy = "usuario", fetch = FetchType.EAGER)
+    @ManyToOne
     private Turno[] turno;
 
+//@OneToMany(targetEntity = Voto.class, mappedBy = "usuario", fetch = FetchType.EAGER)
+    @ManyToOne
     private Voto[] voto;
 
+//@OneToMany(targetEntity = PregResp.class, mappedBy = "usuario", fetch = FetchType.EAGER)
+    @ManyToOne
     private PregResp[] pregresp;
 
+//@OneToMany(targetEntity = Foto.class, mappedBy = "usuario", fetch = FetchType.EAGER)
+    @ManyToOne
     private Foto[] foto;
 
     public Usuario() {
     }
     
-    @Id
     public String getId() {
         return id;
     }
@@ -104,8 +112,6 @@ public class Usuario {
         this.documento = documento;
     }
 
-    @OneToMany(targetEntity = Turno.class, mappedBy = "usuario", fetch = FetchType.EAGER)
-
     public Turno[] getTurno() {
         return turno;
     }
@@ -113,8 +119,6 @@ public class Usuario {
     public void setTurno(Turno[] turno) {
         this.turno = turno;
     }
-
-    @OneToMany(targetEntity = Voto.class, mappedBy = "usuario", fetch = FetchType.EAGER)
 
     public Voto[] getVoto() {
         return voto;
@@ -124,8 +128,6 @@ public class Usuario {
         this.voto = voto;
     }
 
-    @OneToMany(targetEntity = PregResp.class, mappedBy = "usuario", fetch = FetchType.EAGER)
-
     public PregResp[] getPregresp() {
         return pregresp;
     }
@@ -133,8 +135,6 @@ public class Usuario {
     public void setPregresp(PregResp[] pregresp) {
         this.pregresp = pregresp;
     }
-
-    @OneToMany(targetEntity = Foto.class, mappedBy = "usuario", fetch = FetchType.EAGER)
 
     public Foto[] getFoto() {
         return foto;

@@ -1,9 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: edu.egg.tatoo.TatooApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 17.937 s <<< FAILURE! - in edu.egg.tatoo.TatooApplicationTests
-contextLoads  Time elapsed: 0.008 s  <<< ERROR!
-java.lang.IllegalStateException: Failed to load ApplicationContext
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: mappedBy reference an unknown target entity property: edu.egg.tatoo.entidades.Foto.proveedor in edu.egg.tatoo.entidades.Proveedor.foto
-Caused by: org.hibernate.AnnotationException: mappedBy reference an unknown target entity property: edu.egg.tatoo.entidades.Foto.proveedor in edu.egg.tatoo.entidades.Proveedor.foto
-
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 20.413 s - in edu.egg.tatoo.TatooApplicationTests
