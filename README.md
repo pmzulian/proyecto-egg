@@ -1,2 +1,2 @@
 # proyecto-egg
-Repositorio para versionar proyecto fina Egg Educación
+Repositorio para versionar proyecto final Egg Educación
