@@ -5,6 +5,7 @@ import edu.egg.tatoo.entidades.Proveedor;
 import edu.egg.tatoo.entidades.Turno;
 import edu.egg.tatoo.entidades.Usuario;
 import edu.egg.tatoo.errores.errorServicios;
+import edu.egg.tatoo.repositorios.FotoRepositorio;
 import edu.egg.tatoo.repositorios.ProveedorRepositorio;
 import java.util.Date;
 import java.util.List;
@@ -14,7 +15,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.stereotype.Service;
 
-
 @Service
 public class ProveedorServicio {
 
@@ -23,37 +23,37 @@ public class ProveedorServicio {
 
     @Autowired
     private FotoServicio fotoservicio;
-    
-//    @Transactional
-//    public void actualizarProveedor(MultipartFile archivo, String id, Long documento, String nombre, String apellido, String domicilio, String telefono) throws errorServicios, Exception {
-//
-//        Proveedor proveedor = null;
-//
-//        if (id != null && id != "" && !id.isEmpty()) {
-//            proveedor = proveedorrepositorio.getOne(id);
-//
-//        }
-//        if (proveedor == null) {
-//            proveedor = new Proveedor();
-//        }
-//        if (nombre == null || nombre.trim().isEmpty()) {
-//            throw new Exception("El nombre no puede ser nulo.");
-//        }
-//
-//        proveedor.setAocumento(documento);
-//        proveedor.setNombre(nombre);
-//        proveedor.setApellido(apellido);
-//        proveedor.setContrasenia(nombre);
-//        proveedor.setMail(id);
-//        proveedor.setTelefono(documento);
-//
-//        Foto foto = fotoservicio.AgregarFoto(archivo);
-//        proveedor.setFoto((List<Foto>) foto);
-//
-//        proveedorrepositorio.save(proveedor);
-//
-//    }
-    
+
+    @Transactional
+    public void actualizarProveedor(MultipartFile archivo, String id, Long documento, String nombre, String apellido, String domicilio, String telefono) throws errorServicios, Exception {
+
+        Proveedor proveedor = null;
+
+        if (id != null && id != "" && !id.isEmpty()) {
+            proveedor = proveedorrepositorio.getOne(id);
+
+        }
+        if (proveedor == null) {
+            proveedor = new Proveedor();
+        }
+        if (nombre == null || nombre.trim().isEmpty()) {
+            throw new Exception("El nombre no puede ser nulo.");
+        }
+
+        proveedor.setDocumento(documento);
+        proveedor.setNombre(nombre);
+        proveedor.setApellido(apellido);
+        proveedor.setContrasenia(nombre);
+        proveedor.setMail(id);
+        proveedor.setTelefono(documento);
+
+        Foto foto = fotoservicio.AgregarFoto(archivo);
+        proveedor.setFotoPerfil(foto);
+
+        proveedorrepositorio.save(proveedor);
+
+    }
+
     @Transactional
     public void borrarProveedor(String id) throws errorServicios {
 
@@ -67,13 +67,13 @@ public class ProveedorServicio {
         }
 
     }
-    
+
     @Transactional
-    public void asignarTurno (String idproveedor, String idUsuario, Date fecha) throws Exception{
-        
+    public void asignarTurno(String idproveedor, String idUsuario, Date fecha) throws Exception {
+
         Turno turno = null;
-        
-       if (idproveedor != null && !idproveedor.isEmpty() && idUsuario != null && !idUsuario.isEmpty()) {
+
+        if (idproveedor != null && !idproveedor.isEmpty() && idUsuario != null && !idUsuario.isEmpty()) {
             turno.setFecha(fecha);
 
         }
@@ -81,15 +81,35 @@ public class ProveedorServicio {
         if (idproveedor == null || idUsuario == null || idproveedor.isEmpty() || idUsuario.isEmpty()) {
             throw new Exception("No se encuentra el proveedor o el Usuario.");
         }
-        
-        
     }
+
+    
+    /////METODO PARA CARGAR FOTOS DE Portfolios sin terminar//////
+    
+//    
+//    @Transactional
+//    public void subirFoto(MultipartFile archivo, String id) throws Exception {
+//
+//        Proveedor proveedor = null;
+//
+//        if (id != null && id != "" && !id.isEmpty()) {
+//            proveedor = proveedorrepositorio.getOne(id);
+//            Foto foto = fotoservicio.AgregarFoto(archivo);
+//            proveedor.setFotoPortfolio(foto);
+//            
+//            
+//        }
+//        if (proveedor == null) {
+//            throw new Exception("No se encuentra al proveedor");
+//        }
+//
+//    }
 
     public List<Proveedor> listarProveedor() {
         return proveedorrepositorio.findAll();
     }
-    
-        public void validarDocumento(Long documento) throws errorServicios {
+
+    public void validarDocumento(Long documento) throws errorServicios {
         if (documento == null) {
             throw new errorServicios("El documento es nulo. ");
         }
@@ -116,7 +136,5 @@ public class ProveedorServicio {
             throw new errorServicios("El telefono es vacio o es nulo. ");
         }
     }
-    
-    
 
 }

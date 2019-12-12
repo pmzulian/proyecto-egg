@@ -22,7 +22,7 @@ public class Proveedor {
     private Long documento;
     private String contrasenia;
     private Long telefono;
-    private String Mail;
+    private String mail;
     @OneToOne
     private Ubicacion ubicacion;
 //@OneToMany(targetEntity = Turno.class, mappedBy = "proveedor", fetch = FetchType.EAGER)
@@ -97,11 +97,11 @@ public class Proveedor {
     }
 
     public String getMail() {
-        return Mail;
+        return mail;
     }
 
-    public void setMail(String Mail) {
-        this.Mail = Mail;
+    public void setMail(String mail) {
+        this.mail = mail;
     }
 
 //    @OneToOne (targetEntity=Ubicacion.class, mappedBy="proveedor", fetch=FetchType.EAGER)
@@ -157,7 +157,7 @@ public class Proveedor {
         return fotoPortfolio;
     }
 
-    public void setFotoPortfolio(Foto[] fotoPortfolio) {
+    public void setFotoPortfolio(Foto []fotoPortfolio) {
         this.fotoPortfolio = fotoPortfolio;
     }
 

@@ -40,8 +40,8 @@ public class Usuario {
     private PregResp[] pregresp;
 
 //@OneToMany(targetEntity = Foto.class, mappedBy = "usuario", fetch = FetchType.EAGER)
-    @ManyToOne
-    private Foto[] foto;
+    @OneToOne
+    private Foto foto;
 
     public Usuario() {
     }
@@ -136,11 +136,11 @@ public class Usuario {
         this.pregresp = pregresp;
     }
 
-    public Foto[] getFoto() {
+    public Foto getFoto() {
         return foto;
     }
 
-    public void setFoto(Foto[] foto) {
+    public void setFoto(Foto foto) {
         this.foto = foto;
     }
 
