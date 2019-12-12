@@ -2,6 +2,7 @@ edu/egg/tatoo/servicios/FotoServicio.class
 edu/egg/tatoo/servicios/UsuarioServicio.class
 edu/egg/tatoo/servicios/PregRespServicio.class
 edu/egg/tatoo/errores/errorServicios.class
+edu/egg/tatoo/controladores/UsuarioController.class
 edu/egg/tatoo/repositorios/UsuarioRepositorio.class
 edu/egg/tatoo/entidades/Foto.class
 edu/egg/tatoo/entidades/Usuario.class

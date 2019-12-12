@@ -20,9 +20,9 @@ public class Usuario {
     private String nombre;
     private String apellido;
     private Long documento;
-    private String contrasenia;
     private Long telefono;
     private String mail;
+    private String contrasenia;
     @OneToOne
     private Ubicacion ubicacion;
 
@@ -32,7 +32,6 @@ public class Usuario {
 
 //@OneToMany(targetEntity = Voto.class, mappedBy = "usuario", fetch = FetchType.EAGER)
     @OneToMany
-
     private List<Voto> voto;
 
 //@OneToMany(targetEntity = PregResp.class, mappedBy = "usuario", fetch = FetchType.EAGER)

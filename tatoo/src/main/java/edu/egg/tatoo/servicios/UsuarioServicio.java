@@ -21,7 +21,7 @@ public class UsuarioServicio {
     FotoServicio fotoservicio;
 
     @Transactional
-    public void actualizarCliente(MultipartFile archivo, String id, Long documento, String nombre, String apellido, String domicilio, String telefono) throws errorServicios, Exception {
+    public void actualizarUsuario(MultipartFile archivo, String id, String nombre, String apellido, Long documento, Long telefono, String mail, String contrasenia) throws errorServicios, Exception {
 
         Usuario usuario = null;
 
@@ -36,12 +36,13 @@ public class UsuarioServicio {
             throw new Exception("El nombre no puede ser nulo.");
         }
 
-        usuario.setDocumento(documento);
         usuario.setNombre(nombre);
         usuario.setApellido(apellido);
-        usuario.setContrasenia(nombre);
-        usuario.setMail(id);
-        usuario.setTelefono(documento);
+        usuario.setDocumento(documento);
+        usuario.setTelefono(telefono);
+        usuario.setMail(mail);
+        usuario.setContrasenia(contrasenia);
+        
         Foto foto = fotoservicio.AgregarFoto(archivo);
         usuario.setFoto(foto);
 
