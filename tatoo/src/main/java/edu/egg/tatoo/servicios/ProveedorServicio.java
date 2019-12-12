@@ -3,6 +3,7 @@ package edu.egg.tatoo.servicios;
 import edu.egg.tatoo.entidades.Foto;
 import edu.egg.tatoo.entidades.Proveedor;
 import edu.egg.tatoo.entidades.Turno;
+import edu.egg.tatoo.entidades.Ubicacion;
 import edu.egg.tatoo.entidades.Usuario;
 import edu.egg.tatoo.errores.errorServicios;
 import edu.egg.tatoo.repositorios.FotoRepositorio;
@@ -25,7 +26,7 @@ public class ProveedorServicio {
     private FotoServicio fotoservicio;
 
     @Transactional
-    public void actualizarProveedor(MultipartFile archivo, String id, Long documento, String nombre, String apellido, String domicilio, String telefono) throws errorServicios, Exception {
+    public void actualizarProveedor(MultipartFile archivo, String id, Long documento, String nombre, String apellido, String mail, String contrasenia, Long telefono, Ubicacion ubicacion) throws errorServicios, Exception {
 
         Proveedor proveedor = null;
 
@@ -43,9 +44,12 @@ public class ProveedorServicio {
         proveedor.setDocumento(documento);
         proveedor.setNombre(nombre);
         proveedor.setApellido(apellido);
-        proveedor.setContrasenia(nombre);
-        proveedor.setMail(id);
-        proveedor.setTelefono(documento);
+        proveedor.setTelefono(telefono);
+        proveedor.setMail(mail);
+        proveedor.setUbicacion(ubicacion);
+        proveedor.setContrasenia(contrasenia);
+        
+        
 
         Foto foto = fotoservicio.AgregarFoto(archivo);
         proveedor.setFotoPerfil(foto);
@@ -104,6 +108,10 @@ public class ProveedorServicio {
 //        }
 //
 //    }
+    
+    public Proveedor buscarProID (String id){
+        return proveedorrepositorio.getOne(id);
+    }
 
     public List<Proveedor> listarProveedor() {
         return proveedorrepositorio.findAll();

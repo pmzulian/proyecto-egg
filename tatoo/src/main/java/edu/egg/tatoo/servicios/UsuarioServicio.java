@@ -75,7 +75,7 @@ public class UsuarioServicio {
             usuariorepositorio.delete(respuesta.get());
 
         } else {
-            throw new errorServicios("No se encontro el cliente. ");
+            throw new errorServicios("No se encontro el usuario. ");
         }
 
     }

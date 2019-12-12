@@ -1,6 +1,7 @@
 package edu.egg.tatoo.controladores;
 
 import edu.egg.tatoo.entidades.Usuario;
+import edu.egg.tatoo.errores.errorServicios;
 import edu.egg.tatoo.servicios.UsuarioServicio;
 import java.util.List;
 import java.util.logging.Level;
@@ -43,7 +44,7 @@ public class UsuarioController {
     }
 
     @PostMapping("/actualizar")
-    public String in(@RequestParam MultipartFile archivo,
+    public String actualizar(@RequestParam MultipartFile archivo,
             @RequestParam(required = false) String id,
             @RequestParam Long documento,
             @RequestParam String nombre,
@@ -57,23 +58,20 @@ public class UsuarioController {
 
         return "redirect:/usuario/listado";
     }
-    
-     @GetMapping(value = "/image/{id}")
-    public ResponseEntity<byte []> getImage (@PathVariable (value = "id") String id){
 
-        
-        Usuario usuario  = null;
+    @GetMapping(value = "/image/{id}")
+    public ResponseEntity<byte[]> getImage(@PathVariable(value = "id") String id) {
+
+        Usuario usuario = null;
         usuario = usuarioservicio.buscarPorID(id);
 
-         byte[] foto = usuario.getFoto().getContenido();
-         final HttpHeaders headers = new HttpHeaders();
-         headers.setContentType(MediaType.IMAGE_PNG);
-         return new ResponseEntity<byte[]> (foto, headers, HttpStatus.OK);
+        byte[] foto = usuario.getFoto().getContenido();
+        final HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.IMAGE_PNG);
+        return new ResponseEntity<byte[]>(foto, headers, HttpStatus.OK);
 
     }
 
-    
-    
     @GetMapping("/listado{id}")
     public String listado(@RequestParam(required = false) String q, ModelMap modelo) {
         List<Usuario> usuarios;
@@ -87,7 +85,13 @@ public class UsuarioController {
         modelo.put("usuarios", usuarios);
 
         return "pruebaLista.html";
-        
+
+    }
+
+    @GetMapping("/eliminar")
+    public String eliminar(@RequestParam String id) throws errorServicios {
+        usuarioservicio.borrarUsuario(id);
+        return "pruebaLista.html";
     }
 
 }

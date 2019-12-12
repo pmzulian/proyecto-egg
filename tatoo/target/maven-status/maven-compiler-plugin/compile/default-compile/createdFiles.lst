@@ -12,7 +12,6 @@ edu/egg/tatoo/TatooApplication.class
 edu/egg/tatoo/repositorios/FotoRepositorio.class
 edu/egg/tatoo/repositorios/UbicacionRepositorio.class
 edu/egg/tatoo/repositorios/EstiloRepositorio.class
-.netbeans_automatic_build
 edu/egg/tatoo/controladores/Controlador.class
 edu/egg/tatoo/repositorios/ProveedorRepositorio.class
 edu/egg/tatoo/repositorios/TurnoRepositorio.class
@@ -21,6 +20,7 @@ edu/egg/tatoo/entidades/Turno.class
 edu/egg/tatoo/entidades/Ubicacion.class
 edu/egg/tatoo/entidades/Proveedor.class
 edu/egg/tatoo/servicios/TurnoServicio.class
+edu/egg/tatoo/controladores/ProveedorController.class
 edu/egg/tatoo/entidades/Voto.class
 edu/egg/tatoo/entidades/PregResp.class
 edu/egg/tatoo/entidades/Estilo.class

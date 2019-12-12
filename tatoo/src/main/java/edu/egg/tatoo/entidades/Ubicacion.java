@@ -12,6 +12,7 @@ public class Ubicacion {
     private String Centroide_lon;
     private int Departanto_id;
     private String Departamento_nombre;
+    private String fuente;
     @Id
     private Long id;
     private Long Localidad_pcensal_id;
@@ -129,6 +130,14 @@ public class Ubicacion {
 
     public void setProvincia_nombre(String provincia_nombre) {
         this.provincia_nombre = provincia_nombre;
+    }
+
+    public String getFuente() {
+        return fuente;
+    }
+
+    public void setFuente(String fuente) {
+        this.fuente = fuente;
     }
     
     
