@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Service
 public class UsuarioServicio implements UserDetailsService {
+//    implements UserDetailsService
 
     @Autowired
     UsuarioRepositorio usuariorepositorio;

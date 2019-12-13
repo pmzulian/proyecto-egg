@@ -23,8 +23,8 @@ public interface ProveedorRepositorio extends JpaRepository <Proveedor, String> 
 //    @Query("SELECT c FROM Proveedor c WHERE c.telefono LIKE %"+":telefono"+"%")
 //    public List<Proveedor> BuscarProveedorPorTelefono(@Param("telefono")Long telefono);    
 //    
-//    @Query("SELECT c FROM Proveedor c WHERE c.mail LIKE %"+":mail"+"%")
-//    public List<Proveedor> BuscarProveedorPorMail(@Param("mail")String mail);
+    @Query("SELECT c FROM Proveedor c WHERE c.mail LIKE %"+":mail"+"%")
+    public Proveedor BuscarProveedorPorMail(@Param("mail")String mail);
 //    
 //    @Query("SELECT c FROM Proveedor c INNER JOIN Estilo e ON c.estilo = e.nombre WHERE e.nombre LIKE %"+":nombre"+"%")
 //    public List<Proveedor> BuscarProveedorPorEstilo(@Param("nombre")String nombre);

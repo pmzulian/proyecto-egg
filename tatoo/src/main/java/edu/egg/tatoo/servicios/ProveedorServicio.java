@@ -12,19 +12,29 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Service
-public class ProveedorServicio {
+public class ProveedorServicio implements UserDetailsService {
 
     @Autowired
     private ProveedorRepositorio proveedorrepositorio;
 
     @Autowired
     private FotoServicio fotoservicio;
-
+    
     @Transactional
     public void actualizarProveedor(MultipartFile archivo, String id, Long documento, String nombre, String apellido, String mail, String contrasenia, Long telefono, Ubicacion ubicacion) throws errorServicios, Exception {
 
@@ -47,7 +57,8 @@ public class ProveedorServicio {
         proveedor.setTelefono(telefono);
         proveedor.setMail(mail);
         proveedor.setUbicacion(ubicacion);
-        proveedor.setContrasenia(contrasenia);
+        String encriptada = new BCryptPasswordEncoder().encode(contrasenia);
+        proveedor.setContrasenia(encriptada);
         
         
 
@@ -144,5 +155,33 @@ public class ProveedorServicio {
             throw new errorServicios("El telefono es vacio o es nulo. ");
         }
     }
+
+    @Override
+    public UserDetails loadUserByUsername(String mail) throws UsernameNotFoundException {
+
+    Proveedor proveedor = proveedorrepositorio.BuscarProveedorPorMail(mail);
+    
+    if(proveedor != null){
+        
+        List <GrantedAuthority> permisos = null;
+        
+        GrantedAuthority p1 = new SimpleGrantedAuthority("MODULOS_FOTOS");
+        permisos.add(p1);
+        GrantedAuthority p2 = new SimpleGrantedAuthority("MODULO_TURNO");
+        permisos.add(p2);
+        GrantedAuthority p3 = new SimpleGrantedAuthority("MODULOS_PREGRESP");
+        permisos.add(p3);
+        
+        User user = new User(proveedor.getMail(), proveedor.getContrasenia(), permisos);
+
+        return user;
+        
+    }else{
+        return null;
+    }
+    
+    }
+    
+    
 
 }
