@@ -76,7 +76,7 @@ public class UsuarioController extends HttpServlet {
     @GetMapping("/listado{id}")
     public String listado(@RequestParam(required = false) String q, ModelMap modelo) {
         List<Usuario> usuarios;
-
+       
         if (q != null) {
             usuarios = usuarioservicio.buscarporId(q);
         } else {

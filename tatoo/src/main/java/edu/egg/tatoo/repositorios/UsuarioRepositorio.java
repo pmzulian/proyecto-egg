@@ -31,6 +31,5 @@ public interface UsuarioRepositorio extends JpaRepository <Usuario, String> {
     @Query("SELECT c FROM Usuario c WHERE c.id LIKE %"+":id"+"%")
     public List<Usuario> buscarporId(@Param("id")String id);
     
-    
-    
+   
     }

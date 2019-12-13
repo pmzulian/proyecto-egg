@@ -109,10 +109,9 @@ public class ProveedorServicio implements UserDetailsService {
 //
 //        if (id != null && id != "" && !id.isEmpty()) {
 //            proveedor = proveedorrepositorio.getOne(id);
-//            Foto [] foto = {fotoservicio.AgregarFoto(archivo)};
+//         
 //            
-//            
-//            
+//                     
 //        }
 //        if (proveedor == null) {
 //            throw new Exception("No se encuentra al proveedor");
