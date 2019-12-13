@@ -123,6 +123,10 @@ public class ProveedorServicio implements UserDetailsService {
     public Proveedor buscarProID (String id){
         return proveedorrepositorio.getOne(id);
     }
+    
+    public List <Proveedor> buscarPorIDL (String id){
+        return proveedorrepositorio.buscarporId(id);
+    }
 
     public List<Proveedor> listarProveedor() {
         return proveedorrepositorio.findAll();

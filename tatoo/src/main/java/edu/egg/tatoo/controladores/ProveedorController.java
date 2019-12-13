@@ -4,6 +4,7 @@ package edu.egg.tatoo.controladores;
 import edu.egg.tatoo.entidades.Proveedor;
 import edu.egg.tatoo.entidades.Ubicacion;
 import edu.egg.tatoo.entidades.Usuario;
+import edu.egg.tatoo.errores.errorServicios;
 import edu.egg.tatoo.servicios.ProveedorServicio;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,14 +26,14 @@ import org.springframework.web.multipart.MultipartFile;
 public class ProveedorController {
     
     @Autowired
-    private ProveedorServicio proveedorservicios ;
+    private ProveedorServicio proveedorservicio ;
     
     @GetMapping("/actualizacion")
     public String actualizacion  (@RequestParam (required = false )String id, ModelMap modelo){
         Proveedor proveedor;
         
         if(id != null){
-            proveedor = proveedorservicios.buscarProID(id);
+            proveedor = proveedorservicio.buscarProID(id);
             modelo.put("proveedor", proveedor);
         }else{
             modelo.put("proveedor", new Proveedor ());
@@ -54,7 +55,7 @@ public class ProveedorController {
                               @RequestParam Ubicacion ubicacion
                                 ) throws Exception{
        
-        proveedorservicios.actualizarProveedor(archivo, id, documento, nombre, apellido, mail, contrasenia, telefono, ubicacion);
+        proveedorservicio.actualizarProveedor(archivo, id, documento, nombre, apellido, mail, contrasenia, telefono, ubicacion);
         return null;
     }
     
@@ -62,7 +63,7 @@ public class ProveedorController {
     public ResponseEntity<byte[]> getImage(@PathVariable(value = "id") String id) {
 
         Proveedor proveedor = null;
-        proveedor = proveedorservicios.buscarProID(id);
+        proveedor = proveedorservicio.buscarProID(id);
 
         byte[] foto = proveedor.getFotoPerfil().getContenido();
         final HttpHeaders headers = new HttpHeaders();
@@ -70,18 +71,29 @@ public class ProveedorController {
         return new ResponseEntity<byte[]>(foto, headers, HttpStatus.OK);
 
     }
-//    
-//    @GetMapping("/listado{id}")
-//    public String listado (@RequestParam (required = false) String q, ModelMap modelo){
-//        
-//        List <Proveedor> proveedores;
-//        
-//        if(q != null){
-//            proovedores = proveedorservicios.buscarProID(q)
-//        }
-//        
-//        return null;
-//    }
+    
+    @GetMapping("/listado{id}")
+    public String listado (@RequestParam (required = false) String q, ModelMap modelo){
+        
+        List <Proveedor> proveedores;
+        
+        if(q != null){
+            proveedores = proveedorservicio.buscarPorIDL(q);
+        }else {
+            proveedores = proveedorservicio.listarProveedor();
+        }
+        modelo.put("q", q);
+        modelo.put("proveedores", proveedores);
+
+        
+        return null;
+    }
+    
+    @GetMapping("/eliminar")
+    public String eliminar (@RequestParam String id) throws errorServicios{
+        proveedorservicio.borrarProveedor(id);
+        return null;
+    }
     
     
     

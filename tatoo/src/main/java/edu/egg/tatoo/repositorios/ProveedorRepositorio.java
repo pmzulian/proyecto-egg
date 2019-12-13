@@ -1,6 +1,7 @@
 package edu.egg.tatoo.repositorios;
 
 import edu.egg.tatoo.entidades.Proveedor;
+import edu.egg.tatoo.entidades.Usuario;
 import org.springframework.data.repository.query.Param;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -25,6 +26,9 @@ public interface ProveedorRepositorio extends JpaRepository <Proveedor, String> 
 //    
     @Query("SELECT c FROM Proveedor c WHERE c.mail LIKE %"+":mail"+"%")
     public Proveedor BuscarProveedorPorMail(@Param("mail")String mail);
+    
+    @Query("SELECT c FROM Usuario c WHERE c.id LIKE %"+":id"+"%")
+    public List<Proveedor> buscarporId(@Param("id")String id);
 //    
 //    @Query("SELECT c FROM Proveedor c INNER JOIN Estilo e ON c.estilo = e.nombre WHERE e.nombre LIKE %"+":nombre"+"%")
 //    public List<Proveedor> BuscarProveedorPorEstilo(@Param("nombre")String nombre);
