@@ -66,9 +66,19 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-test</artifactId>
+			<artifactId>spring-security-tests/artifactId>
 			<scope>test</scope>
 		</dependency>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+
                 
          <dependency>
             <groupId>org.eclipse.persistence</groupId>
