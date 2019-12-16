@@ -57,7 +57,7 @@ public class UsuarioController extends HttpServlet {
 
         usuarioservicio.actualizarUsuario(archivo, id, nombre, apellido, documento, telefono, mail, contrasenia);
 
-        return "redirect:/usuario/listado";
+        return "redirect:/tatoo/";
     }
 
     @GetMapping(value = "/image/{id}")
