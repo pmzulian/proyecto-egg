@@ -13,5 +13,10 @@ and open the template in the editor.
     <body>
         <div>MENU USUARIO</div>
         
+        
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Cerrar Sesion"/>
+        </form>
+        
     </body>
 </html>
