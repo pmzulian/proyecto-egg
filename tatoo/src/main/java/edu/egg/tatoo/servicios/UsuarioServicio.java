@@ -1,10 +1,8 @@
 package edu.egg.tatoo.servicios;
 
-import edu.egg.tatoo.entidades.Authority;
 import edu.egg.tatoo.entidades.Foto;
 import edu.egg.tatoo.entidades.Usuario;
 import edu.egg.tatoo.errores.errorServicios;
-import edu.egg.tatoo.repositorios.AuthorityRepositorio;
 import edu.egg.tatoo.repositorios.UsuarioRepositorio;
 import java.nio.file.attribute.UserDefinedFileAttributeView;
 import java.util.List;
@@ -25,15 +23,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Service
 public class UsuarioServicio implements UserDetailsService {
-//    implements UserDetailsService
 
     @Autowired
     UsuarioRepositorio usuariorepositorio;
     @Autowired
     FotoServicio fotoservicio;
-    @Autowired
-    AuthorityRepositorio ar;
-    
+//    @Autowired
+//    AuthorityRepositorio ar;
+//    
 
 
     @Transactional
@@ -59,9 +56,9 @@ public class UsuarioServicio implements UserDetailsService {
         usuario.setMail(mail);
         String encriptada = new BCryptPasswordEncoder().encode(contrasenia);
         usuario.setContrasenia(encriptada);
-        List <Authority> a = null;
-        a = ar.findByAuthority("ROLE_USER");
-       usuario.setAuthority(a);
+//        List <Authority> a = null;
+//        a = ar.findByAuthority("ROLE_USER");
+//       usuario.setAuthority(a);
         
         
         
