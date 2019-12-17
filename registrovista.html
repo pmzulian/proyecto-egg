@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<meta name="viewport" content="width=device-width, user-scalable=yes, inital-scale=1.0, maximum-scale=1.0">
+
+	<script src="https://kit.fontawesome.com/3acd85c923.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="css/estilos.css">
+	<link rel="stylesheet" href="img/fondoregistrar.jpg">
+	<script src="validar.js"></script>
+
+	
+
+</head>
+<body>
+	<form class="formulario" onsubmit=" return validar();"> 
+		<h1>Registrate</h1>
+		<div class="contenedor">
+
+			<div class="input-contenedor">
+				<i class="fas fa-user icon"></i>
+				<input id="nombre" type="text" placeholder="Nombre" required>
+			</div>
+			<div class="input-contenedor">
+				<i class="fas fa-user icon"></i>
+				<input id="apellido" type="text" placeholder="Apellido" required >
+			</div>
+			<div class="input-contenedor">
+				<i class="fas fa-envelope icon"></i>
+				<input id="email" type="text" placeholder="Email" required >
+			</div>
+			<div class="input-contenedor">
+				<i class="fas fa-user icon"></i>
+				<input id="dni" type="text" placeholder="Dni" required >
+			</div>
+			<div class="input-contenedor">
+				<i class="fas fa-mobile icon"></i>
+				<input id="telefono" type="text" placeholder="Telefono" required>
+			</div>
+			<div class="input-contenedor">
+				<i class="fas fa-key icon"></i>
+				<input id="contraseña" type="password" placeholder="Contraseña" required>
+			</div>
+			<div class="input-contenedor">
+				<i class="fas fa-camera icon"></i>
+				<input type="file" placeholder="Foto">
+			</div>
+			<input type="submit" value="Registrate" class="button">
+
+			<p>Al registrarte, aceptas nuestras Condiciones de uso y Politica de privacidad.</p>
+			<p>¿Ya tienes una cuenta? <a class="link" href="loginvista.html">Iniciar Sesion</a></p>
+		</div>
+	</form>
+</body>
+</html>

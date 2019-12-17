@@ -1,0 +1,198 @@
+.fonts{
+    font-family: 'Merriweather', serif;
+	font-family: 'Ubuntu', sans-serif;
+}
+
+.colors{
+	navyblue:#18121E;
+	gunmetal:#233237;
+	rustyred:#984B43;
+	warmyellow:#EAC67A;
+}
+
+/*Estilos Globales*/
+/*==========================================================*/
+
+*{
+	box-sizing: border-box;
+}
+
+html{
+	font-size: 16px;
+	/*line-height: 22px;*/
+}
+
+
+body{
+	margin:0px 0px;
+	font-family: 'Merriweather', sans-serif;
+	max-width: 100%;
+	background-color: #ffffff;
+}
+
+h1,h2{
+	font-family: 'Ubuntu', cursive;
+	font-size: 3.75rem;
+	margin:0;
+	padding:0;
+}
+
+header{
+	width: 100%;
+	height: 350px;
+}
+
+section{
+	width: 100%;
+	height: auto;
+	position: relative;
+	overflow: hidden;
+	margin: 0px auto;
+}
+
+p{
+	font-family: 'Merriweather', sans-serif;
+	line-height: 1.9rem;
+}
+
+a{
+	text-decoration: none;
+}
+
+li{
+	list-style: none;
+}
+
+#pantalla {
+	width:100%;
+	max-width: 100%;
+	height:auto;
+	position:relative;
+	overflow: visible;
+	float:left;
+	margin: 0px auto;
+	padding: 0;
+}
+
+.container{
+	width: 1170px;
+	height: auto;
+	max-width: 100%;
+	position:relative;
+	margin: 0px auto;
+	padding:0;
+	padding-left: 2%;
+	padding-right: 2%;
+}
+
+
+/*Clases Especiales*/
+/*==========================================================*/
+
+.btn {
+	display:block;
+	width:120px;
+	margin:10px auto;
+	padding:10px 15px;
+	text-align: center;
+	background-color:#B57EDC;	
+	text-decoration: none;
+	border:solid 2px #fff;
+	color:#fff;
+	text-transform:uppercase;
+	font-weight:900;
+	cursor:pointer;
+}
+
+.btn-article:hover {
+	background-color:#26A69A;	
+}
+
+
+/*Clases Específicas*/
+/*==========================================================*/
+nav{
+	width: 100%;
+	font-size: 1.5rem;
+	font-family: 'Ubuntu', cursive;
+	background-color: #233237;
+	overflow: hidden;
+	height: 60px;
+	position: fixed;
+	z-index: 10;
+}
+
+.fixed{
+	position: fixed;
+	top:0px;
+}
+
+nav ul{
+	margin:0px;
+	margin-top: 10px;
+	padding: 0px;
+	text-align: center;
+	overflow: hidden;
+}
+
+nav ul li{
+	width: 25%;
+	float: left;
+	/*margin-right: 20px;*/
+	border-radius: 4px;
+	padding:4px 8px 4px 8px;
+	text-align: center;
+	transition-duration: 0.5s;
+	
+}
+
+nav ul li:hover{
+	background-color: #EAC67A;
+	
+}
+
+nav ul li a{
+	color: white;
+}
+
+.principal{
+	text-align: center;
+	height: 100vh;
+}
+
+.principal::after{
+	  content: "";
+	  background: url(../img/background.jpg);
+	  opacity: 0.6;
+	  top: 0;
+	  left: 0;
+	  bottom: 0;
+	  right: 0;
+	  position: absolute;
+	  z-index: -1; 
+}
+
+.principal div.container{
+	margin-top: 160px;
+}
+
+.divisor{
+	width: 15%;
+	height: 5px;
+	background-color:#233237;
+	display: inline-block;
+}
+
+.font-awesome{
+	display: inline;
+}
+
+h1,
+.principal img{
+	color:#233237;
+}
+
+.portfolio{
+	height: 500px;
+	background-color: #EAC67A;
+}
