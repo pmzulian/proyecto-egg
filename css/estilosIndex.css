@@ -111,15 +111,20 @@ li{
 
 /*Clases Específicas*/
 /*==========================================================*/
-nav.nav{
+nav{
 	width: 100%;
 	font-size: 1.5rem;
 	font-family: 'Ubuntu', cursive;
 	background-color: #233237;
 	overflow: hidden;
 	height: 60px;
-	position: relative;
-	float: left;
+	position: fixed;
+	z-index: 10;
+}
+
+.fixed{
+	position: fixed;
+	top:0px;
 }
 
 nav ul{
@@ -139,7 +144,6 @@ nav ul li{
 	text-align: center;
 	transition-duration: 0.5s;
 	
-
 }
 
 nav ul li:hover{
@@ -152,11 +156,7 @@ nav ul li a{
 }
 
 .principal{
-	position: relative;
-	margin-bottom: 20px;
 	text-align: center;
-	float: left;
-	/*background-image: url(../img/background.jpg);*/
 	height: 100vh;
 }
 
@@ -173,7 +173,7 @@ nav ul li a{
 }
 
 .principal div.container{
-	margin-top: 60px;
+	margin-top: 160px;
 }
 
 .divisor{
@@ -190,4 +190,9 @@ nav ul li a{
 h1,
 .principal img{
 	color:#233237;
+}
+
+.portfolio{
+	height: 500px;
+	background-color: #EAC67A;
 }
