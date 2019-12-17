@@ -1,6 +1,7 @@
 package edu.egg.tatoo.entidades;
 
 import java.util.List;
+import java.util.Set;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -41,6 +42,13 @@ public class Usuario {
 //@OneToMany(targetEntity = Foto.class, mappedBy = "usuario", fetch = FetchType.EAGER)
     @OneToOne
     private Foto foto;
+    
+@ManyToMany(fetch = FetchType.EAGER)
+@JoinTable(name="authorities_users",
+joinColumns=@JoinColumn(name="usuario_id"),
+inverseJoinColumns=@JoinColumn(name="authority_id"))
+private List<Authority> authority;
+
 
     public Usuario() {
     }
@@ -140,6 +148,14 @@ public class Usuario {
 
     public void setFoto(Foto foto) {
         this.foto = foto;
+    }
+
+    public List<Authority> getAuthority() {
+        return authority;
+    }
+
+    public void setAuthority(List<Authority> authority) {
+        this.authority = authority;
     }
 
 }

@@ -4,6 +4,7 @@ package edu.egg.tatoo.repositorios;
 import org.springframework.data.repository.query.Param;
 import edu.egg.tatoo.entidades.Usuario;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -31,5 +32,6 @@ public interface UsuarioRepositorio extends JpaRepository <Usuario, String> {
     @Query("SELECT c FROM Usuario c WHERE c.id LIKE %"+":id"+"%")
     public List<Usuario> buscarporId(@Param("id")String id);
     
+    public Optional<Usuario> findByMail (String mail);
    
     }

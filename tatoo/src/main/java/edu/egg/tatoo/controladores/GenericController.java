@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class GenericController {
 
-    @GetMapping("/index")
+    @GetMapping("/login")
     public String login() {
         return "login.html";
         

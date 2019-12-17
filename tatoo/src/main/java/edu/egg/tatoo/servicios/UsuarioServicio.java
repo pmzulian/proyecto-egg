@@ -1,8 +1,10 @@
 package edu.egg.tatoo.servicios;
 
+import edu.egg.tatoo.entidades.Authority;
 import edu.egg.tatoo.entidades.Foto;
 import edu.egg.tatoo.entidades.Usuario;
 import edu.egg.tatoo.errores.errorServicios;
+import edu.egg.tatoo.repositorios.AuthorityRepositorio;
 import edu.egg.tatoo.repositorios.UsuarioRepositorio;
 import java.nio.file.attribute.UserDefinedFileAttributeView;
 import java.util.List;
@@ -29,7 +31,8 @@ public class UsuarioServicio implements UserDetailsService {
     UsuarioRepositorio usuariorepositorio;
     @Autowired
     FotoServicio fotoservicio;
-    
+    @Autowired
+    AuthorityRepositorio ar;
     
 
 
@@ -56,6 +59,11 @@ public class UsuarioServicio implements UserDetailsService {
         usuario.setMail(mail);
         String encriptada = new BCryptPasswordEncoder().encode(contrasenia);
         usuario.setContrasenia(encriptada);
+        List <Authority> a = null;
+        a = ar.findByAuthority("ROLE_USER");
+       usuario.setAuthority(a);
+        
+        
         
         Foto foto = fotoservicio.AgregarFoto(archivo);
         usuario.setFoto(foto); 
