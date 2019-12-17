@@ -112,18 +112,82 @@ li{
 /*Clases Específicas*/
 /*==========================================================*/
 nav.nav{
+	width: 100%;
 	font-size: 1.5rem;
 	font-family: 'Ubuntu', cursive;
 	background-color: #233237;
 	overflow: hidden;
+	height: 60px;
+	position: relative;
+	float: left;
 }
 
 nav ul{
+	margin:0px;
+	margin-top: 10px;
+	padding: 0px;
 	text-align: center;
+	overflow: hidden;
 }
 
 nav ul li{
-	color: white;
+	width: 25%;
 	float: left;
-	margin-right: 20px;
+	/*margin-right: 20px;*/
+	border-radius: 4px;
+	padding:4px 8px 4px 8px;
+	text-align: center;
+	transition-duration: 0.5s;
+	
+
+}
+
+nav ul li:hover{
+	background-color: #EAC67A;
+	
+}
+
+nav ul li a{
+	color: white;
+}
+
+.principal{
+	position: relative;
+	margin-bottom: 20px;
+	text-align: center;
+	float: left;
+	/*background-image: url(../img/background.jpg);*/
+	height: 100vh;
+}
+
+.principal::after{
+	  content: "";
+	  background: url(../img/background.jpg);
+	  opacity: 0.6;
+	  top: 0;
+	  left: 0;
+	  bottom: 0;
+	  right: 0;
+	  position: absolute;
+	  z-index: -1; 
+}
+
+.principal div.container{
+	margin-top: 60px;
+}
+
+.divisor{
+	width: 15%;
+	height: 5px;
+	background-color:#233237;
+	display: inline-block;
+}
+
+.font-awesome{
+	display: inline;
+}
+
+h1,
+.principal img{
+	color:#233237;
 }
