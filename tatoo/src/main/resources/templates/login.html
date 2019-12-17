@@ -1,35 +1,36 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>LogIn
-            <form th:action="@{/in}" method="post" >
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<meta name="viewport" content="width=device-width, user-scalable=yes, inital-scale=1.0, maximum-scale=1.0">
 
-                <input type="text" placeholder="Nombre de usuario" name="username"/>
-                <input type="text" placeholder="Password" name="password"/>
-                <button> Ingresar </button>            
-            </form>       
-        </div> 
-        
-        <div>
-            <button type="submit" formaction="/usuario/actualizacion"> Registrarse </button>
-        </div>
+	<script src="https://kit.fontawesome.com/3acd85c923.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="/css/estilos.css">
+	<link rel="stylesheet" href="/img/fondoregistrar.jpg">
 
-        <div th:if="${param.logout}" role="alert">
-            El nombre de usuario o el password es invalido.
-        </div>
-        <div th:if="${param.logout}" role="alert">
-            Usted ha salido con exito.
-        </div>
+	
 
-    </body>
+</head>
+<body>
+	<form class="formulario"> 
+		<h1>Iniciar Sesion</h1>
+		<div class="contenedor">
+
+			<div class="input-contenedor">
+				<i class="fas fa-envelope icon"></i>
+				<input type="text" placeholder="Email"  name="username">
+			</div>
+			
+			<div class="input-contenedor">
+				<i class="fas fa-key icon"></i>
+				<input type="password" placeholder="Contraseña" name="password">
+			</div>
+			
+			<input type="submit" value="Log in" class="button">
+
+			<p>¿No tienes una cuenta? <a class="link" href="/usuario/actualizacion">Registrate</a></p>
+		</div>
+	</form>
+</body>
 </html>

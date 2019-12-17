@@ -13,6 +13,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,11 +42,11 @@ public class UsuarioController extends HttpServlet {
             modelo.put("usuario", new Usuario());
         }
 
-        return "registrousuario.html";
+        return "registro.html";
     }
 
     @PostMapping("/actualizar")
-    public String actualizar(@RequestParam MultipartFile archivo,
+    public String actualizar(@RequestParam ("archivo") MultipartFile archivo,
             @RequestParam(required = false) String id,
             @RequestParam Long documento,
             @RequestParam String nombre,
@@ -54,10 +55,11 @@ public class UsuarioController extends HttpServlet {
             @RequestParam String mail,
             @RequestParam String contrasenia
     ) throws Exception {
-
+       
+        System.out.println("Entro");
         usuarioservicio.actualizarUsuario(archivo, id, nombre, apellido, documento, telefono, mail, contrasenia);
-
-        return "redirect:/tatoo/";
+        System.out.println("salio");
+        return "redirect:/tatoo/login";
     }
 
     @GetMapping(value = "/image/{id}")
@@ -85,7 +87,7 @@ public class UsuarioController extends HttpServlet {
         modelo.put("q", q);
         modelo.put("usuarios", usuarios);
 
-        return "pruebaLista.html";
+        return "enzopruebaLista.html";
 
     }
 

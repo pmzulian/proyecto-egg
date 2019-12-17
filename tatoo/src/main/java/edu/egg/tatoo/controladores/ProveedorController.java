@@ -39,7 +39,7 @@ public class ProveedorController {
             modelo.put("proveedor", new Proveedor ());
         }
         
-        return null;
+        return "registro.html";
         
     }
     

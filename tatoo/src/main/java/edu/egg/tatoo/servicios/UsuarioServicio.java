@@ -1,8 +1,10 @@
 package edu.egg.tatoo.servicios;
 
+import edu.egg.tatoo.entidades.Authority;
 import edu.egg.tatoo.entidades.Foto;
 import edu.egg.tatoo.entidades.Usuario;
 import edu.egg.tatoo.errores.errorServicios;
+import edu.egg.tatoo.repositorios.AuthorityRepositorio;
 import edu.egg.tatoo.repositorios.UsuarioRepositorio;
 import java.nio.file.attribute.UserDefinedFileAttributeView;
 import java.util.List;
@@ -29,15 +31,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Service
-public class UsuarioServicio{
+public class UsuarioServicio implements UserDetailsService{
 
     @Autowired
     UsuarioRepositorio usuariorepositorio;
     @Autowired
     FotoServicio fotoservicio;
-//    @Autowired
-//    AuthorityRepositorio ar;
-//    
+    @Autowired
+    AuthorityRepositorio ar;
+    
 
 
     @Transactional
@@ -63,11 +65,11 @@ public class UsuarioServicio{
         usuario.setMail(mail);
         String encriptada = new BCryptPasswordEncoder().encode(contrasenia);
         usuario.setContrasenia(encriptada);
-//        List <Authority> a = null;
-//        a = ar.findByAuthority("ROLE_USER");
-//       usuario.setAuthority(a);
+        List <Authority> a = null;
+        a = ar.findByAuthority("ROLE_USER");
+       usuario.setAuthority(a);
         
-        
+    
         
         Foto foto = fotoservicio.AgregarFoto(archivo);
         usuario.setFoto(foto); 
@@ -133,29 +135,27 @@ public class UsuarioServicio{
             throw new errorServicios("El telefono es vacio o es nulo. ");
         }
     }
-//
-//    @Override
-//    public UserDetails loadUserByUsername(String mail) throws UsernameNotFoundException {
-//        
-//        Usuario usuario = usuariorepositorio.BuscarUsuarioPorMailU(mail);
-//        
-//        if (usuario != null){
-//          List <GrantedAuthority> permisos = null;
-////          
-////          GrantedAuthority p1 = new SimpleGrantedAuthority ("MODULO_FOTOS");
-////          permisos.add(p1);
-////          GrantedAuthority p2 = new SimpleGrantedAuthority ("MODULO_TURNO");
-////          permisos.add(p2);
-////          GrantedAuthority p3 = new SimpleGrantedAuthority ("MODULO_PREGRESP");
-////          permisos.add(p3);
-//          
-//          User user = new User(usuario.getMail(), usuario.getContrasenia(), permisos);
-//          return user ;
-//        }else{
-//        return null;
-//        }
 
+    @Override
+    public UserDetails loadUserByUsername(String mail) throws UsernameNotFoundException {
+        
+        Usuario usuario = usuariorepositorio.BuscarUsuarioPorMailU(mail);
+        
+        if (usuario != null){
+          List <GrantedAuthority> permisos = null;
+          
+          GrantedAuthority p1 = new SimpleGrantedAuthority ("MODULO_FOTOS");
+          permisos.add(p1);
+          GrantedAuthority p2 = new SimpleGrantedAuthority ("MODULO_TURNO");
+          permisos.add(p2);
+          GrantedAuthority p3 = new SimpleGrantedAuthority ("MODULO_PREGRESP");
+          permisos.add(p3);
+          
+          User user = new User(usuario.getMail(), usuario.getContrasenia(), permisos);
+          return user ;
+        }else{
+        return null;
+        }
 
-  
-
+}
 }

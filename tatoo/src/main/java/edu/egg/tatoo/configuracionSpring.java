@@ -1,35 +1,69 @@
-package Configuracion;
+package edu.egg.tatoo;
 
-//import edu.egg.tatoo.servicios.UsuarioServicio;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-//import org.springframework.context.annotation.Bean;
-//import org.springframework.context.annotation.Configuration;
-//import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-//import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-//import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
-//import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-//import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-//import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-//import org.springframework.security.core.userdetails.User;
-//import org.springframework.security.core.userdetails.User.UserBuilder;
-//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-//import org.springframework.security.crypto.password.PasswordEncoder;
-//import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
-//
-//@Configuration
-//@EnableWebSecurity
-//
+import edu.egg.tatoo.servicios.UsuarioServicio;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.User.UserBuilder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+
+
+@EnableWebSecurity
+@Configuration
 //@EnableGlobalMethodSecurity(prePostEnabled = true)
-//public class configuracionSpring extends WebSecurityConfigurerAdapter {
-//
-//    @Autowired
-//    public UsuarioServicio usuarioservicio;
-//    
-//    @Autowired
-//    public configuracionSpring cf;
-//    
-//  
+public class configuracionSpring extends WebSecurityConfigurerAdapter {
+
+    @Autowired
+    public UsuarioServicio usuarioservicio;
+    
+    @Autowired
+    public configuracionSpring cf;
+    
+    
+    	@Autowired
+	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception{
+		auth.userDetailsService(usuarioservicio).passwordEncoder(new BCryptPasswordEncoder());
+	}
+        
+        
+
+        
+  
+    
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+		http
+			.authorizeRequests()
+				.antMatchers("/css/", "/js/", "/img/")
+				.permitAll()
+			.and().formLogin()
+				.loginPage("/tatoo/login")
+//					.loginProcessingUrl("/tatoo/actualizacion")
+					.usernameParameter("username")
+					.passwordParameter("password")
+					.defaultSuccessUrl("tatoo/in")
+					.permitAll()
+				.and().logout()
+					.logoutUrl("/tatoo/index")
+					.logoutSuccessUrl("/login?logout")
+					.permitAll()
+                                        .and()
+                                        .csrf().disable();
+	}
+
+
+
+//ULTIMA CONFIG
 //    
 //     String[] resources = new String[]{
 //            "/include/**","/css/**","/icons/**","/img/**","/js/**","/layer/**"
@@ -42,16 +76,16 @@ package Configuracion;
 //                .antMatchers(resources)
 //                .permitAll()
 //                .and().formLogin()
-//                .loginPage("/index")
+//                .loginPage("/tatoo/index")
 //                //                .loginProcessingUrl("")
 //                .usernameParameter("username")
 //                .passwordParameter("password")
-//                .defaultSuccessUrl("/login")
-//                                .failureUrl("/index") 
+//                .defaultSuccessUrl("usuario/in")
+//                                .failureUrl("/tatoo/index") 
 //                .permitAll()
 //                .and().logout()
-//                                .logoutUrl("/index")
-//                                .logoutSuccessUrl("/index")
+//                                .logoutUrl("/tatoo/index")
+//                                .logoutSuccessUrl("/tatoo/index")
 //                .permitAll().and().csrf().disable();
 //    }
 
@@ -183,5 +217,5 @@ package Configuracion;
 
 
 
-//}
+}
 

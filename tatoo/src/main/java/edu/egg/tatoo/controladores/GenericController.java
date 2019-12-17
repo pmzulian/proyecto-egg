@@ -5,21 +5,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-
+@RequestMapping("/tatoo")
 @Controller
 public class GenericController {
 
-    @GetMapping("/index")
+    @GetMapping("/login")
     public String login() {
         return "login.html";
         
     }
 
-    @PostMapping("/in")
+    @GetMapping("/in")
     public String menu() {
         System.out.println("hola");
         
-        return "menu.html";
+        return "enzomenu.html";
         
     }
 
