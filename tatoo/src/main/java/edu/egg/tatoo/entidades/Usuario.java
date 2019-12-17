@@ -43,11 +43,11 @@ public class Usuario {
     @OneToOne
     private Foto foto;
     
-@OneToOne(fetch = FetchType.EAGER)
-@JoinTable(name="authorities_users",
-joinColumns=@JoinColumn(name="usuario_id"),
-inverseJoinColumns=@JoinColumn(name="authority_id"))
-private Authority authority;
+//@OneToOne(fetch = FetchType.EAGER)
+//@JoinTable(name="authorities_users",
+//joinColumns=@JoinColumn(name="usuario_id"),
+//inverseJoinColumns=@JoinColumn(name="authority_id"))
+//private Authority authority;
 
 
     public Usuario() {
@@ -150,12 +150,12 @@ private Authority authority;
         this.foto = foto;
     }
 
-    public Authority getAuthority() {
-        return authority;
-    }
-
-    public void setAuthority(Authority authority) {
-        this.authority = authority;
-    }
+//    public Authority getAuthority() {
+//        return authority;
+//    }
+//
+//    public void setAuthority(Authority authority) {
+//        this.authority = authority;
+//    }
 
 }

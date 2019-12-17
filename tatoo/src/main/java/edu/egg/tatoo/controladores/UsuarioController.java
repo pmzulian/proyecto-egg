@@ -2,19 +2,23 @@ package edu.egg.tatoo.controladores;
 
 import edu.egg.tatoo.entidades.Usuario;
 import edu.egg.tatoo.errores.errorServicios;
+import edu.egg.tatoo.repositorios.UsuarioRepositorio;
 import edu.egg.tatoo.servicios.UsuarioServicio;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.mail.Multipart;
 import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,6 +33,9 @@ public class UsuarioController extends HttpServlet {
 
     @Autowired
     private UsuarioServicio usuarioservicio;
+    
+    @Autowired
+    private UsuarioRepositorio ur;
 
     @GetMapping("/actualizacion")
     public String actualizacion(@RequestParam(required = false) String id, ModelMap modelo) {
@@ -59,6 +66,28 @@ public class UsuarioController extends HttpServlet {
         System.out.println("Entro");
         usuarioservicio.actualizarUsuario(archivo, id, nombre, apellido, documento, telefono, mail, contrasenia);
         System.out.println("salio");
+        return "redirect:/tatoo/login";
+    }
+    
+    @PostMapping("/entrar")
+    public String entrar(@RequestParam String mail, @RequestParam String password, ModelMap modelo, HttpSession session) {
+        
+       
+        Usuario usuario = ur.findBymail(mail);
+        
+        if (usuario!=null){
+            
+            session.setAttribute("User", usuario);
+            
+        if(new BCryptPasswordEncoder().matches(password, usuario.getContrasenia())){
+            
+            modelo.put("usuario", usuario);
+            return "enzomenu.html";
+        }   
+        }else{
+            return "redirect:/tatoo/login";
+        }
+        
         return "redirect:/tatoo/login";
     }
 

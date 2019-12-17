@@ -1,10 +1,10 @@
 package edu.egg.tatoo.servicios;
 
-import edu.egg.tatoo.entidades.Authority;
+
 import edu.egg.tatoo.entidades.Foto;
 import edu.egg.tatoo.entidades.Usuario;
 import edu.egg.tatoo.errores.errorServicios;
-import edu.egg.tatoo.repositorios.AuthorityRepositorio;
+
 import edu.egg.tatoo.repositorios.UsuarioRepositorio;
 import java.nio.file.attribute.UserDefinedFileAttributeView;
 import java.util.List;
@@ -37,8 +37,8 @@ public class UsuarioServicio implements UserDetailsService{
     UsuarioRepositorio usuariorepositorio;
     @Autowired
     FotoServicio fotoservicio;
-    @Autowired
-    AuthorityRepositorio ar;
+//    @Autowired
+//    AuthorityRepositorio ar;
     
 
 
@@ -65,9 +65,9 @@ public class UsuarioServicio implements UserDetailsService{
         usuario.setMail(mail);
         String encriptada = new BCryptPasswordEncoder().encode(contrasenia);
         usuario.setContrasenia(encriptada);
-        Authority a = new Authority();
-        a = ar.findByAuthority("ROLE_USER");
-       usuario.setAuthority(a);
+//        Authority a = new Authority();
+//        a = ar.findByAuthority("ROLE_USER");
+//       usuario.setAuthority(a);
         
     
         
@@ -135,6 +135,7 @@ public class UsuarioServicio implements UserDetailsService{
             throw new errorServicios("El telefono es vacio o es nulo. ");
         }
     }
+    
 
     @Override
     public UserDetails loadUserByUsername(String mail) throws UsernameNotFoundException {

@@ -17,7 +17,6 @@ public class GenericController {
 
     @GetMapping("/in")
     public String menu() {
-        System.out.println("hola");
         
         return "enzomenu.html";
         

@@ -33,5 +33,7 @@ public interface UsuarioRepositorio extends JpaRepository <Usuario, String> {
     public List<Usuario> buscarporId(@Param("id")String id);
     
     public Optional<Usuario> findByMail (String mail);
+    
+    public Usuario findBymail (String mail);
    
     }
