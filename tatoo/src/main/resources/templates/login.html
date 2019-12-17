@@ -13,13 +13,13 @@
 
 </head>
 <body>
-	<form class="formulario"> 
+	<form class="formulario" th:action="@{/tatoo/in}" method="GET"> 
 		<h1>Iniciar Sesion</h1>
 		<div class="contenedor">
 
 			<div class="input-contenedor">
 				<i class="fas fa-envelope icon"></i>
-				<input type="text" placeholder="Email"  name="username">
+				<input type="text" placeholder="Email"  name="mail">
 			</div>
 			
 			<div class="input-contenedor">

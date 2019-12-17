@@ -65,7 +65,7 @@ public class UsuarioServicio implements UserDetailsService{
         usuario.setMail(mail);
         String encriptada = new BCryptPasswordEncoder().encode(contrasenia);
         usuario.setContrasenia(encriptada);
-        List <Authority> a = null;
+        Authority a = new Authority();
         a = ar.findByAuthority("ROLE_USER");
        usuario.setAuthority(a);
         

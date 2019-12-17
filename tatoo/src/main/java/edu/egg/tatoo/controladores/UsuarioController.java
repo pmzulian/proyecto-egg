@@ -46,7 +46,7 @@ public class UsuarioController extends HttpServlet {
     }
 
     @PostMapping("/actualizar")
-    public String actualizar(@RequestParam ("archivo") MultipartFile archivo,
+    public String actualizar(@RequestParam MultipartFile archivo,
             @RequestParam(required = false) String id,
             @RequestParam Long documento,
             @RequestParam String nombre,

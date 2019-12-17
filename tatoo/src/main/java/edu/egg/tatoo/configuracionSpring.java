@@ -35,31 +35,53 @@ public class configuracionSpring extends WebSecurityConfigurerAdapter {
 		auth.userDetailsService(usuarioservicio).passwordEncoder(new BCryptPasswordEncoder());
 	}
         
-        
-
-        
-  
-    
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
+        	@Override
+	protected void configure(HttpSecurity http) throws Exception {
 		http
 			.authorizeRequests()
 				.antMatchers("/css/", "/js/", "/img/")
 				.permitAll()
 			.and().formLogin()
-				.loginPage("/tatoo/login")
-//					.loginProcessingUrl("/tatoo/actualizacion")
-					.usernameParameter("username")
+				.loginPage("/tato/login")
+//					.loginProcessingUrl("/logincheck")
+					.usernameParameter("mail")
 					.passwordParameter("password")
-					.defaultSuccessUrl("tatoo/in")
+					.defaultSuccessUrl("/tatoo/in")
 					.permitAll()
 				.and().logout()
-					.logoutUrl("/tatoo/index")
+					.logoutUrl("/logout")
 					.logoutSuccessUrl("/login?logout")
-					.permitAll()
-                                        .and()
-                                        .csrf().disable();
-	}
+					.permitAll().and().csrf().disable();
+        
+        
+        }
+        
+  
+    
+//    @Override
+//    protected void configure(HttpSecurity http) throws Exception {
+//		http
+//			.authorizeRequests()
+//				.antMatchers("/css/**", "/js/**", "/img/**").permitAll()
+//				.antMatchers("/tatoo/login").permitAll()
+//                                .antMatchers("/usuario/actualizacion").permitAll()
+//                                .antMatchers("/usuario/actualizar").permitAll()
+//                                .antMatchers("/usuario/in").access("hasRole('ROLE_USER')")
+//                                .anyRequest().authenticated()
+//                                .and().formLogin()
+//				.loginPage("/tatoo/login").permitAll()
+//				.defaultSuccessUrl("/tatoo/in")	
+//                                .failureUrl("/tatoo/x?error=true")
+//                                .usernameParameter("mail")
+//                                .passwordParameter("password")
+//                                .and()
+//                                .logout()
+//                                .logoutSuccessUrl("/login?logout")
+//                                .permitAll()
+//                                .and()
+//                                .csrf().disable();
+//    }
+                      
 
 
 
