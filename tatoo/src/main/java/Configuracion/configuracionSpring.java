@@ -1,6 +1,5 @@
-//package Configuracion;
-//
-//import edu.egg.tatoo.servicios.UserDetailServiceImpl;
+package Configuracion;
+
 //import edu.egg.tatoo.servicios.UsuarioServicio;
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -34,7 +33,27 @@
 //    
 //     String[] resources = new String[]{
 //            "/include/**","/css/**","/icons/**","/img/**","/js/**","/layer/**"
-//    };  
+//    };
+//             
+//     @Override 
+//    protected void configure(HttpSecurity http) throws Exception {
+//        http.headers().frameOptions().sameOrigin().and()
+//                .authorizeRequests()
+//                .antMatchers(resources)
+//                .permitAll()
+//                .and().formLogin()
+//                .loginPage("/index")
+//                //                .loginProcessingUrl("")
+//                .usernameParameter("username")
+//                .passwordParameter("password")
+//                .defaultSuccessUrl("/login")
+//                                .failureUrl("/index") 
+//                .permitAll()
+//                .and().logout()
+//                                .logoutUrl("/index")
+//                                .logoutSuccessUrl("/index")
+//                .permitAll().and().csrf().disable();
+//    }
 
  
 
@@ -60,9 +79,10 @@
 //    public PasswordEncoder passwordEncoder() {
 //        return new BCryptPasswordEncoder();
 //    }
-     
-     
-//       @Override
+
+  
+    
+//    @Override
 //    protected void configure(HttpSecurity http) throws Exception {
 //        http
 //            .authorizeRequests()
@@ -73,10 +93,10 @@
 //                .anyRequest().authenticated()
 //                .and()
 //            .formLogin()
-//                .loginPage("/login")
+//                .loginPage("/")
 //                .permitAll()
 //                .defaultSuccessUrl("/in")
-//                .failureUrl("/login?error=true")
+//                .failureUrl("/index?error=true")
 //                .usernameParameter("username")
 //                .passwordParameter("password")
 //                .and()
@@ -115,26 +135,8 @@
 
     
     
-//???ULTIMO
-//    @Override
-//    protected void configure(HttpSecurity http) throws Exception {
-//        http.headers().frameOptions().sameOrigin().and()
-//                .authorizeRequests()
-//                .antMatchers(resources)
-//                .permitAll()
-//                .and().formLogin()
-//                .loginPage("/index")
-//                //                .loginProcessingUrl("")
-//                .usernameParameter("username")
-//                .passwordParameter("password")
-//                .defaultSuccessUrl("/login")
-//                                .failureUrl("/index") 
-//                .permitAll()
-//                .and().logout()
-//                                .logoutUrl("/index")
-//                                .logoutSuccessUrl("/index")
-//                .permitAll().and().csrf().disable();
-//    }
+
+ 
     
 
     
@@ -180,5 +182,6 @@
     
 
 
-//
+
 //}
+

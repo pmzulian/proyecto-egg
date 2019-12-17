@@ -18,7 +18,7 @@
         <java.version>1.8</java.version>
     </properties>
 
-<!--    <dependencies>
+    <dependencies>
             
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -45,12 +45,12 @@
 
         </dependency>
         
-         https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security 
+<!--         https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security 
 <dependency>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-security</artifactId>
     <version>2.2.2.RELEASE</version>
-</dependency>
+</dependency>-->
 
 
         <dependency>
@@ -94,64 +94,21 @@
 			<artifactId>spring-session-core</artifactId>
 		</dependency>
                 
-
-    </dependencies>-->
-    
-    <dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-mail</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-thymeleaf</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>org.junit.vintage</groupId>
-					<artifactId>junit-vintage-engine</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-	 <dependency>
+                <dependency>
 	  <groupId>org.eclipse.persistence</groupId>
 	  <artifactId>eclipselink</artifactId>
 	  <version>2.5.2</version>
 	 </dependency>
-	 <dependency>
-	  <groupId>org.eclipse.persistence</groupId>
+<!--	 <dependency>-->
+<!--	  <groupId>org.eclipse.persistence</groupId>
 	  <artifactId>org.eclipse.persistence.jpa.modelgen.processor</artifactId>
 	  <version>2.5.2</version>
 	  <scope>provided</scope>
-	 </dependency>
-	</dependencies>
+	 </dependency>-->
+	
+                
+
+    </dependencies>
 
     <build>
         <plugins>

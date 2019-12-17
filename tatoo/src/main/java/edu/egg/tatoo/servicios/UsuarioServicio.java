@@ -15,6 +15,13 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+//import org.springframework.security.core.GrantedAuthority;
+//import org.springframework.security.core.authority.SimpleGrantedAuthority;
+//import org.springframework.security.core.userdetails.User;
+//import org.springframework.security.core.userdetails.UserDetails;
+//import org.springframework.security.core.userdetails.UserDetailsService;
+//import org.springframework.security.core.userdetails.UsernameNotFoundException;
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.stereotype.Service;
@@ -22,7 +29,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Service
-public class UsuarioServicio implements UserDetailsService {
+public class UsuarioServicio{
 
     @Autowired
     UsuarioRepositorio usuariorepositorio;
@@ -126,27 +133,29 @@ public class UsuarioServicio implements UserDetailsService {
             throw new errorServicios("El telefono es vacio o es nulo. ");
         }
     }
+//
+//    @Override
+//    public UserDetails loadUserByUsername(String mail) throws UsernameNotFoundException {
+//        
+//        Usuario usuario = usuariorepositorio.BuscarUsuarioPorMailU(mail);
+//        
+//        if (usuario != null){
+//          List <GrantedAuthority> permisos = null;
+////          
+////          GrantedAuthority p1 = new SimpleGrantedAuthority ("MODULO_FOTOS");
+////          permisos.add(p1);
+////          GrantedAuthority p2 = new SimpleGrantedAuthority ("MODULO_TURNO");
+////          permisos.add(p2);
+////          GrantedAuthority p3 = new SimpleGrantedAuthority ("MODULO_PREGRESP");
+////          permisos.add(p3);
+//          
+//          User user = new User(usuario.getMail(), usuario.getContrasenia(), permisos);
+//          return user ;
+//        }else{
+//        return null;
+//        }
 
-    @Override
-    public UserDetails loadUserByUsername(String mail) throws UsernameNotFoundException {
-        
-        Usuario usuario = usuariorepositorio.BuscarUsuarioPorMailU(mail);
-        
-        if (usuario != null){
-          List <GrantedAuthority> permisos = null;
-          
-          GrantedAuthority p1 = new SimpleGrantedAuthority ("MODULO_FOTOS");
-          permisos.add(p1);
-          GrantedAuthority p2 = new SimpleGrantedAuthority ("MODULO_TURNO");
-          permisos.add(p2);
-          GrantedAuthority p3 = new SimpleGrantedAuthority ("MODULO_PREGRESP");
-          permisos.add(p3);
-          
-          User user = new User(usuario.getMail(), usuario.getContrasenia(), permisos);
-          return user ;
-        }else{
-        return null;
-        }
-    }
+
+  
 
 }

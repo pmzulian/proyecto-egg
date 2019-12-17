@@ -19,6 +19,13 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+//import org.springframework.security.core.GrantedAuthority;
+//import org.springframework.security.core.authority.SimpleGrantedAuthority;
+//import org.springframework.security.core.userdetails.User;
+//import org.springframework.security.core.userdetails.UserDetails;
+//import org.springframework.security.core.userdetails.UserDetailsService;
+//import org.springframework.security.core.userdetails.UsernameNotFoundException;
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.stereotype.Service;
@@ -27,7 +34,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Service
-public class ProveedorServicio implements UserDetailsService {
+public class ProveedorServicio  {
 
     @Autowired
     private ProveedorRepositorio proveedorrepositorio;
@@ -159,31 +166,38 @@ public class ProveedorServicio implements UserDetailsService {
         }
     }
 
-    @Override
-    public UserDetails loadUserByUsername(String mail) throws UsernameNotFoundException {
+//    @Override
+//    public UserDetails loadUserByUsername(String mail) throws UsernameNotFoundException {
+//
+//    Proveedor proveedor = proveedorrepositorio.BuscarProveedorPorMail(mail);
+//    
+//    if(proveedor != null){
+//        
+//        List <GrantedAuthority> permisos = null;
+//        
+////        GrantedAuthority p1 = new SimpleGrantedAuthority("MODULOS_FOTOS");
+////        permisos.add(p1);
+////        GrantedAuthority p2 = new SimpleGrantedAuthority("MODULO_TURNO");
+////        permisos.add(p2);
+////        GrantedAuthority p3 = new SimpleGrantedAuthority("MODULOS_PREGRESP");
+////        permisos.add(p3);
+////        
+//        User user = new User(proveedor.getMail(), proveedor.getContrasenia(), permisos);
+//
+//        return user;
+//        
+//    }else{
+//        return null;
+//    }
+//    
+//    }
 
-    Proveedor proveedor = proveedorrepositorio.BuscarProveedorPorMail(mail);
-    
-    if(proveedor != null){
-        
-        List <GrantedAuthority> permisos = null;
-        
-        GrantedAuthority p1 = new SimpleGrantedAuthority("MODULOS_FOTOS");
-        permisos.add(p1);
-        GrantedAuthority p2 = new SimpleGrantedAuthority("MODULO_TURNO");
-        permisos.add(p2);
-        GrantedAuthority p3 = new SimpleGrantedAuthority("MODULOS_PREGRESP");
-        permisos.add(p3);
-        
-        User user = new User(proveedor.getMail(), proveedor.getContrasenia(), permisos);
+//    @Override
+//    public UserDetails loadUserByUsername(String string) throws UsernameNotFoundException {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
 
-        return user;
-        
-    }else{
-        return null;
-    }
-    
-    }
+ 
     
     
 
