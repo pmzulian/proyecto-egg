@@ -5,13 +5,17 @@ import edu.egg.tatoo.entidades.Proveedor;
 import edu.egg.tatoo.entidades.Ubicacion;
 import edu.egg.tatoo.entidades.Usuario;
 import edu.egg.tatoo.errores.errorServicios;
+import edu.egg.tatoo.repositorios.ProveedorRepositorio;
+import edu.egg.tatoo.repositorios.UbicacionRepositorio;
 import edu.egg.tatoo.servicios.ProveedorServicio;
 import java.util.List;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,6 +32,12 @@ public class ProveedorController {
     @Autowired
     private ProveedorServicio proveedorservicio ;
     
+    @Autowired
+    private ProveedorRepositorio pr;
+    
+    @Autowired
+    private UbicacionRepositorio ur;
+    
     @GetMapping("/actualizacion")
     public String actualizacion  (@RequestParam (required = false )String id, ModelMap modelo){
         Proveedor proveedor;
@@ -39,7 +49,7 @@ public class ProveedorController {
             modelo.put("proveedor", new Proveedor ());
         }
         
-        return "registro.html";
+        return "registrop.html";
         
     }
     
@@ -56,7 +66,7 @@ public class ProveedorController {
                                 ) throws Exception{
        
         proveedorservicio.actualizarProveedor(archivo, id, documento, nombre, apellido, mail, contrasenia, telefono, ubicacion);
-        return null;
+        return "redirect:/tatoo/login";
     }
     
     @GetMapping(value = "/image/{id}")
@@ -70,6 +80,28 @@ public class ProveedorController {
         headers.setContentType(MediaType.IMAGE_PNG);
         return new ResponseEntity<byte[]>(foto, headers, HttpStatus.OK);
 
+    }
+    
+        @PostMapping("/entrar")
+    public String entrar(@RequestParam String mail, @RequestParam String password, ModelMap modelo, HttpSession session) {
+        
+       
+        Proveedor proveedor = pr.findBymail(mail);
+        
+        if (proveedor!=null){
+            
+            session.setAttribute("User", proveedor);
+            
+        if(new BCryptPasswordEncoder().matches(password, proveedor.getContrasenia())){
+            
+            modelo.put("proveedor", proveedor);
+            return "enzomenu.html";
+        }   
+        }else{
+            return "redirect:/tatoo/login";
+        }
+        
+        return "redirect:/tatoo/login";
     }
     
     @GetMapping("/listado{id}")
@@ -94,6 +126,7 @@ public class ProveedorController {
         proveedorservicio.borrarProveedor(id);
         return null;
     }
+
     
     
     

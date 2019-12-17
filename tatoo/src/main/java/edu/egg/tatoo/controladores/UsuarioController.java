@@ -102,7 +102,7 @@ public class UsuarioController extends HttpServlet {
         headers.setContentType(MediaType.IMAGE_PNG);
         return new ResponseEntity<byte[]>(foto, headers, HttpStatus.OK);
 
-    }
+    }   
 
     @GetMapping("/listado{id}")
     public String listado(@RequestParam(required = false) String q, ModelMap modelo) {
