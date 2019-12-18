@@ -113,7 +113,7 @@ li{
 /*==========================================================*/
 nav{
 	width: 100%;
-	font-size: 1.5rem;
+	font-size: 1.2rem;
 	font-family: 'Ubuntu', cursive;
 	background-color: #233237;
 	overflow: hidden;
@@ -136,7 +136,7 @@ nav ul{
 }
 
 nav ul li{
-	width: 25%;
+	width: 20%;
 	float: left;
 	/*margin-right: 20px;*/
 	border-radius: 4px;
@@ -202,17 +202,17 @@ h1,h3,
 }
 
 /*Estilos formulario==========================*/
-section#formulario{
-	background: url(../img/fondoregistrar.jpg);
+section{
+	/*background: url(../img/fondoregistrar.jpg);
 	background-size: cover;
-	background-attachment: fixed;
+	background-attachment: fixed;*/
 	text-align: center;
 	height: 100vh;
 }
 .formulario{
 	background: #fff;
 	padding: 3px;
-	margin:120px auto auto;
+	margin:auto;
 	max-width: 40%;
 	border-radius: 2%;
 	padding: 20px;
@@ -221,7 +221,7 @@ section#formulario{
 input[type="text"],
 input[type="password"],
 input[type="file"]{
-font-size: 20px;
+font-size: 1.2rem;
 width: 82%;
 padding: 10px;
 border: none;
@@ -277,5 +277,7 @@ p{
 	}
 }*/
 
-
-
+.registro{
+	height: auto;
+	padding-bottom: 40px;
+}
