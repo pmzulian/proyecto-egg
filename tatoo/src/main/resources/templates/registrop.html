@@ -33,6 +33,10 @@
 				<i class="fas fa-envelope icon"></i>
 				<input id="email" type="text" placeholder="Email" required name="mail" th:value="${proveedor.mail}" >
 			</div>
+                        <div class="input-contenedor">
+				<i class="fas fa-key icon"></i>
+				<input id="contraseña" type="password" placeholder="Contraseña" name="contrasenia" required th:value="${proveedor.contrasenia}">
+			</div>
 			<div class="input-contenedor">
 				<i class="fas fa-user icon"></i>
 				<input id="dni" type="text" placeholder="Dni" required name="documento" th:value="${proveedor.documento}" >
@@ -41,9 +45,9 @@
 				<i class="fas fa-mobile icon"></i>
 				<input id="telefono" type="text" placeholder="Telefono" name="telefono" required th:value="${proveedor.telefono}">
 			</div>
-			<div class="input-contenedor">
-				<i class="fas fa-key icon"></i>
-				<input id="contraseña" type="password" placeholder="Contraseña" name="contrasenia" required th:value="${proveedor.contrasenia}">
+                        <div class="input-contenedor">
+				<i class="fas fa-user icon"></i>
+				<input id="estilo" type="text" placeholder="Estilo" name="estilo" required th:value="${proveedor.estilo}">
 			</div>
 
 			<div class="input-contenedor">

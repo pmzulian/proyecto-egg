@@ -1,14 +1,17 @@
 package edu.egg.tatoo.servicios;
 
+import edu.egg.tatoo.entidades.Estilo;
 import edu.egg.tatoo.entidades.Foto;
 import edu.egg.tatoo.entidades.Proveedor;
 import edu.egg.tatoo.entidades.Turno;
 import edu.egg.tatoo.entidades.Ubicacion;
 import edu.egg.tatoo.entidades.Usuario;
 import edu.egg.tatoo.errores.errorServicios;
+import edu.egg.tatoo.repositorios.EstiloRepositorio;
 import edu.egg.tatoo.repositorios.FotoRepositorio;
 import edu.egg.tatoo.repositorios.ProveedorRepositorio;
 import edu.egg.tatoo.repositorios.UbicacionRepositorio;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -38,12 +41,18 @@ public class ProveedorServicio  {
     @Autowired
     private UbicacionRepositorio ur;
     
+    @Autowired
+    private EstiloRepositorio er;
+    
     @Transactional
-    public void actualizarProveedor(MultipartFile archivo, String id, Long documento, String nombre, String apellido, String mail, String contrasenia, Long telefono, String provincia, String barrio) throws errorServicios, Exception {
+    public void actualizarProveedor(MultipartFile archivo, String id, Long documento, String nombre, String apellido, String mail, String contrasenia, Long telefono, String provincia, String barrio, String estilo) throws errorServicios, Exception {
 
         Proveedor proveedor = null;
         Ubicacion ubicacion = null;
         ubicacion = ur.buscarparaProveedor(provincia, barrio);
+        List<Estilo> es =  new ArrayList <> ();
+        
+        es.add(er.BuscarEstiloPorNombre(estilo));
 
         if (id != null && id != "" && !id.isEmpty()) {
             proveedor = proveedorrepositorio.getOne(id);
@@ -71,13 +80,15 @@ public class ProveedorServicio  {
         proveedor.setMail(mail);
         String encriptada = new BCryptPasswordEncoder().encode(contrasenia);
         proveedor.setContrasenia(encriptada);
+        proveedor.setEstilo(es);
         
         
-
         Foto foto = fotoservicio.AgregarFoto(archivo);
         proveedor.setFotoPerfil(foto);
 
         proveedorrepositorio.save(proveedor);
+        
+        System.out.println("Proveedor");
 
     }
 
@@ -108,6 +119,15 @@ public class ProveedorServicio  {
         if (idproveedor == null || idUsuario == null || idproveedor.isEmpty() || idUsuario.isEmpty()) {
             throw new Exception("No se encuentra el proveedor o el Usuario.");
         }
+    }
+    
+    @Transactional
+    public List Busquedataatuador (String estilo, String provincia){
+        
+        Proveedor proveedor = null;
+        
+        
+        return null;      
     }
 
     

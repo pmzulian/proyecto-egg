@@ -36,7 +36,7 @@
                       </div>
                  </div>
             </div>  
-                  <form class="formulario"  method="POST"> 
+                  <form class="formulario" th:action="/proveedor/listar"  method="GET"> 
                         <h1>Busca a tu tatuador</h1>
                         <div class="contenedor">
 
@@ -47,7 +47,7 @@
 			
 			<div class="input-contenedor">
 				<i class="fas fa-key icon"></i>
-				<input type="password" placeholder="Provicia" name="provincia">
+				<input type="text" placeholder="Provicia" name="provincia">
 			</div>
 			
 			<input type="submit" value="Buscar" class="button">
