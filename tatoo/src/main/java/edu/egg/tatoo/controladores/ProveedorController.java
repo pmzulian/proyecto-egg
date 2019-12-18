@@ -67,10 +67,11 @@ public class ProveedorController {
                               @RequestParam String contrasenia,
                               @RequestParam Long telefono,
                               @RequestParam String provincia,
-                              @RequestParam String barrio
+                              @RequestParam String barrio,
+                              @RequestParam String estilo
                                 ) throws Exception{
        
-        proveedorservicio.actualizarProveedor(archivo, id, documento, nombre, apellido, mail, contrasenia, telefono, provincia, barrio);
+        proveedorservicio.actualizarProveedor(archivo, id, documento, nombre, apellido, mail, contrasenia, telefono, provincia, barrio, estilo);
         return "redirect:/tatoo/login";
     }
     
@@ -124,6 +125,16 @@ public class ProveedorController {
 
         
         return null;
+    }
+    
+    
+    @GetMapping("listar")
+    public String listar (@RequestParam (required = false) String estilo,
+                          @RequestParam (required = false) String provincia){
+        
+        
+        
+        return "enzopruebalista.html";
     }
     
     @GetMapping("/eliminar")

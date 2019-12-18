@@ -1,5 +1,6 @@
 package edu.egg.tatoo.entidades;
 
+import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -8,10 +9,11 @@ import javax.persistence.Id;
 import javax.persistence.*;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.NotNull;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-public class Proveedor {
+public class Proveedor implements Serializable{
 
     @Id
     @GeneratedValue(generator = "uuid")
@@ -35,7 +37,12 @@ public class Proveedor {
     @OneToMany
     private List<PregResp> regresp;
 //@OneToMany(targetEntity = Estilo.class, mappedBy = "proveedor", fetch = FetchType.EAGER)
-    @OneToMany 
+    @OneToMany (fetch = FetchType.LAZY)    
+    @JoinColumns({
+        @JoinColumn(name="proveedor_id", referencedColumnName="id"),
+        @JoinColumn(name="estilo_id", referencedColumnName="id")
+    })
+    @NotNull
     private List <Estilo> estilo;
     @OneToOne
     private Foto fotoPerfil;

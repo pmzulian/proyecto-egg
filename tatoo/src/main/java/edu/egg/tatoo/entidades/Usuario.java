@@ -1,5 +1,6 @@
 package edu.egg.tatoo.entidades;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Set;
 import javax.persistence.ElementCollection;
@@ -12,7 +13,7 @@ import javax.persistence.OneToOne;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-public class Usuario {
+public class Usuario implements Serializable{
 
     @Id
     @GeneratedValue(generator = "uuid")
