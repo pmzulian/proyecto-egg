@@ -8,16 +8,11 @@ import edu.egg.tatoo.entidades.Usuario;
 import edu.egg.tatoo.errores.errorServicios;
 import edu.egg.tatoo.repositorios.FotoRepositorio;
 import edu.egg.tatoo.repositorios.ProveedorRepositorio;
+import edu.egg.tatoo.repositorios.UbicacionRepositorio;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 //import org.springframework.security.core.GrantedAuthority;
 //import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -29,9 +24,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+
 
 @Service
 public class ProveedorServicio  {
@@ -42,10 +35,15 @@ public class ProveedorServicio  {
     @Autowired
     private FotoServicio fotoservicio;
     
+    @Autowired
+    private UbicacionRepositorio ur;
+    
     @Transactional
-    public void actualizarProveedor(MultipartFile archivo, String id, Long documento, String nombre, String apellido, String mail, String contrasenia, Long telefono, Ubicacion ubicacion) throws errorServicios, Exception {
+    public void actualizarProveedor(MultipartFile archivo, String id, Long documento, String nombre, String apellido, String mail, String contrasenia, Long telefono, String provincia, String barrio) throws errorServicios, Exception {
 
         Proveedor proveedor = null;
+        Ubicacion ubicacion = null;
+        ubicacion = ur.buscarparaProveedor(provincia, barrio);
 
         if (id != null && id != "" && !id.isEmpty()) {
             proveedor = proveedorrepositorio.getOne(id);
@@ -57,13 +55,20 @@ public class ProveedorServicio  {
         if (nombre == null || nombre.trim().isEmpty()) {
             throw new Exception("El nombre no puede ser nulo.");
         }
-
+        if(ubicacion == null){
+            throw new Exception("La ubicacion no se encuentra");
+        }else{ 
+          proveedor.setUbicacion(ubicacion);
+        }
+        
+        
+        
+        
         proveedor.setDocumento(documento);
         proveedor.setNombre(nombre);
         proveedor.setApellido(apellido);
         proveedor.setTelefono(telefono);
         proveedor.setMail(mail);
-        proveedor.setUbicacion(ubicacion);
         String encriptada = new BCryptPasswordEncoder().encode(contrasenia);
         proveedor.setContrasenia(encriptada);
         

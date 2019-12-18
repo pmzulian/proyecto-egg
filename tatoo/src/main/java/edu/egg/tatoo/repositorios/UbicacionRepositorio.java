@@ -21,4 +21,7 @@ public interface UbicacionRepositorio extends JpaRepository<Ubicacion, String>{
 
     @Query("SELECT c FROM Ubicacion c WHERE c.provincia_nombre LIKE %"+":provincia_nombre"+"%")
     public List<Ubicacion> BuscarUbicacionPorNombreDeProvincia (@Param("provincia_nombre") String provincia_nombre);
+    
+    @Query ("SELECT c FROM Ubicacion c WHERE (c.provincia_nombre = :provincia_nombre) AND (c.nombre = :nombre)")
+    public Ubicacion buscarparaProveedor (@Param("provincia_nombre") String provincia, @Param("nombre") String nombre);
 }

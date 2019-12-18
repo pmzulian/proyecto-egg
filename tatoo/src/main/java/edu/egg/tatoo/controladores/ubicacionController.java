@@ -21,15 +21,15 @@ public class ubicacionController {
     @Autowired
     private UbicacionRepositorio ur;
 
-    @GetMapping("/listaubicacion")
-    public void buscarporProvicia(ModelMap modelo) {
-
-        List<Ubicacion> ubicaciones;
-
-        ubicaciones = ur.findAll();
-
-        modelo.put("ubicaiones", ubicaciones);
-
-    }
+//    @GetMapping("/listaubicacion")
+//    public void buscarporProvicia(ModelMap modelo) {
+//
+//        List<Ubicacion> ubicaciones;
+//
+//        ubicaciones = ur.findAll();
+//
+//        modelo.put("ubicaiones", ubicaciones);
+//
+//    }
 
 }

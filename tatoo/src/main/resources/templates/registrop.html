@@ -21,8 +21,6 @@
 		<h1>Registrate</h1>
 		<div class="contenedor">
 
-                     <input type="hidden" name="id" th:value="${proveedor.id}"/>
-                    
 			<div class="input-contenedor">
 				<i class="fas fa-user icon"></i>
 				<input id="nombre" type="text" placeholder="Nombre" name="nombre" required th:value="${proveedor.nombre}">
@@ -47,17 +45,28 @@
 				<i class="fas fa-key icon"></i>
 				<input id="contraseña" type="password" placeholder="Contraseña" name="contrasenia" required th:value="${proveedor.contrasenia}">
 			</div>
+
 			<div class="input-contenedor">
+				<i class="fas fa-user icon"></i>
+				<input type="text" placeholder="Provincia" name="provincia" >
+			</div>    
+			<div class="input-contenedor">
+				<i class="fas fa-user icon"></i>
+				<input type="text" placeholder="Barrio" name="barrio" >
+			</div>   
+                    
+                        <div class="input-contenedor">
 				<i class="fas fa-camera icon"></i>
 				<input type="file" placeholder="Foto" name="archivo" th:value="${proveedor.fotoPerfil}">
 			</div>
-               <input type="submit" value="Registrate" class="button" formaction="/proveedor/actualizar" method="POST">
+                    
+               <input type="submit" value="Registrar" class="button" formaction="/proveedor/actualizar" method="POST">
 
 			<p>Al registrarte, aceptas nuestras Condiciones de uso y Politica de privacidad.</p>
-			<p>¿Ya tienes una cuenta? <a class="link" src="/tatoo/index"  >Iniciar Sesion</a></p>
+			<p>¿Ya tienes una cuenta? <a class="link" src="/tatoo/login"  >Iniciar Sesion</a></p>
 		</div>
 	</form>
-    
+
 <!--        <form class="form-inline my-2 my-lg-0" action="/ubicacion/listaubicacion" method="GET">
             <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar"  name="q" th:value="${q}">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar <i class="fa fa-search"></i></button>
@@ -79,14 +88,30 @@
 <!--<div class="col-lg-3" th:object="${ubicaciones}">-->
 
 <!--SEGUIR INVESTIGANDO ESTO-->
-<div class="col-lg-3" th:object="@{/ubicacion/listaubicacion}">
-    <select class="form-control" id="testOrder" name="Ubicacion">
-        <option value="">Select Test Order</option>
-        <option th:each="ubicacion : ${ubicaciones}"
-                th:value="${ubicacion.nombre_provincia}"
-                th:text="${ubicacion.nombre_provincia}"></option>
+<!--<div class="col-lg-3" >
+<select action="${/ubicacion/listaubicacion}"   >
+        <option value="" th:each="ubicacion : ${ubicaciones}" 
+                th:value="${ubicacion}" 
+                th:text="#{${ubicacion.nombre_provincia}}" >
+            Ubicacion</option>
+       
     </select>
-</div>
+</div>-->
+<!--
+<table class="table">
+    
+    <thead>
+        <tr>
+            <th href="#">Nombre</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="ubicacion : ${ubicaciones}">
+            <td href="#" th:text="$ubicacion.nombre_provincia"></td>
+        </tr>
+            
+    </tbody>
+</table>-->
 
 <!--<form name="formulario" method="post" action="">
    Campo de texto combinado con lista de opciones 

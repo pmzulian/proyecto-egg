@@ -17,6 +17,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -40,6 +41,7 @@ public class ProveedorController {
     
     @GetMapping("/actualizacion")
     public String actualizacion  (@RequestParam (required = false )String id, ModelMap modelo){
+        System.out.println("entro");
         Proveedor proveedor;
         
         if(id != null){
@@ -48,6 +50,8 @@ public class ProveedorController {
         }else{
             modelo.put("proveedor", new Proveedor ());
         }
+//            modelo.put("proveedor", ur.findAll());
+        
         
         return "registrop.html";
         
@@ -59,13 +63,14 @@ public class ProveedorController {
                               @RequestParam Long documento,
                               @RequestParam String nombre,
                               @RequestParam String apellido,
-                              @RequestParam Long telefono,
                               @RequestParam String mail,
                               @RequestParam String contrasenia,
-                              @RequestParam Ubicacion ubicacion
+                              @RequestParam Long telefono,
+                              @RequestParam String provincia,
+                              @RequestParam String barrio
                                 ) throws Exception{
        
-        proveedorservicio.actualizarProveedor(archivo, id, documento, nombre, apellido, mail, contrasenia, telefono, ubicacion);
+        proveedorservicio.actualizarProveedor(archivo, id, documento, nombre, apellido, mail, contrasenia, telefono, provincia, barrio);
         return "redirect:/tatoo/login";
     }
     
@@ -125,6 +130,30 @@ public class ProveedorController {
     public String eliminar (@RequestParam String id) throws errorServicios{
         proveedorservicio.borrarProveedor(id);
         return null;
+    }
+    
+//    @GetMapping("/listaubicacion")
+//    public void buscarporProvicia(ModelMap modelo) {
+//        System.out.println("HOLA");
+//        List<Ubicacion> ubicaciones;
+//
+//        ubicaciones = ur.findAll();
+//
+//        modelo.put("ubicaiones", ubicaciones);
+//        System.out.println("salio");
+//        
+//    }
+    
+    @GetMapping(value  = "/listaubicacion{id}")
+    public void buscarporProvicia(Model modelo) {
+        System.out.println("entron");
+        List<Ubicacion> ubicaciones;
+
+        ubicaciones = ur.findAll();
+
+        modelo.addAttribute("ubicaiones", ubicaciones);
+        System.out.println("salio");
+        
     }
 
     

@@ -1,7 +1,9 @@
 package edu.egg.tatoo.controladores;
 
+import edu.egg.tatoo.entidades.Ubicacion;
 import edu.egg.tatoo.entidades.Usuario;
 import edu.egg.tatoo.errores.errorServicios;
+import edu.egg.tatoo.repositorios.UbicacionRepositorio;
 import edu.egg.tatoo.repositorios.UsuarioRepositorio;
 import edu.egg.tatoo.servicios.UsuarioServicio;
 import java.util.List;
@@ -36,6 +38,8 @@ public class UsuarioController extends HttpServlet {
     
     @Autowired
     private UsuarioRepositorio ur;
+    
+    
 
     @GetMapping("/actualizacion")
     public String actualizacion(@RequestParam(required = false) String id, ModelMap modelo) {
@@ -63,9 +67,9 @@ public class UsuarioController extends HttpServlet {
             @RequestParam String contrasenia
     ) throws Exception {
        
-        System.out.println("Entro");
+
         usuarioservicio.actualizarUsuario(archivo, id, nombre, apellido, documento, telefono, mail, contrasenia);
-        System.out.println("salio");
+      
         return "redirect:/tatoo/login";
     }
     
@@ -82,7 +86,7 @@ public class UsuarioController extends HttpServlet {
         if(new BCryptPasswordEncoder().matches(password, usuario.getContrasenia())){
             
             modelo.put("usuario", usuario);
-            return "enzomenu.html";
+            return "menuusuario.html";
         }   
         }else{
             return "redirect:/tatoo/login";
@@ -125,6 +129,8 @@ public class UsuarioController extends HttpServlet {
         usuarioservicio.borrarUsuario(id);
         return "pruebaLista.html";
     }
+    
+
 
 }
 
