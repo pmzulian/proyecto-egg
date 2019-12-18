@@ -156,11 +156,14 @@ nav ul li a{
 }
 
 .principal{
+	background: url(../img/fondoregistrar.jpg);
+	background-size: cover;
+	background-attachment: fixed;
 	text-align: center;
 	height: 100vh;
 }
 
-.principal::after{
+/*.principal::after{
 	  content: "";
 	  background: url(../img/background.jpg);
 	  opacity: 0.6;
@@ -170,29 +173,109 @@ nav ul li a{
 	  right: 0;
 	  position: absolute;
 	  z-index: -1; 
-}
+}*/
 
 .principal div.container{
-	margin-top: 160px;
+	margin-top: 120px;
 }
 
 .divisor{
 	width: 15%;
 	height: 5px;
-	background-color:#233237;
+	background-color:#18121E;
 	display: inline-block;
 }
 
 .font-awesome{
 	display: inline;
+	color: #18121E;
 }
 
-h1,
+h1,h3,
 .principal img{
-	color:#233237;
+	color:#18121E;
 }
 
 .portfolio{
 	height: 500px;
 	background-color: #EAC67A;
 }
+
+/*Estilos formulario==========================*/
+section#formulario{
+	background: url(../img/fondoregistrar.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+	text-align: center;
+	height: 100vh;
+}
+.formulario{
+	background: #fff;
+	padding: 3px;
+	margin:120px auto auto;
+	max-width: 40%;
+	border-radius: 2%;
+	padding: 20px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="file"]{
+font-size: 20px;
+width: 82%;
+padding: 10px;
+border: none;
+}
+
+.input-contenedor{
+	margin-bottom: 15px;
+	border: 1px solid #aaa;
+}
+
+.icon{
+	min-width: 50px;
+	text-align: center;
+	color: #999;
+}
+
+.button{
+    border: none;
+    width: auto;
+    color: white;
+    font-size: 20px;
+    background: #1a2537;
+    padding: 15px 20px;
+    border-radius: 5px;
+    display: block;
+    cursor: pointer;
+    margin: 0 auto;
+}
+.button:hover{
+	background: cadetblue;
+}
+
+p{
+	text-align: center;
+}
+
+.link{
+	text-decoration: none;
+	color: #1a2537;
+	font-weight: 600;
+}
+
+.link:hover{
+	color: cadetblue;
+}
+
+/*@media(min-width: 768px)
+{
+	.formulario{
+		margin: auto;
+		width: 500px;
+		border-radius: 2%;
+	}
+}*/
+
+
+

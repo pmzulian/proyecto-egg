@@ -1,7 +1,7 @@
 body{
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: 'Merriweather', serif;
 	margin: 0;
-	background: url(fondoregistrar.jpg);
+	background: url(../img/fondoregistrar.jpg);
 	background-size: cover;
 	background-attachment: fixed;
 }
@@ -15,9 +15,9 @@ body{
 }
 .formulario{
 	background: #fff;
-	margin-top: 150px;
 	padding: 3px;
 }
+
 h1{
 	text-align: center;
 	color: #1a2537;
