@@ -28,31 +28,14 @@
             <div class="d-flex justify-content-center h-100">
                 <div class="image_outer_container">                   
                      <div class="image_inner_container">
-                        <img th:src="@{/usuario/image/}+${usuario.id}">
+                        <img th:src="@{/proveedor/image/}+${proveedor.id}">
                      </div>
                      <div>
-                        <h1 href="#" class="text-white" text=" "th:text="${usuario.nombre}+${usuario.apellido}"></h1>
-                      <input type="submit" value="Editar" class="button" th:href="@{/usuario/actualizacion(id=${usuario.id})}">
+                        <h1 href="#" class="text-white" text=" "th:text="${proveedor.nombre}+${proveedor.apellido}"></h1>
+                      <input type="submit" value="Editar" class="button" th:href="@{/proveedor/actualizacion(id=${proveedor.id})}">
                       </div>
                  </div>
-            </div>  
-                  <form class="formulario"  method="POST"> 
-                        <h1>Busca a tu tatuador</h1>
-                        <div class="contenedor">
-
-			<div class="input-contenedor">
-				<i class="fas fa-envelope icon"></i>
-				<input type="text" placeholder="Estilo"  name="estilo">
-			</div>
-			
-			<div class="input-contenedor">
-				<i class="fas fa-key icon"></i>
-				<input type="password" placeholder="Provicia" name="provincia">
-			</div>
-			
-			<input type="submit" value="Buscar" class="button">
-                        </div>
-                  </form>
+            </div>               
     </div>  
     
        
@@ -65,10 +48,10 @@
 
 
 
-
-        <form th:action="@{/tatoo/login}" method="GET">
+<!--
+        <form th:action="@{/logout}" method="post">
             <input type="submit" value="Cerrar Sesion"/>
-        </form>
+        </form>-->
 
     </body>
 </html>

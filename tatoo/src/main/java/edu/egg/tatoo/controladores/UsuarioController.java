@@ -1,8 +1,10 @@
 package edu.egg.tatoo.controladores;
 
+import edu.egg.tatoo.entidades.Proveedor;
 import edu.egg.tatoo.entidades.Ubicacion;
 import edu.egg.tatoo.entidades.Usuario;
 import edu.egg.tatoo.errores.errorServicios;
+import edu.egg.tatoo.repositorios.ProveedorRepositorio;
 import edu.egg.tatoo.repositorios.UbicacionRepositorio;
 import edu.egg.tatoo.repositorios.UsuarioRepositorio;
 import edu.egg.tatoo.servicios.UsuarioServicio;
@@ -39,6 +41,8 @@ public class UsuarioController extends HttpServlet {
     @Autowired
     private UsuarioRepositorio ur;
     
+    @Autowired
+    private ProveedorRepositorio pr;
     
 
     @GetMapping("/actualizacion")
@@ -75,9 +79,16 @@ public class UsuarioController extends HttpServlet {
     
     @PostMapping("/entrar")
     public String entrar(@RequestParam String mail, @RequestParam String password, ModelMap modelo, HttpSession session) {
+         Usuario usuario = null;
         
-       
-        Usuario usuario = ur.findBymail(mail);
+         try{
+             usuario = ur.findBymail(mail);
+         }catch(NullPointerException e){
+             System.out.println("No encuentro usuario");
+   
+         }
+        
+      
         
         if (usuario!=null){
             
@@ -88,9 +99,24 @@ public class UsuarioController extends HttpServlet {
             modelo.put("usuario", usuario);
             return "menuusuario.html";
         }   
-        }else{
-            return "redirect:/tatoo/login";
         }
+        System.out.println("Paso");
+       
+        Proveedor proveedor = pr.BuscarProveedorPorMail(mail);
+        
+        if (proveedor != null) {
+            
+            session.setAttribute("User", proveedor);
+            
+             if(new BCryptPasswordEncoder().matches(password, proveedor.getContrasenia())){
+            
+            modelo.put("proveedor", proveedor);
+            return "menuproveedor.html";
+             }
+            
+        }
+       
+        
         
         return "redirect:/tatoo/login";
     }

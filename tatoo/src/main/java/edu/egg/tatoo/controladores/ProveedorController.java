@@ -87,7 +87,7 @@ public class ProveedorController {
 
     }
     
-        @PostMapping("/entrar")
+    @PostMapping("/entrar")
     public String entrar(@RequestParam String mail, @RequestParam String password, ModelMap modelo, HttpSession session) {
         
        
@@ -132,29 +132,9 @@ public class ProveedorController {
         return null;
     }
     
-//    @GetMapping("/listaubicacion")
-//    public void buscarporProvicia(ModelMap modelo) {
-//        System.out.println("HOLA");
-//        List<Ubicacion> ubicaciones;
-//
-//        ubicaciones = ur.findAll();
-//
-//        modelo.put("ubicaiones", ubicaciones);
-//        System.out.println("salio");
-//        
-//    }
+
     
-    @GetMapping(value  = "/listaubicacion{id}")
-    public void buscarporProvicia(Model modelo) {
-        System.out.println("entron");
-        List<Ubicacion> ubicaciones;
-
-        ubicaciones = ur.findAll();
-
-        modelo.addAttribute("ubicaiones", ubicaciones);
-        System.out.println("salio");
-        
-    }
+    
 
     
     
