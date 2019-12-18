@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html lang="en"         
+      <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <meta name="viewport" content="width=device-width, user-scalable=yes, inital-scale=1.0, maximum-scale=1.0">
+
+        <script src="https://kit.fontawesome.com/3acd85c923.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="/css/estilos.css">
+        <link rel="stylesheet" href="/css/imgperfil.css">
+        <link rel="stylesheet" href="/img/fondoregistrar.jpg">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+<!--        xmlns:th="http://www.thymeleaf.org"  
+        xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">  -->
+
+
+
+    </head>
+    <body>
+
+
+    <div class="container">
+            <div class="d-flex justify-content-center h-100">
+                <div class="image_outer_container">                   
+                     <div class="image_inner_container">
+                        <img th:src="@{/proveedor/image/}+${proveedor.id}">
+                     </div>
+                     <div>
+                        <h1 href="#" class="text-white" text=" "th:text="${proveedor.nombre}+${proveedor.apellido}"></h1>
+                      <input type="submit" value="Editar" class="button" th:href="@{/proveedor/actualizacion(id=${proveedor.id})}">
+                      </div>
+                 </div>
+            </div>               
+    </div>  
+    
+       
+        
+
+        
+        
+        
+
+
+
+
+<!--
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Cerrar Sesion"/>
+        </form>-->
+
+    </body>
+</html>
