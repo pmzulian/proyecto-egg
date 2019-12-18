@@ -1,1 +1,107 @@
-registrop.html
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+  <!-- Favicon -->
+  <link rel="icon" href="img/preview-xl.png" type="image/png">
+
+  <!-- Fuentes de Google -->
+  <link href="https://fonts.googleapis.com/css?family=Merriweather|Ubuntu&display=swap" rel="stylesheet">
+
+
+  <!--Para buscadores-->
+  <meta name="author" content="Pablo ZULIÁN" />
+  <meta name="description" content="Web de Ink Mountain para Egg Educación" />
+  <meta name="keywords" content="tatuajes, mendoza, tatuadores, tinta, diseño tatuajes, tatto" />
+  <meta name="robots" content="index, follow" />
+
+  <!--Así se ve bien en productos apple -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta http-equiv="expires" content="Thu Oct 14 16:06:35 CEST 2027">
+
+  <!-- Place your kit's code here -->
+  <script src="https://kit.fontawesome.com/9495ff8eaa.js" crossorigin="anonymous"></script>
+
+  <!-- Siempre se coloca primero normalize.css porque ajusta los estilos predefinidos de los navegadores-->
+  <link rel="stylesheet" href="css/normalize.css" type="text/css">
+  
+  <!-- Hoja de estilos para index.html -->
+  <link rel="stylesheet" href="css/estilosIndex.css">
+
+  <title>Ink Mountain</title>
+</head>
+
+<body>
+
+  <div id="pantalla">
+    
+    <nav id="nav">
+      <div class="container"> 
+        <ul>
+          <li><a href="index.html">Ink Mountain</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="registro.html">Registro usuario</a></li>
+          <li><a href="#">Registro tatuador</a></li>
+          <li><a href="">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <section class="principal registro">
+      <div class="container">
+        <form class="formulario" onsubmit=" return validar();"> 
+          <h1>Tatuador</h1>
+          <div class="contenedor">
+
+            <div class="input-contenedor">
+              <i class="fas fa-user icon"></i>
+              <input id="nombre" type="text" placeholder="Nombre" required>
+            </div>
+            <div class="input-contenedor">
+              <i class="fas fa-user icon"></i>
+              <input id="apellido" type="text" placeholder="Apellido" required >
+            </div>
+            <div class="input-contenedor">
+              <i class="fas fa-envelope icon"></i>
+              <input id="email" type="text" placeholder="Email" required >
+            </div>
+            <div class="input-contenedor">
+              <i class="fas fa-user icon"></i>
+              <input id="dni" type="text" placeholder="Dni" required >
+            </div>
+            <div class="input-contenedor">
+              <i class="fas fa-mobile icon"></i>
+              <input id="telefono" type="text" placeholder="Telefono" required>
+            </div>
+            <div class="input-contenedor">
+              <i class="fas fa-key icon"></i>
+              <input id="contraseña" type="password" placeholder="Contraseña" required>
+            </div>
+            <div class="input-contenedor">
+              <i class="fas fa-flag icon"></i>
+              <input id="departamento" type="text" placeholder="Departamento" required>
+            </div>
+            <div class="input-contenedor">
+              <i class="fas fa-building icon"></i>
+              <input id="Localidad" type="text" placeholder="Localidad" required>
+            </div>
+            <div class="input-contenedor">
+              <i class="fas fa-camera icon"></i>
+              <input type="file" placeholder="Foto">
+            </div>
+            <input type="submit" value="Registrate" class="button">
+
+            <p>Al registrarte, aceptas nuestras Condiciones de uso y Politica de privacidad.</p>
+            <p>¿Ya tienes una cuenta? <a class="link" href="loginvista.html">Iniciar Sesion</a></p>
+          </div>
+        </form>
+      </div>
+    </section>
+   
+  </div><!-- cierra pantalla --> 
+
+</body>
+
+</html>
