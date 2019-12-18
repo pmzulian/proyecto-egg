@@ -85,6 +85,7 @@ public class UsuarioController extends HttpServlet {
              usuario = ur.findBymail(mail);
          }catch(NullPointerException e){
              System.out.println("No encuentro usuario");
+   
          }
         
       
