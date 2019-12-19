@@ -67,12 +67,12 @@ public class ProveedorController {
                               @RequestParam String mail,
                               @RequestParam String contrasenia,
                               @RequestParam Long telefono,
-                              @RequestParam String provincia,
-                              @RequestParam String barrio,
+                              @RequestParam String departamento,
+                              @RequestParam String localidad,
                               @RequestParam String estilo
                                 ) throws Exception{
        
-        proveedorservicio.actualizarProveedor(archivo, id, documento, nombre, apellido, mail, contrasenia, telefono, provincia, barrio, estilo);
+        proveedorservicio.actualizarProveedor(archivo, id, documento, nombre, apellido, mail, contrasenia, telefono, departamento, localidad, estilo);
         return "redirect:/tatoo/login";
     }
     

@@ -45,15 +45,21 @@ public class ProveedorServicio  {
     private EstiloRepositorio er;
     
     @Transactional
-    public void actualizarProveedor(MultipartFile archivo, String id, Long documento, String nombre, String apellido, String mail, String contrasenia, Long telefono, String provincia, String barrio, String estilo) throws errorServicios, Exception {
+    public void actualizarProveedor(MultipartFile archivo, String id, Long documento, String nombre, String apellido, String mail, String contrasenia, Long telefono, String departamento, String localidad, String estilo) throws errorServicios, Exception {
 
         Proveedor proveedor = null;
         Ubicacion ubicacion = null;
-        ubicacion = ur.buscarparaProveedor(provincia, barrio);
+        ubicacion = ur.buscarparaProveedor(departamento, localidad);
+        
+        
+        Estilo aux = new Estilo ();
+        aux.setNombre(estilo);
         List<Estilo> es =  new ArrayList <> ();
+        es.add(aux);
+        
         Proveedor respuesta = null;
         
-        es.add(er.BuscarEstiloPorNombre(estilo));
+        
 
         if (id != null && id != "" && !id.isEmpty()) {
             proveedor = proveedorrepositorio.getOne(id);
