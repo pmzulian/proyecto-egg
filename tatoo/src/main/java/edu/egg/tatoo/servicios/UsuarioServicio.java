@@ -46,6 +46,7 @@ public class UsuarioServicio implements UserDetailsService{
     public void actualizarUsuario(MultipartFile archivo, String id, String nombre, String apellido, Long documento, Long telefono, String mail, String contrasenia) throws errorServicios, Exception {
 
         Usuario usuario = null;
+        Usuario respuesta = null;
 
         if (id != null && id != "" && !id.isEmpty()) {
             usuario = usuariorepositorio.getOne(id);
@@ -54,8 +55,24 @@ public class UsuarioServicio implements UserDetailsService{
         if (usuario == null) {
             usuario = new Usuario();
         }
-        if (nombre == null || nombre.trim().isEmpty()) {
-            throw new Exception("El nombre no puede ser nulo.");
+ 
+        if (id == null ||  id.isEmpty()){
+            try{
+                respuesta = usuariorepositorio.BuscarUsuarioPorMailU(mail);
+            }catch(NullPointerException e){
+                e.toString();
+            }
+            try{
+                
+                if (respuesta.getMail().equals(mail)){
+                throw new Exception ("Este usuario ya existe.");
+                
+            }
+                
+            }catch(NullPointerException e){
+                e.toString();
+            }
+            
         }
 
         usuario.setNombre(nombre);

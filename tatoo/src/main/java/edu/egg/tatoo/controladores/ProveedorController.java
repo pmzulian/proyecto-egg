@@ -8,6 +8,7 @@ import edu.egg.tatoo.errores.errorServicios;
 import edu.egg.tatoo.repositorios.ProveedorRepositorio;
 import edu.egg.tatoo.repositorios.UbicacionRepositorio;
 import edu.egg.tatoo.servicios.ProveedorServicio;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +42,7 @@ public class ProveedorController {
     
     @GetMapping("/actualizacion")
     public String actualizacion  (@RequestParam (required = false )String id, ModelMap modelo){
-        System.out.println("entro");
+
         Proveedor proveedor;
         
         if(id != null){
@@ -132,6 +133,7 @@ public class ProveedorController {
     public String listar (@RequestParam (required = false) String estilo,
                           @RequestParam (required = false) String provincia){
         
+        List <Proveedor> proveedores = new ArrayList <> () ;
         
         
         return "enzopruebalista.html";

@@ -56,6 +56,8 @@ public class UsuarioController extends HttpServlet {
         } else {
             modelo.put("usuario", new Usuario());
         }
+        
+        
 
         return "registro.html";
     }
@@ -74,7 +76,7 @@ public class UsuarioController extends HttpServlet {
 
         usuarioservicio.actualizarUsuario(archivo, id, nombre, apellido, documento, telefono, mail, contrasenia);
       
-        return "redirect:/tatoo/login";
+        return "redirect:/tatoo/index";
     }
     
     @PostMapping("/entrar")
@@ -100,7 +102,6 @@ public class UsuarioController extends HttpServlet {
             return "menuusuario.html";
         }   
         }
-        System.out.println("Paso");
        
         Proveedor proveedor = pr.BuscarProveedorPorMail(mail);
         

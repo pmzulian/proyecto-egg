@@ -51,6 +51,7 @@ public class ProveedorServicio  {
         Ubicacion ubicacion = null;
         ubicacion = ur.buscarparaProveedor(provincia, barrio);
         List<Estilo> es =  new ArrayList <> ();
+        Proveedor respuesta = null;
         
         es.add(er.BuscarEstiloPorNombre(estilo));
 
@@ -68,6 +69,25 @@ public class ProveedorServicio  {
             throw new Exception("La ubicacion no se encuentra");
         }else{ 
           proveedor.setUbicacion(ubicacion);
+        }
+        
+        if (id == null ||  id.isEmpty()){
+            try{
+                respuesta = proveedorrepositorio.findBymail(mail);
+            }catch(NullPointerException e){
+                e.toString();
+            }
+            try{
+                
+                if (respuesta.getMail().equals(mail)){
+                throw new Exception ("Este usuario ya existe.");
+                
+            }
+                
+            }catch(NullPointerException e){
+                e.toString();
+            }
+            
         }
         
         

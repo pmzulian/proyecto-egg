@@ -10,13 +10,41 @@
 	<link rel="stylesheet" href="/css/estilos.css">
 	<link rel="stylesheet" href="/img/fondoregistrar.jpg">
 	<script src="validar.js"></script>
-        xmlns:th="http://www.thymeleaf.org"  
-  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">  
+      
+        <link href="https://fonts.googleapis.com/css?family=Merriweather|Ubuntu&display=swap" rel="stylesheet">
+          <!--Así se ve bien en productos apple -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta http-equiv="expires" content="Thu Oct 14 16:06:35 CEST 2027">
 
+  <!-- Place your kit's code here -->
+  <script src="https://kit.fontawesome.com/9495ff8eaa.js" crossorigin="anonymous"></script>
+
+  <!-- Siempre se coloca primero normalize.css porque ajusta los estilos predefinidos de los navegadores-->
+  <link rel="stylesheet" href="/css/normalize.css" type="text/css">
+  
+  <!-- Hoja de estilos para index.html -->
+  <link rel="stylesheet" href="/css/estilosIndex.css">
 	
 
 </head>
 <body>
+    
+      <div id="pantalla">
+    
+    <nav id="nav">
+      <div class="container"> 
+        <ul>
+          <li><a href="#">Ink Mountain</a></li>
+          <li><a href="/tatoo/login">Login</a></li>
+          <li><a href="/usuario/actualizacion">Registro usuario</a></li>
+          <li><a href="/proveedor/actualizacion">Registro tatuador</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+        
+        
+        
     <form class="formulario" method="POST" enctype="multipart/form-data" formaction="/proveedor/actualizar"  onsubmit=" return validar();"> 
 		<h1>Registrate</h1>
 		<div class="contenedor">

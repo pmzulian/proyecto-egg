@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
   <!-- Favicon -->
-  <link rel="icon" href="img/preview-xl.png" type="image/png">
+  <link rel="icon" href="/img/preview-xl.png" type="image/png">
 
   <!-- Fuentes de Google -->
   <link href="https://fonts.googleapis.com/css?family=Merriweather|Ubuntu&display=swap" rel="stylesheet">
@@ -40,38 +40,29 @@
     <nav id="nav">
       <div class="container"> 
         <ul>
-          <li><a href="/tatoo/index">Ink Mountain</a></li>
-          <li><a href="#">Login</a></li>
+          <li><a href="#">Ink Mountain</a></li>
+          <li><a href="/tatoo/login">Login</a></li>
           <li><a href="/usuario/actualizacion">Registro usuario</a></li>
           <li><a href="/proveedor/actualizacion">Registro tatuador</a></li>
-          <li><a href="">Contacto</a></li>
+          <li><a href="#contacto">Contacto</a></li>
         </ul>
       </nav>
     </div>
-    
 
     <section class="principal">
       <div class="container">
-        <form class="formulario"> 
-          <h1>Iniciar Sesion</h1>
-          <div class="contenedor">
+        <img src="/img/preview-xl.png" alt="logo" width="300px">
+        <h1>Ink Mountain</h1>
+        <div class="divisor"></div>
+        <div class="font-awesome"><i class="fas fa-mountain"></i></div>
+        <div class="divisor"></div>
+        <h3>Arte en la piel</h3>
+      </div>
+    </section>
 
-            <div class="input-contenedor" th:action="@{/usuario/entrar}" method="POST">
-              <i class="fas fa-envelope icon"></i>
-              <input type="text" placeholder="Email"  name="mail">
-            </div>
-
-            <div class="input-contenedor">
-              <i class="fas fa-key icon"></i>
-              <input type="password" placeholder="Contraseña" name="password">
-            </div>
-
-            <input type="submit" value="Log in" class="button" >
-
-            <p>¿No tienes una cuenta? <a class="link" href="/usuario/actualizacion">Registrate</a></p>
-          </div>
-        </form>
-      </section>
+    <section id="contacto">
+      
+    </section>
    
   </div><!-- cierra pantalla --> 
 
