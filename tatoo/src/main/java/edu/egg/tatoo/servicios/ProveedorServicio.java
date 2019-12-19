@@ -42,7 +42,7 @@ public class ProveedorServicio  {
     private UbicacionRepositorio ur;
     
     @Autowired
-    private EstiloRepositorio er;
+    private EstiloServicio estiloServicio;
     
     @Transactional
     public void actualizarProveedor(MultipartFile archivo, String id, Long documento, String nombre, String apellido, String mail, String contrasenia, Long telefono, String departamento, String localidad, String estilo) throws errorServicios, Exception {
@@ -51,12 +51,12 @@ public class ProveedorServicio  {
         Ubicacion ubicacion = null;
         ubicacion = ur.buscarparaProveedor(departamento, localidad);
         
+        List <Estilo> aux = new ArrayList <> ();
+        Estilo es = new Estilo ();
+        es = estiloServicio.crearEstilo(estilo);
+        aux.add(es);
         
-        Estilo aux = new Estilo ();
-        aux.setNombre(estilo);
-        List<Estilo> es =  new ArrayList <> ();
-        es.add(aux);
-        
+ 
         Proveedor respuesta = null;
         
         
@@ -106,7 +106,7 @@ public class ProveedorServicio  {
         proveedor.setMail(mail);
         String encriptada = new BCryptPasswordEncoder().encode(contrasenia);
         proveedor.setContrasenia(encriptada);
-        proveedor.setEstilo(es);
+        proveedor.setEstilo(aux);
         
         
         Foto foto = fotoservicio.AgregarFoto(archivo);
