@@ -1,23 +1,18 @@
 <!DOCTYPE html>
-<html lang="es" dir="ltr">
+<html lang="en"        xmlns:th="http://www.thymeleaf.org"  
+  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">  
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta charset="UTF-8">
+	<title></title>
+	<meta name="viewport" content="width=device-width, user-scalable=yes, inital-scale=1.0, maximum-scale=1.0">
 
-  <!-- Favicon -->
-  <link rel="icon" href="/img/preview-xl.png" type="image/png">
-
-  <!-- Fuentes de Google -->
-  <link href="https://fonts.googleapis.com/css?family=Merriweather|Ubuntu&display=swap" rel="stylesheet">
-
-
-  <!--Para buscadores-->
-  <meta name="author" content="Pablo ZULIÁN" />
-  <meta name="description" content="Web de Ink Mountain para Egg Educación" />
-  <meta name="keywords" content="tatuajes, mendoza, tatuadores, tinta, diseño tatuajes, tatto" />
-  <meta name="robots" content="index, follow" />
-
-  <!--Así se ve bien en productos apple -->
+	<script src="https://kit.fontawesome.com/3acd85c923.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="/css/estilos.css">
+	<link rel="stylesheet" href="/img/fondoregistrar.jpg">
+	<script src="validar.js"></script>
+      
+        <link href="https://fonts.googleapis.com/css?family=Merriweather|Ubuntu&display=swap" rel="stylesheet">
+          <!--Así se ve bien en productos apple -->
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta http-equiv="expires" content="Thu Oct 14 16:06:35 CEST 2027">
 
@@ -29,34 +24,32 @@
   
   <!-- Hoja de estilos para index.html -->
   <link rel="stylesheet" href="/css/estilosIndex.css">
-  <script src="validar.js"></script>
+	
 
-  <title>Ink Mountain</title>
 </head>
-
 <body>
-
-  <div id="pantalla">
+    
+      <div id="pantalla">
     
     <nav id="nav">
       <div class="container"> 
         <ul>
-          <li><a href="/tatoo/index">Ink Mountain</a></li>
-          <li><a href="/usuario/login">Login</a></li>
+          <li><a href="#">Ink Mountain</a></li>
+          <li><a href="/tatoo/login">Login</a></li>
           <li><a href="/usuario/actualizacion">Registro usuario</a></li>
           <li><a href="/proveedor/actualizacion">Registro tatuador</a></li>
-          <li><a href="#">Contacto</a></li>
+          <li><a href="#contacto">Contacto</a></li>
         </ul>
       </nav>
     </div>
+        
+        
+        
+    <form class="formulario" method="POST" enctype="multipart/form-data" formaction="/proveedor/actualizar"  onsubmit=" return validar();"> 
+		<h1>Registrate</h1>
+		<div class="contenedor">
 
-    <section class="principal registro">
-      <div class="container">
-        <form class="formulario" method="POST" enctype="multipart/form-data" formaction="/proveedor/actualizar"  onsubmit=" return validar();"> 
-          <h1>Tatuador</h1>
-          <div class="contenedor">
-
-         <div class="input-contenedor">
+			<div class="input-contenedor">
 				<i class="fas fa-user icon"></i>
 				<input id="nombre" type="text" placeholder="Nombre" name="nombre" required th:value="${proveedor.nombre}">
 			</div>
@@ -103,13 +96,64 @@
 
 			<p>Al registrarte, aceptas nuestras Condiciones de uso y Politica de privacidad.</p>
 			<p>¿Ya tienes una cuenta? <a class="link" src="/tatoo/login"  >Iniciar Sesion</a></p>
-          </div>
+		</div>
+	</form>
+
+<!--        <form class="form-inline my-2 my-lg-0" action="/ubicacion/listaubicacion" method="GET">
+            <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar"  name="q" th:value="${q}">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar <i class="fa fa-search"></i></button>
         </form>
-      </div>
-    </section>
-   
-  </div><!-- cierra pantalla --> 
+    <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th href="#" class="text-white">Provincia</th>
+                  
+                 
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="q : ${q}">
+                    <td href="#" class="text-white" th:text="${q.provincia_nombre}"></td>                               
+                    
+                </tr>
+            </tbody>-->
+<!--<div class="col-lg-3" th:object="${ubicaciones}">-->
 
+<!--SEGUIR INVESTIGANDO ESTO-->
+<!--<div class="col-lg-3" >
+<select action="${/ubicacion/listaubicacion}"   >
+        <option value="" th:each="ubicacion : ${ubicaciones}" 
+                th:value="${ubicacion}" 
+                th:text="#{${ubicacion.nombre_provincia}}" >
+            Ubicacion</option>
+       
+    </select>
+</div>-->
+<!--
+<table class="table">
+    
+    <thead>
+        <tr>
+            <th href="#">Nombre</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="ubicacion : ${ubicaciones}">
+            <td href="#" th:text="$ubicacion.nombre_provincia"></td>
+        </tr>
+            
+    </tbody>
+</table>-->
+
+<!--<form name="formulario" method="post" action="">
+   Campo de texto combinado con lista de opciones 
+  <input type="text" list="items">
+   Lista de opciones 
+  <datalist id="items">
+    <option value="1">Opción 1</option>
+    <option value="2">Opción 2</option>
+    <option value="3">Opción 3</option>
+  </datalist>
+</form>-->
 </body>
-
 </html>
