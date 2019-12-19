@@ -51,10 +51,7 @@ public class ProveedorServicio  {
         Ubicacion ubicacion = null;
         ubicacion = ur.buscarparaProveedor(departamento, localidad);
         
-        List <Estilo> aux = new ArrayList <> ();
-        Estilo es = new Estilo ();
-        es = estiloServicio.crearEstilo(estilo);
-        aux.add(es);
+        
         
  
         Proveedor respuesta = null;
@@ -106,6 +103,13 @@ public class ProveedorServicio  {
         proveedor.setMail(mail);
         String encriptada = new BCryptPasswordEncoder().encode(contrasenia);
         proveedor.setContrasenia(encriptada);
+        
+        List <Estilo> aux = new ArrayList <> ();
+        Estilo es = new Estilo ();
+        es = estiloServicio.crearEstilo(estilo);
+        aux.add(es);
+        
+        
         proveedor.setEstilo(aux);
         
         
