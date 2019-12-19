@@ -36,7 +36,11 @@
                       </div>
                  </div>
             </div>  
-                  <form class="formulario"> 
+        
+        
+<!--        ========================================================================-->
+        
+                  <form class="formulario" method="GET"> 
                         <h1>Busca a tu tatuador</h1>
                         <div class="contenedor">
 
@@ -45,12 +49,12 @@
 				<input type="text" placeholder="Estilo"  name="estilo">
 			</div>
 			
-			<div class="input-contenedor">
+			<div class="input-contenedor" action="">
 				<i class="fas fa-key icon"></i>
 				<input type="text" placeholder="Provicia" name="provincia">
 			</div>
 			
-			<input type="submit" value="Buscar" class="button">
+			<input type="submit" value="Buscar" class="button" action="/proveedor/listar" method="GET">
                         </div>
                   </form>
     </div>  

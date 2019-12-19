@@ -9,16 +9,16 @@
     <body>
         <div>TODO write content</div>
 
-        <form class="form-inline my-2 my-lg-0" action="/cliente/listado" method="GET">
+<!--        <form class="form-inline my-2 my-lg-0" action="/cliente/listado" method="GET">
             <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar"  name="q" th:value="${q}">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar <i class="fa fa-search"></i></button>
-        </form>
+        </form>-->
 
 
         <table class="table">
             <thead class="thead-dark">
                 <tr>
-                    <th href="#" class="text-white">Id</th>
+                  
                     <th href="#" class="text-white">Nombre</th>
                     <th href="#" class="text-white">Apellido</th>
                     <th href="#" class="text-white">Documento</th>
@@ -29,15 +29,14 @@
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="usuario : ${usuarios}">
-                    <td href="#" class="text-white" th:text="${usuario.id}"></td>                               
-                    <td href="#" class="text-white" th:text="${usuario.nombre}"></td>
-                    <td href="#" class="text-white" th:text="${usuario.apellido}"></td>
-                    <td href="#" class="text-white" th:text="${usuario.documento}"></td>
-                    <td href="#" class="text-white" th:text="${usuario.telefono}"></td>
-                    <td href="#">  <img th:src="@{/usuario/image/}+${usuario.id}" style="max-width: 10%;max-height: 10%;"/> </td>
-                    <td><a th:href="@{/usuario/actualizacion(id=${usuario.id})}"><button type="button" class="btn btn-danger"  >Editar</button> </a></td>
-                    <td><a th:href="@{/usuario/eliminar(id=${usuario.id})}"><button type="button" class="btn btn-danger"  >Eliminar</button> </a></td>
+                <tr th:each="proveedor : ${proveedores}">                    
+                    <td href="#" class="text-white" th:text="${proveedor.nombre}"></td>
+                    <td href="#" class="text-white" th:text="${proveedor.apellido}"></td>
+                    <td href="#" class="text-white" th:text="${proveedor.ubicacion}"></td>
+                    <td href="#" class="text-white" th:text="${proveedor.telefono}"></td>
+                    <td href="#">  <img th:src="@{/proveedor/image/}+${proveedor.id}" style="max-width: 10%;max-height: 10%;"/> </td>
+<!--                    <td><a th:href="@{/usuario/actualizacion(id=${usuario.id})}"><button type="button" class="btn btn-danger"  >Editar</button> </a></td>
+                    <td><a th:href="@{/usuario/eliminar(id=${usuario.id})}"><button type="button" class="btn btn-danger"  >Eliminar</button> </a></td>-->
 
 
                     <!--                                <td href="#" class="text-white" ><a th:href="@{/cliente/actualizacion(id=${cliente.id})}"><i class="fa fa-pencil"></i></a> 

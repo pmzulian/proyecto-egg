@@ -32,6 +32,19 @@ public interface ProveedorRepositorio extends JpaRepository <Proveedor, String> 
     
     public Proveedor findBymail (String mail);  
     
+//    @Query ("SELECT p FROM proveedor_estilo pr\n" +
+//            "INNER JOIN estilo e\n" +
+//            "ON pr.estilo_id = e.id\n" +
+//            "INNER JOIN proveedor p\n" +
+//            "ON pr.proveedor_id=p.id\n" +
+//            "INNER JOIN ubicacion u\n" +
+//            "ON p.ubicacion_id = u.id\n" +
+//            "p.estilos"
+//"WHERE (e.nombre = :estilo) AND (u.provincia_nombre = :provincia_nombre)")
+//    public List <Proveedor> busquedaProveedores(@Param("estilo") String estilo, @Param("provincia_nombre") String provincia_nombre);
+//    
+    
+//    public List <Proveedor> findByEstilo(String estilo,String Ubicacion);
  
     
 //    

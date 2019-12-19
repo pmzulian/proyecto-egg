@@ -141,14 +141,15 @@ public class ProveedorServicio  {
         }
     }
     
-    @Transactional
-    public List Busquedataatuador (String estilo, String provincia){
-        
-        Proveedor proveedor = null;
-        
-        
-        return null;      
-    }
+//    @Transactional
+//    public List Busquedataatuador (String estilo, String provincia){
+//        return   proveedorrepositorio.busquedaProveedores(estilo, provincia);      
+//    }
+    
+//    @Transactional
+//    public List busquedaTatuador (String estilo, String provincia){
+//        return proveedorrepositorio.findByEstiloAndUbicacion(estilo, provincia);
+//    }
 
     
     /////METODO PARA CARGAR FOTOS DE Portfolios sin terminar//////

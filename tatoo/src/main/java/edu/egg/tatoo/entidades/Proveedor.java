@@ -1,5 +1,6 @@
 package edu.egg.tatoo.entidades;
 
+import com.fasterxml.jackson.annotation.JacksonAnnotation;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
@@ -38,12 +39,9 @@ public class Proveedor implements Serializable{
     private List<PregResp> regresp;
 //@OneToMany(targetEntity = Estilo.class, mappedBy = "proveedor", fetch = FetchType.EAGER)
     @OneToMany (fetch = FetchType.LAZY)    
-    @JoinColumns({
-        @JoinColumn(name="proveedor_id", referencedColumnName="id"),
-        @JoinColumn(name="estilo_id", referencedColumnName="id")
-    })
-    @NotNull
+    @JoinTable(name = "Estilo")
     private List <Estilo> estilo;
+    
     @OneToOne
     private Foto fotoPerfil;
     @OneToMany 
