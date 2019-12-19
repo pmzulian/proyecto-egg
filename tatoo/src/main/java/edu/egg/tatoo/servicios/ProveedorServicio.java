@@ -211,6 +211,12 @@ public class ProveedorServicio  {
             throw new errorServicios("El telefono es vacio o es nulo. ");
         }
     }
+    
+    public void validarFotos (List<Foto> fotoPorfolio) throws errorServicios {
+        if (fotoPorfolio == null || fotoPorfolio.isEmpty() ){
+            throw new errorServicios("Seleccione al menos una imagen");
+        }
+    }
 
 //    @Override
 //    public UserDetails loadUserByUsername(String mail) throws UsernameNotFoundException {
