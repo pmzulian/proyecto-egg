@@ -1,6 +1,7 @@
 
 package edu.egg.tatoo.servicios;
 
+import edu.egg.tatoo.entidades.Estilo;
 import edu.egg.tatoo.entidades.Foto;
 import edu.egg.tatoo.repositorios.EstiloRepositorio;
 import java.util.List;
@@ -17,6 +18,13 @@ public class EstiloServicio{
     
     public List mostrarEstilos () {
         return estilorepositorio.findAll();
+    }
+    
+    
+    public Estilo crearEstilo (String nombre){
+        Estilo estilo = new Estilo ();
+        estilo.setNombre(nombre);
+        return estilorepositorio.save(estilo);
     }
     
 //    public List buscarEstiloporNombre (String nombre){

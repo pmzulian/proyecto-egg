@@ -56,12 +56,14 @@ public class UsuarioController extends HttpServlet {
         } else {
             modelo.put("usuario", new Usuario());
         }
+        
+        
 
         return "registro.html";
     }
 
     @PostMapping("/actualizar")
-    public String actualizar(@RequestParam MultipartFile archivo,
+        public String actualizar(@RequestParam MultipartFile archivo,
             @RequestParam(required = false) String id,
             @RequestParam Long documento,
             @RequestParam String nombre,
@@ -74,11 +76,12 @@ public class UsuarioController extends HttpServlet {
 
         usuarioservicio.actualizarUsuario(archivo, id, nombre, apellido, documento, telefono, mail, contrasenia);
       
-        return "redirect:/tatoo/login";
+        return "redirect:/tatoo/index";
     }
     
     @PostMapping("/entrar")
     public String entrar(@RequestParam String mail, @RequestParam String password, ModelMap modelo, HttpSession session) {
+        System.out.println("ARRANCA O NO ARRANCA?");
          Usuario usuario = null;
         
          try{
@@ -100,7 +103,6 @@ public class UsuarioController extends HttpServlet {
             return "menuusuario.html";
         }   
         }
-        System.out.println("Paso");
        
         Proveedor proveedor = pr.BuscarProveedorPorMail(mail);
         

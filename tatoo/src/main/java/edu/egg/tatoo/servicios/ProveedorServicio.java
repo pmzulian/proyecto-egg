@@ -42,17 +42,21 @@ public class ProveedorServicio  {
     private UbicacionRepositorio ur;
     
     @Autowired
-    private EstiloRepositorio er;
+    private EstiloServicio estiloServicio;
     
     @Transactional
-    public void actualizarProveedor(MultipartFile archivo, String id, Long documento, String nombre, String apellido, String mail, String contrasenia, Long telefono, String provincia, String barrio, String estilo) throws errorServicios, Exception {
+    public void actualizarProveedor(MultipartFile archivo, String id, Long documento, String nombre, String apellido, String mail, String contrasenia, Long telefono, String departamento, String localidad, String estilo) throws errorServicios, Exception {
 
         Proveedor proveedor = null;
         Ubicacion ubicacion = null;
-        ubicacion = ur.buscarparaProveedor(provincia, barrio);
-        List<Estilo> es =  new ArrayList <> ();
+        ubicacion = ur.buscarparaProveedor(departamento, localidad);
         
-        es.add(er.BuscarEstiloPorNombre(estilo));
+        
+        
+ 
+        Proveedor respuesta = null;
+        
+        
 
         if (id != null && id != "" && !id.isEmpty()) {
             proveedor = proveedorrepositorio.getOne(id);
@@ -70,6 +74,25 @@ public class ProveedorServicio  {
           proveedor.setUbicacion(ubicacion);
         }
         
+        if (id == null ||  id.isEmpty()){
+            try{
+                respuesta = proveedorrepositorio.findBymail(mail);
+            }catch(NullPointerException e){
+                e.toString();
+            }
+            try{
+                
+                if (respuesta.getMail().equals(mail)){
+                throw new Exception ("Este usuario ya existe.");
+                
+            }
+                
+            }catch(NullPointerException e){
+                e.toString();
+            }
+            
+        }
+        
         
         
         
@@ -80,7 +103,14 @@ public class ProveedorServicio  {
         proveedor.setMail(mail);
         String encriptada = new BCryptPasswordEncoder().encode(contrasenia);
         proveedor.setContrasenia(encriptada);
-        proveedor.setEstilo(es);
+        
+        List <Estilo> aux = new ArrayList <> ();
+        Estilo es = new Estilo ();
+        es = estiloServicio.crearEstilo(estilo);
+        aux.add(es);
+        
+        
+        proveedor.setEstilo(aux);
         
         
         Foto foto = fotoservicio.AgregarFoto(archivo);
@@ -121,14 +151,15 @@ public class ProveedorServicio  {
         }
     }
     
-    @Transactional
-    public List Busquedataatuador (String estilo, String provincia){
-        
-        Proveedor proveedor = null;
-        
-        
-        return null;      
-    }
+//    @Transactional
+//    public List Busquedataatuador (String estilo, String provincia){
+//        return   proveedorrepositorio.busquedaProveedores(estilo, provincia);      
+//    }
+    
+//    @Transactional
+//    public List busquedaTatuador (String estilo, String provincia){
+//        return proveedorrepositorio.findByEstiloAndUbicacion(estilo, provincia);
+//    }
 
     
     /////METODO PARA CARGAR FOTOS DE Portfolios sin terminar//////
@@ -188,6 +219,12 @@ public class ProveedorServicio  {
     public void validarTelefono(String telefono) throws errorServicios {
         if (telefono == null || telefono.isEmpty()) {
             throw new errorServicios("El telefono es vacio o es nulo. ");
+        }
+    }
+    
+    public void validarFotos (List<Foto> fotoPorfolio) throws errorServicios {
+        if (fotoPorfolio == null || fotoPorfolio.isEmpty() ){
+            throw new errorServicios("Seleccione al menos una imagen");
         }
     }
 

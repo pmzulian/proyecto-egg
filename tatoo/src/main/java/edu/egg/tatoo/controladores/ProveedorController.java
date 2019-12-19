@@ -8,6 +8,7 @@ import edu.egg.tatoo.errores.errorServicios;
 import edu.egg.tatoo.repositorios.ProveedorRepositorio;
 import edu.egg.tatoo.repositorios.UbicacionRepositorio;
 import edu.egg.tatoo.servicios.ProveedorServicio;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +42,7 @@ public class ProveedorController {
     
     @GetMapping("/actualizacion")
     public String actualizacion  (@RequestParam (required = false )String id, ModelMap modelo){
-        System.out.println("entro");
+
         Proveedor proveedor;
         
         if(id != null){
@@ -66,12 +67,12 @@ public class ProveedorController {
                               @RequestParam String mail,
                               @RequestParam String contrasenia,
                               @RequestParam Long telefono,
-                              @RequestParam String provincia,
-                              @RequestParam String barrio,
+                              @RequestParam String departamento,
+                              @RequestParam String localidad,
                               @RequestParam String estilo
                                 ) throws Exception{
        
-        proveedorservicio.actualizarProveedor(archivo, id, documento, nombre, apellido, mail, contrasenia, telefono, provincia, barrio, estilo);
+        proveedorservicio.actualizarProveedor(archivo, id, documento, nombre, apellido, mail, contrasenia, telefono, departamento, localidad, estilo);
         return "redirect:/tatoo/login";
     }
     
@@ -87,6 +88,8 @@ public class ProveedorController {
         return new ResponseEntity<byte[]>(foto, headers, HttpStatus.OK);
 
     }
+    
+    
     
     @PostMapping("/entrar")
     public String entrar(@RequestParam String mail, @RequestParam String password, ModelMap modelo, HttpSession session) {
@@ -128,14 +131,18 @@ public class ProveedorController {
     }
     
     
-    @GetMapping("listar")
-    public String listar (@RequestParam (required = false) String estilo,
-                          @RequestParam (required = false) String provincia){
-        
-        
-        
-        return "enzopruebalista.html";
-    }
+//    @GetMapping("/listar")
+//    public String listar (@RequestParam (required = false) String estilo,
+//                          @RequestParam (required = false) String provincia, ModelMap modelo){
+//        
+////        List <Proveedor> proveedores = new ArrayList <> () ;
+////        proveedores = proveedorservicio.Busquedataatuador(estilo, provincia);
+////        modelo.put("proveedores", proveedores);
+////        proveedores = proveedorservicio.busquedaTatuador(estilo, provincia);
+//        
+//        
+//        return "enzopruebalista.html";
+//    }
     
     @GetMapping("/eliminar")
     public String eliminar (@RequestParam String id) throws errorServicios{

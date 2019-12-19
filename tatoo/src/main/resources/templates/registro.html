@@ -1,61 +1,101 @@
 <!DOCTYPE html>
-<html lang="en"        xmlns:th="http://www.thymeleaf.org"  
-  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">  
+<html lang="es" dir="ltr">
 <head>
-	<meta charset="UTF-8">
-	<title></title>
-	<meta name="viewport" content="width=device-width, user-scalable=yes, inital-scale=1.0, maximum-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
-	<script src="https://kit.fontawesome.com/3acd85c923.js" crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="/css/estilos.css">
-	<link rel="stylesheet" href="/img/fondoregistrar.jpg">
-	<script src="validar.js"></script>
-        xmlns:th="http://www.thymeleaf.org"  
-  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">  
+  <!-- Favicon -->
+  <link rel="icon" href="/img/preview-xl.png" type="/image/png">
 
-	
+  <!-- Fuentes de Google -->
+  <link href="https://fonts.googleapis.com/css?family=Merriweather|Ubuntu&display=swap" rel="stylesheet">
 
+
+  <!--Para buscadores-->
+  <meta name="author" content="Pablo ZULIÁN" />
+  <meta name="description" content="Web de Ink Mountain para Egg Educación" />
+  <meta name="keywords" content="tatuajes, mendoza, tatuadores, tinta, diseño tatuajes, tatto" />
+  <meta name="robots" content="index, follow" />
+
+  <!--Así se ve bien en productos apple -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta http-equiv="expires" content="Thu Oct 14 16:06:35 CEST 2027">
+
+  <!-- Place your kit's code here -->
+  <script src="https://kit.fontawesome.com/9495ff8eaa.js" crossorigin="anonymous"></script>
+
+  <!-- Siempre se coloca primero normalize.css porque ajusta los estilos predefinidos de los navegadores-->
+  <link rel="stylesheet" href="/css/normalize.css" type="text/css">
+  
+  <!-- Hoja de estilos para index.html -->
+  <link rel="stylesheet" href="/css/estilosIndex.css">
+
+  <title>Ink Mountain</title>
 </head>
+
 <body>
-    <form class="formulario" method="POST" enctype="multipart/form-data" formaction="/usuario/actualizar"  onsubmit=" return validar();"> 
-		<h1>Registrate</h1>
-		<div class="contenedor">
 
-                     <input type="hidden" name="id" th:value="${usuario.id}"/>
-                    
-			<div class="input-contenedor">
-				<i class="fas fa-user icon"></i>
-				<input id="nombre" type="text" placeholder="Nombre" name="nombre" required th:value="${usuario.nombre}">
-			</div>
-			<div class="input-contenedor">
-				<i class="fas fa-user icon"></i>
-				<input id="apellido" type="text" placeholder="Apellido"  name="apellido" required th:value="${usuario.apellido}" >
-			</div>
-			<div class="input-contenedor">
-				<i class="fas fa-envelope icon"></i>
-				<input id="email" type="text" placeholder="Email" required name="mail" th:value="${usuario.mail}" >
-			</div>
-			<div class="input-contenedor">
-				<i class="fas fa-user icon"></i>
-				<input id="dni" type="text" placeholder="Dni" required name="documento" th:value="${usuario.documento}" >
-			</div>
-			<div class="input-contenedor">
-				<i class="fas fa-mobile icon"></i>
-				<input id="telefono" type="text" placeholder="Telefono" name="telefono" required th:value="${usuario.telefono}">
-			</div>
-			<div class="input-contenedor">
-				<i class="fas fa-key icon"></i>
-				<input id="contraseña" type="password" placeholder="Contraseña" name="contrasenia" required th:value="${usuario.contrasenia}">
-			</div>
-			<div class="input-contenedor">
-				<i class="fas fa-camera icon"></i>
-				<input type="file" placeholder="Foto" name="archivo" th:value="${usuario.foto}">
-			</div>
-               <input type="submit" value="Registrate" class="button" formaction="/usuario/actualizar" method="POST">
+  <div id="pantalla">
+    
+    <nav id="nav">
+      <div class="container"> 
+        <ul>
+          <li><a href="/tatoo/index">Ink Mountain</a></li>
+          <li><a href="/tatoo/login">Login</a></li>
+          <li><a href="/usuario/actualizacion">Registro usuario</a></li>
+          <li><a href="/proveedor/actualizacion">Registro tatuador</a></li>
+          <li><a href="">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
 
-			<p>Al registrarte, aceptas nuestras Condiciones de uso y Politica de privacidad.</p>
-			<p>¿Ya tienes una cuenta? <a class="link" src="/tatoo/index"  >Iniciar Sesion</a></p>
-		</div>
-	</form>
+    <section class="principal registro">
+      <div class="container">
+        <form class="formulario" method="POST" enctype="multipart/form-data" formaction="/usuario/actualizar" onsubmit=" return validar();"> 
+          <h1>Usuario</h1>
+          <div class="contenedor">
+              
+            <input type="hidden" name="id" th:value="${usuario.id}"/>
+              
+            <div class="input-contenedor">
+              <i class="fas fa-user icon"></i>
+              <input id="nombre" type="text" placeholder="Nombre" name="nombre" required th:value="${usuario.nombre}" >
+            </div>
+            <div class="input-contenedor">
+              <i class="fas fa-user icon"></i>
+              <input id="apellido" type="text" placeholder="Apellido" name="apellido" required th:value="${usuario.apellido}" >
+            </div>
+            <div class="input-contenedor">
+              <i class="fas fa-envelope icon"></i>
+              <input id="email" type="text" placeholder="Email" required name="mail" th:value="${usuario.mail}"  >
+            </div>
+            <div class="input-contenedor">
+              <i class="fas fa-user icon"></i>
+              <input id="dni" type="text" placeholder="Dni" required name="documento" th:value="${usuario.documento}" >
+            </div>
+            <div class="input-contenedor">
+              <i class="fas fa-mobile icon"></i>
+              <input id="telefono" type="text" placeholder="Telefono" name="telefono" required th:value="${usuario.telefono}">
+            </div>
+            <div class="input-contenedor">
+              <i class="fas fa-key icon"></i>
+              <input id="contraseña" type="password" placeholder="Contraseña" name="contrasenia" required th:value="${usuario.contrasenia}">
+            </div>
+            <div class="input-contenedor">
+              <i class="fas fa-camera icon"></i>
+              <input type="file" placeholder="Foto" name="archivo" th:value="${usuario.foto}">
+            </div>
+            <input type="submit" value="Registrate" class="button" formaction="/usuario/actualizar" method="POST">
+
+            <p>Al registrarte, aceptas nuestras Condiciones de uso y Politica de privacidad.</p>
+            <p>¿Ya tienes una cuenta? <a class="link" href="/tatoo/login">Iniciar Sesion</a></p>
+          </div>
+        </form>
+      </div>
+    </section>
+   
+  </div><!-- cierra pantalla --> 
+
 </body>
+
 </html>

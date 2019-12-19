@@ -8,6 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/tatoo")
 @Controller
 public class GenericController {
+    
+    @GetMapping("/index")
+    public String index (){
+        return "index.html";
+    }
 
     @GetMapping("/login")
     public String login() {

@@ -1,21 +1,20 @@
 
 package edu.egg.tatoo.entidades;
 
+import java.io.Serializable;
 import javax.persistence.GeneratedValue;
 import javax.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-public class Estilo {
+public class Estilo implements Serializable {
     
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator (name = "uuid", strategy = "uuid2")
     private String id;
     private String nombre;
-    
-    @ManyToOne
-    private Proveedor proveedor;
+
     
     
     
@@ -39,13 +38,7 @@ public class Estilo {
         this.nombre = nombre;
     }
 
-    public Proveedor getProveedor() {
-        return proveedor;
-    }
 
-    public void setProveedor(Proveedor proveedor) {
-        this.proveedor = proveedor;
-    }
 
     
 
