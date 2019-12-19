@@ -38,9 +38,9 @@ public class Proveedor implements Serializable{
     @OneToMany
     private List<PregResp> regresp;
 //@OneToMany(targetEntity = Estilo.class, mappedBy = "proveedor", fetch = FetchType.EAGER)
-    @OneToMany (fetch = FetchType.LAZY)    
-    @JoinTable(name = "Estilo")
-    private List <Estilo> estilo;
+    @OneToOne  
+//    @JoinTable(name = "Estilo")
+    private Estilo estilos;
     
     @OneToOne
     private Foto fotoPerfil;
@@ -138,14 +138,6 @@ public class Proveedor implements Serializable{
     public void setRegresp(List<PregResp> regresp) {
         this.regresp = regresp;
     }
-
-    public List <Estilo> getEstilo() {
-        return estilo;
-    }
-
-    public void setEstilo(List <Estilo> estilo) {
-        this.estilo = estilo;
-    }
     
     public Foto getFotoPerfil() {
         return fotoPerfil;
@@ -162,4 +154,13 @@ public class Proveedor implements Serializable{
     public void setFotoPortfolio(List <Foto> fotoPortfolio) {
         this.fotoPortfolio = fotoPortfolio;
     }
+
+    public Estilo getEstilos() {
+        return estilos;
+    }
+
+    public void setEstilos(Estilo estilos) {
+        this.estilos = estilos;
+    }
+    
 }

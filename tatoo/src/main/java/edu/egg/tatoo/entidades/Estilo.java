@@ -15,6 +15,9 @@ public class Estilo implements Serializable {
     private String id;
     private String nombre;
 
+//    @JoinColumn(name="provedor_id")
+//    private Proveedor proveedor;
+
     
     
     

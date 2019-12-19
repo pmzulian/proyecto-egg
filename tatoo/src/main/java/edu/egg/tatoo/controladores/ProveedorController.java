@@ -51,7 +51,7 @@ public class ProveedorController {
         }else{
             modelo.put("proveedor", new Proveedor ());
         }
-//            modelo.put("proveedor", ur.findAll());
+            modelo.put("proveedor", ur.findAll());
         
         
         return "registrop.html";

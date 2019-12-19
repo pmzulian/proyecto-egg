@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 
 <html lang="en"         
       <head>
@@ -15,8 +15,8 @@
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 
-<!--        xmlns:th="http://www.thymeleaf.org"  
-        xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">  -->
+        xmlns:th="http://www.thymeleaf.org"  
+        xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">  
 
 
 
@@ -38,7 +38,7 @@
             </div>  
         
         
-<!--        ========================================================================-->
+        ========================================================================
         
                   <form class="formulario" method="GET"> 
                         <h1>Busca a tu tatuador</h1>
@@ -73,6 +73,179 @@
         <form th:action="@{/tatoo/login}" method="GET">
             <input type="submit" value="Cerrar Sesion"/>
         </form>
+
+    </body>
+</html>-->
+
+<!DOCTYPE html>
+
+<html lang="en"  
+
+      <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <meta name="viewport" content="width=device-width, user-scalable=yes, inital-scale=1.0, maximum-scale=1.0">
+
+        <script src="https://kit.fontawesome.com/3acd85c923.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="/css/estilos.css">
+        <link rel="stylesheet" href="/css/imgperfil.css">
+        <link rel="stylesheet" href="/img/fondoregistrar.jpg">
+                <link rel="stylesheet" href="/css/estilos.css">
+        <link rel="stylesheet" href="/css/imgperfil.css">
+        <link rel="stylesheet" href="/img/fondoregistrar.jpg">
+        <link href="/maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="/maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="/cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        </head>
+
+   
+<body>
+
+    <div class="container">
+            <div class="d-flex justify-content-center h-100">
+                <div class="image_outer_container">                   
+                     <div class="image_inner_container">
+                        <img th:src="@{/usuario/image/}+${usuario.id}">
+                     </div>
+                     <div>
+                        <h1 href="#" class="text-white" text=" "th:text="${usuario.nombre}+${usuario.apellido}"></h1>
+                      <input type="submit" value="Editar" class="button" th:href="@{/usuario/actualizacion(id=${usuario.id})}">
+                      </div>
+                 </div>
+            </div>  
+<!--                  <form class="formulario"  method="POST"> 
+                        <h1>Busca a tu tatuador</h1>
+                        <div class="contenedor">
+
+  <h2>Selecciona el departamento:</h2>
+			<div class="input-contenedor">
+ <form name="formulario" method="post" action="http://pagina.com/send.php">
+        <input type="text" list="departamento">
+  <datalist id="departamento">
+  
+    <option value="Capital" selected>Capital</option>
+    <option value="General Alvear">General Alvear</option> 
+    <option value="Godoy Cruz">Godoy Cruz</option>
+     <option value="Guaymallén">Guaymallén</option>
+    <option value="Junín">Junín</option> 
+    <option value="La Paz">La Paz</option>
+    <option value="Las Heras">Las Heras</option> 
+    <option value="Lavalle">Lavalle</option>
+    <option value="Luján de Cuyo">Luján de Cuyo</option>
+    <option value="Maipú">Maipú</option> 
+    <option value="Malargüe">Malargüe</option>
+    <option value="Rivadavia">Rivadavia</option> 
+    <option value="San Carlos">San Carlos</option>
+     <option value="San Martín">San Martín</option>
+    <option value="San Rafael">San Rafael</option> 
+    <option value="Santa Rosa">Santa Rosa</option>
+    <option value="Tunuyán">Tunuyán</option> 
+    <option value="Tupungato">Tupungato</option>
+    <datalist>
+</form>
+			</div>
+
+
+			  <h2>Selecciona la localidad:</h2>
+
+			<div class="input-contenedor">
+	<form name="formulario" method="post" action="http://pagina.com/send.php">
+<input type="text" list="localidad">
+  <datalist id="localidad">
+
+    <option value="Agrelo" selected>Agrelo</option>
+    <option value="Bowen">Bowen</option> 
+    <option value="Colonia Las Rosas">Colonia Las Rosas</option>
+     <option value="Colonia Segovia">Colonia Segovia</option>
+    <option value="Costa de Araujo">Costa de Araujo</option> 
+    <option value="Eugenio Bustos">Eugenio Bustos</option>
+        <option value="Fray Luis Beltrán">Fray Luis Beltrán</option> 
+    <option value="General Alvear">General Alvear</option>
+     <option value="Godoy Cruz">Godoy Cruz</option>
+    <option value="Goudege">Goudege</option> 
+    <option value="Guaymallén">Guaymallén</option>
+        <option value="La Colonia">La Colonia</option> 
+    <option value="La Consulta">La Consulta</option>
+     <option value="La Dormida">La Dormida</option>
+    <option value="La Paz">La Paz</option> 
+    <option value="Las Catitas">Las Catitas</option>
+        <option value="Las Heras">Las Heras</option> 
+    <option value="Los Barriales">Los Barriales</option>
+        <option value="Luján de Cuyo">Luján de Cuyo</option> 
+    <option value="Maipú">Maipú</option>
+        <option value="Malargüe">Malargüe</option> 
+    <option value="Medrano">Medrano</option>
+     <option value="Mendoza">Mendoza</option>
+    <option value="Monte Comán">Monte Comán</option> 
+    <option value="Perdriel">Perdriel</option>
+        <option value="Puente de Hierro">Puente de Hierro</option> 
+    <option value="Real del Padre">Real del Padre</option>
+            <option value="Rivadavia">Rivadavia</option> 
+    <option value="Rodeo del Medio">Rodeo del Medio</option>
+        <option value="San Carlos">San Carlos</option> 
+    <option value="San Martín">San Martín</option>
+     <option value="San Rafael">San Rafael</option>
+    <option value="San Roque">San Roque</option> 
+    <option value="Santa Rosa">Santa Rosa</option>
+        <option value="Tres Porteñas">Tres Porteñas</option> 
+    <option value="Tunuyán">Tunuyán</option>
+       <option value="Tupungato">Tupungato</option>
+        <option value="Ugarteche">Ugarteche</option> 
+    <option value="Uspallata">Uspallata</option>
+     <option value="Villa Atuel">Villa Atuel</option>
+    <option value="Villa Tulumaya">Villa Tulumaya</option> 
+    <option value="Vista Flores">Vista Flores</option>
+  <datalist>
+</div>
+
+      <h2>Selecciona por estilo de tatuaje:</h2>
+
+      <div class="input-contenedor">
+  <form name="formulario" method="post" action="http://pagina.com/send.php">
+<input type="text" list="tatuaje">
+  <datalist id="tatuaje">
+     Opciones de la lista 
+    <option>Abstracto</option>
+    <option>Animales</option>
+    <option>Biomecánicos</option>
+        <option>Blanco y Negro</option>
+    <option>Chicano</option>
+    <option>Cover Up</option>
+        <option>Geométrico y Puntillismo</option>
+    <option>Horror</option>
+    <option>NewSchool</option>
+        <option>Japonés</option>
+    <option>Realismo</option>
+    <option>Religioso</option>
+        <option>Retrato</option>
+        <option>Trash Polka</option>
+    <option>Tribal</option>
+    <option>Old School</option>
+        <option>Polinesio</option>
+    <option>New Tradicional</option>
+    <option>Lettering</option>
+        <option>Wstercolor</option>
+    <option>Ilustración y Bosquejo</option>
+
+
+</div>
+</div>
+</form>
+
+
+
+			
+			<input type="submit" value="Buscar" class="button">
+                        </div>
+        
+    -->
+       
+
+
+<!--
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Cerrar Sesion"/>
+        </form>-->
 
     </body>
 </html>

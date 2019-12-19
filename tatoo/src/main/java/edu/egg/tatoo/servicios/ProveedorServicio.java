@@ -104,19 +104,20 @@ public class ProveedorServicio  {
         String encriptada = new BCryptPasswordEncoder().encode(contrasenia);
         proveedor.setContrasenia(encriptada);
         
-        List <Estilo> aux = new ArrayList <> ();
-        Estilo es = new Estilo ();
-        es = estiloServicio.crearEstilo(estilo);
-        aux.add(es);
-        
-        
-        proveedor.setEstilo(aux);
+
         
         
         Foto foto = fotoservicio.AgregarFoto(archivo);
         proveedor.setFotoPerfil(foto);
+        
+        Estilo x= estiloServicio.crearEstilo(estilo);
+        proveedor.setEstilos(x);
 
         proveedorrepositorio.save(proveedor);
+        
+      
+        
+        
         
         System.out.println("Proveedor");
 

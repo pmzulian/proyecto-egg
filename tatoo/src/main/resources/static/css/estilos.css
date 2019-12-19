@@ -16,7 +16,6 @@ body{
 .formulario{
 	background: #fff;
 	padding: 3px;
-        
 }
 
 h1{
@@ -70,7 +69,7 @@ p{
 @media(min-width: 768px)
 {
 	.formulario{
-		margin-top: 1000px;
+		margin: auto;
 		width: 500px;
 		margin-top: 150px;
 		border-radius: 2%;
