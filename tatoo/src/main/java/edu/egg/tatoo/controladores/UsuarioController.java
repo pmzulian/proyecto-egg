@@ -81,6 +81,7 @@ public class UsuarioController extends HttpServlet {
     
     @PostMapping("/entrar")
     public String entrar(@RequestParam String mail, @RequestParam String password, ModelMap modelo, HttpSession session) {
+        System.out.println("ARRANCA O NO ARRANCA?");
          Usuario usuario = null;
         
          try{

@@ -52,11 +52,11 @@
 
     <section class="principal">
       <div class="container">
-        <form class="formulario"> 
+        <form class="formulario" th:action="@{/usuario/entrar}" method="POST"> 
           <h1>Iniciar Sesion</h1>
           <div class="contenedor">
 
-            <div class="input-contenedor" th:action="@{/usuario/entrar}" method="POST">
+            <div class="input-contenedor">
               <i class="fas fa-envelope icon"></i>
               <input type="text" placeholder="Email"  name="mail">
             </div>
