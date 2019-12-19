@@ -104,9 +104,9 @@
     <div class="container">
             <div class="d-flex justify-content-center h-100">
                 <div class="image_outer_container">                   
-                     <div class="image_inner_container">
+                     
                         <img th:src="@{/usuario/image/}+${usuario.id}">
-                     </div>
+                 
                      <div>
                         <h1 href="#" class="text-white" text=" "th:text="${usuario.nombre}+${usuario.apellido}"></h1>
                       <input type="submit" value="Editar" class="button" th:href="@{/usuario/actualizacion(id=${usuario.id})}">
