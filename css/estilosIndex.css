@@ -19,6 +19,7 @@
 
 html{
 	font-size: 16px;
+	scroll-behavior: smooth;
 	/*line-height: 22px;*/
 }
 
@@ -207,7 +208,7 @@ section{
 	background-size: cover;
 	background-attachment: fixed;*/
 	text-align: center;
-	height: 100vh;
+	/*height: 100vh;*/
 }
 .formulario{
 	background: #fff;
@@ -282,3 +283,90 @@ p{
 	padding-bottom: 40px;
 }
 
+/*Section Portfolio============================*/
+section#portfolio{
+	background-color: cadetblue;
+	padding-top: 60px;
+}
+
+article{
+	cursor: pointer;
+    position: relative;
+    float: left;
+    display: block;
+    width: 30%;
+    height: 260px;
+    margin-bottom: 30px;
+    border-radius: .5rem;
+ 	background-color: white;
+ 	transition: all .2s ease-in-out;
+}
+
+article:hover{
+	background-color: #EAC67A;
+}
+
+#portfolio .container{
+	margin-top:40px;
+}
+
+article:nth-child(2),
+article:nth-child(5){
+	margin-left: 5%;
+	margin-right:5%;
+}
+
+article img{
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	object-position: center;
+}
+
+/*Estilos footer==============================*/
+footer{
+	height: auto;
+	background-color: #233237;
+	text-align: center;
+	overflow: hidden;
+}
+
+footer .container{
+	margin-top: 40px;
+}
+
+footer h3{
+	font-family: 'Ubuntu', cursive;
+	font-size: 2.5rem;
+	margin:0;
+	padding:0;
+	color: white;
+}
+
+footer .divisor{
+	width: 21%;
+	background-color: white;
+}
+
+footer .font-awesome{
+	color:white; 
+}
+
+footer .font-awesome2{
+	color:white;
+	font-size: 5rem;
+	width: 25%;
+	float: left;
+	text-align: center;
+}
+
+footer .fontawesome i{
+	cursor: pointer;
+}
+
+.redes{
+	text-align: center;
+	margin-top: 40px;
+	margin-bottom: 40px;
+	overflow: hidden;
+}
