@@ -6,6 +6,7 @@ import edu.egg.tatoo.entidades.Proveedor;
 import edu.egg.tatoo.entidades.Ubicacion;
 import edu.egg.tatoo.entidades.Usuario;
 import edu.egg.tatoo.errores.errorServicios;
+import edu.egg.tatoo.repositorios.PregRespRepositorio;
 import edu.egg.tatoo.repositorios.ProveedorRepositorio;
 import edu.egg.tatoo.repositorios.UbicacionRepositorio;
 import edu.egg.tatoo.servicios.ProveedorServicio;
@@ -38,6 +39,9 @@ public class ProveedorController {
     
     @Autowired
     private ProveedorServicio proveedorservicio ;
+    
+    @Autowired
+    private PregRespRepositorio pregrespRepopsitorio;
     
     @Autowired
     private ProveedorRepositorio pr;
@@ -184,7 +188,7 @@ public class ProveedorController {
     
     @GetMapping("/mensaje")
     public String Mensaje (@RequestParam String nombre, @RequestParam String mensaje) throws errorServicios{
-        
+        System.out.println("paso1");
         List <PregResp> listado = new ArrayList <> ();
          
         Proveedor proveedor;
@@ -193,9 +197,12 @@ public class ProveedorController {
          if(proveedor == null){
              throw new errorServicios("No se encuentra el tatuador");
          }
-        
+        System.out.println("paso2");
          PregResp pregunta = new PregResp ();
          pregunta.setPregunta(mensaje);
+         pregunta =pregrespRepopsitorio.save(pregunta);
+        
+         
          
          if(pregunta != null){
          
@@ -204,6 +211,7 @@ public class ProveedorController {
          }else{
              throw new errorServicios ("no se puede settear la pregunta");
          }
+         System.out.println("paso3");
 
          
          proveedor.setRegresp(listado);
