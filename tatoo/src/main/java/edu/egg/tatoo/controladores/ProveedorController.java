@@ -1,6 +1,7 @@
 
 package edu.egg.tatoo.controladores;
 
+import edu.egg.tatoo.entidades.PregResp;
 import edu.egg.tatoo.entidades.Proveedor;
 import edu.egg.tatoo.entidades.Ubicacion;
 import edu.egg.tatoo.entidades.Usuario;
@@ -8,8 +9,12 @@ import edu.egg.tatoo.errores.errorServicios;
 import edu.egg.tatoo.repositorios.ProveedorRepositorio;
 import edu.egg.tatoo.repositorios.UbicacionRepositorio;
 import edu.egg.tatoo.servicios.ProveedorServicio;
+import edu.egg.tatoo.servicios.UsuarioServicio;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -39,6 +44,9 @@ public class ProveedorController {
     
     @Autowired
     private UbicacionRepositorio ur;
+    
+    @Autowired 
+    private UsuarioServicio usuarioServicio;
     
     @GetMapping("/actualizacion")
     public String actualizacion  (@RequestParam (required = false )String id, ModelMap modelo){
@@ -162,6 +170,37 @@ public class ProveedorController {
         return null;
     }
     
+    @GetMapping("/turno")
+    public void turno (@RequestParam String idp, @RequestParam String idc){
+        Proveedor proveedor=proveedorservicio.buscarProID(idp);
+        Usuario usuario = usuarioServicio.buscarPorID(idc);
+  
+        try {
+            proveedorservicio.asignarTurno(null, null, null);
+        } catch (Exception ex) {
+            Logger.getLogger(ProveedorController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    @GetMapping("/mensaje")
+    public String Mensaje (@RequestParam String nombre, @RequestParam String mensaje){
+         System.out.println("aver");
+         Proveedor proveedor;
+         
+        proveedor = pr.BuscarProveedorPorNombre(nombre);
+         
+        
+         PregResp pregunta = new PregResp ();
+         pregunta.setPregunta(mensaje);
+         
+         List <PregResp> listado = new ArrayList <> ();
+         listado.add(pregunta);
+         
+         proveedor.setRegresp(listado);
+        
+        
+        return "redirect:/tatoo/index";
+    }
 
     
     

@@ -35,33 +35,36 @@
 
 <body>
     
+         <div id="pantalla">
+    
+    <nav id="nav">
+      <div class="container"> 
+        <ul>
+          <li><a href="/tatoo/index">Ink Mountain</a></li>
+        </ul>
+      </nav>
+    </div>
+    
 <section class="principal registro">
     <div class="container">
-        <form class="formulario" >
             <table class="table">
-              <thead class="thead-dark">
-                <tr>
-                  
-                    <th href="#" class="text-white">Nombre</th>
-                    <th href="#" class="text-white">Apellido</th>
-                    <th href="#" class="text-white">Documento</th>
-                    <th href="#" class="text-white">Telefono</th>
-                </tr>
-                 </thead>
+
                  <tbody>
                 <tr th:each="proveedor : ${tatuadores}">                    
-                    <td href="#" class="text-white" th:text="${proveedor.nombre}"></td>
-                    <td href="#" class="text-white" th:text="${proveedor.apellido}"></td>
-                    <td href="#" class="text-white" th:text="${proveedor.ubicacion.nombre}"></td>
-                    <td href="#" class="text-white" th:text="${proveedor.telefono}"></td>
-                    <td href="#">  <img th:src="@{/proveedor/image/}+${proveedor.id}" style="max-width: 10%;max-height: 10%;"/> </td>
+                    <td href="#" class="text-white" th:text="${proveedor.nombre}" style="color: white"></td>
+                    <td href="#" class="text-white" th:text="${proveedor.apellido}" style="color: white"></td>
+                    <td href="#" class="text-white" th:text="${proveedor.ubicacion.nombre}" style="color: white"></td>
+                    <td href="#" class="text-white" th:text="${proveedor.telefono}" style="color: white"></td>
+                    <td href="#">  <img th:src="@{/proveedor/image/}+${proveedor.id}" style="max-width: 30%;max-height: auto;"/> </td>
+                    <td><a th:href="@{/proveedor/turno}"><button type="button" class="btn btn-danger"  >Enviar mensaje</button> </a></td>
+
                 </tr>
             </tbody>
             
             </table>
 <!--     <input type="submit" value="Atras" class="button" formaction="/usuario/actualizar" method="POST">-->
 
-        </form>
+      
     </div>
 </section>
     

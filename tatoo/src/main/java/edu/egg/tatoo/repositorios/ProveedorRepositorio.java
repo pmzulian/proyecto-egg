@@ -10,8 +10,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ProveedorRepositorio extends JpaRepository <Proveedor, String> {
-//    @Query("SELECT c FROM Proveedor c WHERE c.nombre LIKE %"+":nombre"+"%")
-//    public List<Proveedor> BuscarProveedorPorNombre(@Param("nombre")String nombre);
+    @Query("SELECT c FROM Proveedor c WHERE c.nombre LIKE %"+":nombre"+"%")
+    public Proveedor BuscarProveedorPorNombre(@Param("nombre")String nombre);
 //    
 //    public Proveedor findByNombre(String nombre);
 //    

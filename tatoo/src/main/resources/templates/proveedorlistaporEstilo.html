@@ -55,11 +55,30 @@
                     <td href="#" class="text-white" th:text="${proveedor.ubicacion.nombre}" style="color: white"></td>
                     <td href="#" class="text-white" th:text="${proveedor.telefono}" style="color: white"></td>
                     <td href="#">  <img th:src="@{/proveedor/image/}+${proveedor.id}" style="max-width: 30%;max-height: auto;"/> </td>
-                  
+                    <td><a href="#portfolio"><button type="button" class="btn btn-danger"  >Enviar mensaje</button> </a></td>
+
+                    
                 </tr>
             </tbody>
             
             </table>
+        
+        
+        <section id="portfolio">
+            <section class="principal registro">
+                <div class="container">
+            <form formaction="/proveedor/mensaje">
+            
+            <input type="text" class="form-control" name="nombre" placeholder="Nombre del tatuador"  />
+
+            
+            <textarea class="" name="mensaje" rows="5" placeholder="Mensaje"></textarea>
+            
+            <a><button type="submit" formaction="/proveedor/mensaje"></button> Enviar</a>
+            </form>
+                    </div>
+                </section>
+        </section>
 <!--     <input type="submit" value="Atras" class="button" formaction="/usuario/actualizar" method="POST">-->
 
      
