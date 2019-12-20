@@ -3,6 +3,7 @@ package edu.egg.tatoo.entidades;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 //Hola
 @Entity
 public class Ubicacion {
@@ -22,6 +23,8 @@ public class Ubicacion {
     private String nombre;
     private int provincia_id ;
     private String provincia_nombre ;
+//    @OneToOne(mappedBy = "estilos")
+//    private Proveedor proveedor;
     
     
 

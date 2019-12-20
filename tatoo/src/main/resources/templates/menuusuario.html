@@ -1,3 +1,87 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+  <!-- Favicon -->
+  <link rel="icon" href="img/preview-xl.png" type="image/png">
+
+  <!-- Fuentes de Google -->
+  <link href="https://fonts.googleapis.com/css?family=Merriweather|Ubuntu&display=swap" rel="stylesheet">
+
+
+  <!--Para buscadores-->
+  <meta name="author" content="Pablo ZULIÁN" />
+  <meta name="description" content="Web de Ink Mountain para Egg Educación" />
+  <meta name="keywords" content="tatuajes, mendoza, tatuadores, tinta, diseño tatuajes, tatto" />
+  <meta name="robots" content="index, follow" />
+
+  <!--Así se ve bien en productos apple -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta http-equiv="expires" content="Thu Oct 14 16:06:35 CEST 2027">
+
+  <!-- Place your kit's code here -->
+  <script src="https://kit.fontawesome.com/9495ff8eaa.js" crossorigin="anonymous"></script>
+
+  <!-- Siempre se coloca primero normalize.css porque ajusta los estilos predefinidos de los navegadores-->
+  <link rel="stylesheet" href="/css/normalize.css" type="text/css">
+  
+  <!-- Hoja de estilos para index.html -->
+  <link rel="stylesheet" href="/css/estilosIndex.css">
+
+  <title>Ink Mountain</title>
+</head>
+
+
+
+
+    <body>
+
+
+        <section class="principal registro">
+              <div class="container">
+                     <h1 href="#" class="text-white" text=" "th:text="${usuario.nombre}+${usuario.apellido}" style="color: white"></h1>
+                     <br>
+                     <img th:src="@{/usuario/image/}+${usuario.id}" style="max-width: 600px; max-height: auto">
+              </div>
+        </section>
+                    <section class="principal registro">
+                        <div class="container">
+                            <form class="formulario">
+                                <h1>Busca a tu tatuador </h1>
+                                <div class="input-contenedor">
+                                    <i class="fas fa-user icon"></i>
+                                    <input  type="text" placeholder="Localidad" required name="localidad">
+                                </div>
+                                 <div class="input-contenedor">
+                                    <i class="fas fa-user icon"></i>
+                                    <input  type="text" placeholder="Barrio" required name="barrio">
+                                </div> 
+                                <input type="submit" value="Buscar" class="button" formaction="/proveedor/listarporzona" method="POST">
+
+<!--                                 <div class="input-contenedor">
+                                    <i class="fas fa-user icon"></i>
+                                    <input  type="text" placeholder="Estilo" required name="estilo">
+                                </div>                                 -->
+                           </form>
+                        </div>   
+                    </section>
+        
+                   
+        
+        
+        
+        
+        
+        
+    </body>
+
+</html>
+
+
+
+
 <!--<!DOCTYPE html>
 
 <html lang="en"         
@@ -76,7 +160,7 @@
 
     </body>
 </html>-->
-
+<!--
 <!DOCTYPE html>
 
 <html lang="en"  
@@ -112,7 +196,7 @@
                       <input type="submit" value="Editar" class="button" th:href="@{/usuario/actualizacion(id=${usuario.id})}">
                       </div>
                  </div>
-            </div>  
+            </div>  -->
 <!--                  <form class="formulario"  method="POST"> 
                         <h1>Busca a tu tatuador</h1>
                         <div class="contenedor">
@@ -247,5 +331,7 @@
             <input type="submit" value="Cerrar Sesion"/>
         </form>-->
 
-    </body>
-</html>
+<!--    </body>
+</html>-->
+
+

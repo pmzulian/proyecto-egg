@@ -157,10 +157,12 @@ public class ProveedorServicio  {
 //        return   proveedorrepositorio.busquedaProveedores(estilo, provincia);      
 //    }
     
-//    @Transactional
-//    public List busquedaTatuador (String estilo, String provincia){
-//        return proveedorrepositorio.findByEstiloAndUbicacion(estilo, provincia);
-//    }
+    @Transactional
+    public List listarporZona (String localidad, String barrio){
+        
+        return proveedorrepositorio.listarporZona(localidad, barrio);
+        
+    }
 
     
     /////METODO PARA CARGAR FOTOS DE Portfolios sin terminar//////

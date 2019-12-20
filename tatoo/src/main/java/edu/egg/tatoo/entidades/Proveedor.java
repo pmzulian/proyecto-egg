@@ -14,6 +14,7 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
+@Table (name= "proveedor")
 public class Proveedor implements Serializable{
 
     @Id
@@ -27,6 +28,7 @@ public class Proveedor implements Serializable{
     private Long telefono;
     private String mail;
     @OneToOne
+    @JoinColumn(name="ubicacion_id")
     private Ubicacion ubicacion;
 //@OneToMany(targetEntity = Turno.class, mappedBy = "proveedor", fetch = FetchType.EAGER)
     @OneToMany
@@ -38,8 +40,8 @@ public class Proveedor implements Serializable{
     @OneToMany
     private List<PregResp> regresp;
 //@OneToMany(targetEntity = Estilo.class, mappedBy = "proveedor", fetch = FetchType.EAGER)
-    @OneToOne  
-//    @JoinTable(name = "Estilo")
+    @OneToOne (cascade = {CascadeType.ALL})
+    @JoinColumn (name="estilos_id") 
     private Estilo estilos;
     
     @OneToOne

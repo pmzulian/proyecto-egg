@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+  <!-- Favicon -->
+  <link rel="icon" href="img/preview-xl.png" type="image/png">
+
+  <!-- Fuentes de Google -->
+  <link href="https://fonts.googleapis.com/css?family=Merriweather|Ubuntu&display=swap" rel="stylesheet">
+
+
+  <!--Para buscadores-->
+  <meta name="author" content="Pablo ZULIÁN" />
+  <meta name="description" content="Web de Ink Mountain para Egg Educación" />
+  <meta name="keywords" content="tatuajes, mendoza, tatuadores, tinta, diseño tatuajes, tatto" />
+  <meta name="robots" content="index, follow" />
+
+  <!--Así se ve bien en productos apple -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta http-equiv="expires" content="Thu Oct 14 16:06:35 CEST 2027">
+
+  <!-- Place your kit's code here -->
+  <script src="https://kit.fontawesome.com/9495ff8eaa.js" crossorigin="anonymous"></script>
+
+  <!-- Siempre se coloca primero normalize.css porque ajusta los estilos predefinidos de los navegadores-->
+  <link rel="stylesheet" href="/css/normalize.css" type="text/css">
+  
+  <!-- Hoja de estilos para index.html -->
+  <link rel="stylesheet" href="/css/estilosIndex.css">
+
+  <title>Ink Mountain</title>
+</head>
+
+<body>
+    <form action=""
+        
+    <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                  
+                    <th href="#" class="text-white">Nombre</th>
+                    <th href="#" class="text-white">Apellido</th>
+                    <th href="#" class="text-white">Documento</th>
+                    <th href="#" class="text-white">Telefono</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="proveedor : ${tatuadores}">                    
+                    <td href="#" class="text-white" th:text="${proveedor.nombre}"></td>
+                    <td href="#" class="text-white" th:text="${proveedor.apellido}"></td>
+                    <td href="#" class="text-white" th:text="${proveedor.ubicacion}"></td>
+                    <td href="#" class="text-white" th:text="${proveedor.telefono}"></td>
+                    <td href="#">  <img th:src="@{/proveedor/image/}+${proveedor.id}" style="max-width: 10%;max-height: 10%;"/> </td>
+                </tr>
+            </tbody>
+        </table>
+    
+    
+    
+    
+    
+    
+    
+    
+</body>

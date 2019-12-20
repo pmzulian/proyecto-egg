@@ -131,18 +131,18 @@ public class ProveedorController {
     }
     
     
-//    @GetMapping("/listar")
-//    public String listar (@RequestParam (required = false) String estilo,
-//                          @RequestParam (required = false) String provincia, ModelMap modelo){
-//        
-////        List <Proveedor> proveedores = new ArrayList <> () ;
-////        proveedores = proveedorservicio.Busquedataatuador(estilo, provincia);
-////        modelo.put("proveedores", proveedores);
-////        proveedores = proveedorservicio.busquedaTatuador(estilo, provincia);
-//        
-//        
-//        return "enzopruebalista.html";
-//    }
+    @GetMapping("/listarporzona")
+    public String listar (
+                          @RequestParam (required = false) String localidad,
+                          @RequestParam (required = false) String barrio,
+                          Model modelo){
+        List <Proveedor> tatuadores ;
+        tatuadores = proveedorservicio.listarporZona(localidad, barrio);
+        modelo.addAttribute("tatuadores", tatuadores);
+        System.out.println(tatuadores.get(0).getNombre());
+        
+        return "proveedorlistarporZona.html";
+    }
     
     @GetMapping("/eliminar")
     public String eliminar (@RequestParam String id) throws errorServicios{
