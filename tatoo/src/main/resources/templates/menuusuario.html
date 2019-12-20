@@ -41,9 +41,15 @@
 
         <section class="principal registro">
             <div class="container">
-                <h1 href="#" class="text-white" text=" "th:text="${usuario.nombre}+${usuario.apellido}" style="color: white"></h1>
+                 <form class="formulario">
+                <h1 href="#" class="text-white" text=" "th:text="${usuario.nombre}+${usuario.apellido}"></h1>
                 <br>
-                <img th:src="@{/usuario/image/}+${usuario.id}" style="max-width: 600px; max-height: auto">
+                <img th:src="@{/usuario/image/}+${usuario.id}" style="max-width: 90%; max-height: auto">
+                <h3>Telefono</h3>
+                <h2 href="#" class="text-white" text=" "th:text="${usuario.telefono}" ></h2>
+                <h3>DNI</h3>
+                <h2 href="#" class="text-white" text=" "th:text="${usuario.documento}" ></h2>
+                 </form>
             </div>
         </section>
         <section class="principal registro">
@@ -58,12 +64,7 @@
                         <i class="fas fa-user icon"></i>
                         <input  type="text" placeholder="Barrio" required name="barrio">
                     </div> 
-                    <input type="submit" value="Buscar" class="button" formaction="/proveedor/listarporzona" method="POST">
-
-                    <!--                                 <div class="input-contenedor">
-                                                        <i class="fas fa-user icon"></i>
-                                                        <input  type="text" placeholder="Estilo" required name="estilo">
-                                                    </div>                                 -->
+                    <input type="submit" value="Buscar" class="button" formaction="/proveedor/listarporzona" method="POST">  
                 </form>
             </div>   
         </section>
@@ -75,7 +76,7 @@
                 <h1>Busca a tu tatuador por estilo </h1>
                 <div class="input-contenedor">
                     <i class="fas fa-user icon"></i>
-                <input type="text" list="tatuaje" name =estilo>
+                <input type="text" placeholder="estilos" list="tatuaje" name =estilo>
                     <datalist id="tatuaje">
                         Opciones de la lista 
                         <option>Abstracto</option>
