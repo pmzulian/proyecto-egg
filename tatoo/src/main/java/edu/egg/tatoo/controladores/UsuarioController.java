@@ -80,8 +80,7 @@ public class UsuarioController extends HttpServlet {
     }
     
     @PostMapping("/entrar")
-    public String entrar(@RequestParam String mail, @RequestParam String password, ModelMap modelo, HttpSession session) {
-        System.out.println("ARRANCA O NO ARRANCA?");
+    public String entrar(@RequestParam String mail, @RequestParam String password, ModelMap modelo,ModelMap modelo2, HttpSession session) {
          Usuario usuario = null;
         
          try{
@@ -112,7 +111,7 @@ public class UsuarioController extends HttpServlet {
             
              if(new BCryptPasswordEncoder().matches(password, proveedor.getContrasenia())){
             
-            modelo.put("proveedor", proveedor);
+            modelo2.put("proveedor", proveedor);
             return "menuproveedor.html";
              }
             

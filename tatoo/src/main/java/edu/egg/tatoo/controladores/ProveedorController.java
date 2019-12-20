@@ -183,18 +183,28 @@ public class ProveedorController {
     }
     
     @GetMapping("/mensaje")
-    public String Mensaje (@RequestParam String nombre, @RequestParam String mensaje){
-         System.out.println("aver");
-         Proveedor proveedor;
+    public String Mensaje (@RequestParam String nombre, @RequestParam String mensaje) throws errorServicios{
+        
+        List <PregResp> listado = new ArrayList <> ();
          
+        Proveedor proveedor;
         proveedor = pr.BuscarProveedorPorNombre(nombre);
-         
+        
+         if(proveedor == null){
+             throw new errorServicios("No se encuentra el tatuador");
+         }
         
          PregResp pregunta = new PregResp ();
          pregunta.setPregunta(mensaje);
          
-         List <PregResp> listado = new ArrayList <> ();
-         listado.add(pregunta);
+         if(pregunta != null){
+         
+         listado.add(pregunta);  
+         
+         }else{
+             throw new errorServicios ("no se puede settear la pregunta");
+         }
+
          
          proveedor.setRegresp(listado);
         
