@@ -163,6 +163,13 @@ public class ProveedorServicio  {
         return proveedorrepositorio.listarporZona(localidad, barrio);
         
     }
+    
+        @Transactional
+    public List listarporEstilo (String estilo){
+        
+        return proveedorrepositorio.listarporEstilo(estilo);
+        
+    }
 
     
     /////METODO PARA CARGAR FOTOS DE Portfolios sin terminar//////

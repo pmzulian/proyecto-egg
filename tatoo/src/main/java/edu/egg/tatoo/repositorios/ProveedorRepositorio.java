@@ -35,6 +35,9 @@ public interface ProveedorRepositorio extends JpaRepository <Proveedor, String> 
     @Query ("SELECT c FROM Proveedor c WHERE (c.ubicacion.nombre = :nombre) OR (c.ubicacion.municipio_nombre = :municipio)")
     public List <Proveedor> listarporZona(@Param("nombre") String nombre, @Param("municipio")String barrio);
     
+    @Query("SELECT c FROM Proveedor c WHERE c.estilos.nombre = :estilo")
+    public List <Proveedor> listarporEstilo (@Param("estilo")String estilo);
+    
 //        @Query ("SELECT c FROM Proveedor c INNER JOIN Ubicacion u ON c.Ubicacion_id = u.id WHERE c.ubicacion.nombre = :nombre AND c.ubicacion.municipio_nombre = :municipio")
 //    public List <Proveedor> listarporZona(@Param("nombre") String nombre, @Param("municipio")String barrio);
 

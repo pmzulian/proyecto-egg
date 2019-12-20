@@ -1,37 +1,37 @@
 <!DOCTYPE html>
 <html lang="es" dir="ltr">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
-  <!-- Favicon -->
-  <link rel="icon" href="img/preview-xl.png" type="image/png">
+        <!-- Favicon -->
+        <link rel="icon" href="img/preview-xl.png" type="image/png">
 
-  <!-- Fuentes de Google -->
-  <link href="https://fonts.googleapis.com/css?family=Merriweather|Ubuntu&display=swap" rel="stylesheet">
+        <!-- Fuentes de Google -->
+        <link href="https://fonts.googleapis.com/css?family=Merriweather|Ubuntu&display=swap" rel="stylesheet">
 
 
-  <!--Para buscadores-->
-  <meta name="author" content="Pablo ZULIÁN" />
-  <meta name="description" content="Web de Ink Mountain para Egg Educación" />
-  <meta name="keywords" content="tatuajes, mendoza, tatuadores, tinta, diseño tatuajes, tatto" />
-  <meta name="robots" content="index, follow" />
+        <!--Para buscadores-->
+        <meta name="author" content="Pablo ZULIÁN" />
+        <meta name="description" content="Web de Ink Mountain para Egg Educación" />
+        <meta name="keywords" content="tatuajes, mendoza, tatuadores, tinta, diseño tatuajes, tatto" />
+        <meta name="robots" content="index, follow" />
 
-  <!--Así se ve bien en productos apple -->
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta http-equiv="expires" content="Thu Oct 14 16:06:35 CEST 2027">
+        <!--Así se ve bien en productos apple -->
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta http-equiv="expires" content="Thu Oct 14 16:06:35 CEST 2027">
 
-  <!-- Place your kit's code here -->
-  <script src="https://kit.fontawesome.com/9495ff8eaa.js" crossorigin="anonymous"></script>
+        <!-- Place your kit's code here -->
+        <script src="https://kit.fontawesome.com/9495ff8eaa.js" crossorigin="anonymous"></script>
 
-  <!-- Siempre se coloca primero normalize.css porque ajusta los estilos predefinidos de los navegadores-->
-  <link rel="stylesheet" href="/css/normalize.css" type="text/css">
-  
-  <!-- Hoja de estilos para index.html -->
-  <link rel="stylesheet" href="/css/estilosIndex.css">
+        <!-- Siempre se coloca primero normalize.css porque ajusta los estilos predefinidos de los navegadores-->
+        <link rel="stylesheet" href="/css/normalize.css" type="text/css">
 
-  <title>Ink Mountain</title>
-</head>
+        <!-- Hoja de estilos para index.html -->
+        <link rel="stylesheet" href="/css/estilosIndex.css">
+
+        <title>Ink Mountain</title>
+    </head>
 
 
 
@@ -40,42 +40,83 @@
 
 
         <section class="principal registro">
-              <div class="container">
-                     <h1 href="#" class="text-white" text=" "th:text="${usuario.nombre}+${usuario.apellido}" style="color: white"></h1>
-                     <br>
-                     <img th:src="@{/usuario/image/}+${usuario.id}" style="max-width: 600px; max-height: auto">
-              </div>
+            <div class="container">
+                <h1 href="#" class="text-white" text=" "th:text="${usuario.nombre}+${usuario.apellido}" style="color: white"></h1>
+                <br>
+                <img th:src="@{/usuario/image/}+${usuario.id}" style="max-width: 600px; max-height: auto">
+            </div>
         </section>
-                    <section class="principal registro">
-                        <div class="container">
-                            <form class="formulario">
-                                <h1>Busca a tu tatuador </h1>
-                                <div class="input-contenedor">
-                                    <i class="fas fa-user icon"></i>
-                                    <input  type="text" placeholder="Localidad" required name="localidad">
-                                </div>
-                                 <div class="input-contenedor">
-                                    <i class="fas fa-user icon"></i>
-                                    <input  type="text" placeholder="Barrio" required name="barrio">
-                                </div> 
-                                <input type="submit" value="Buscar" class="button" formaction="/proveedor/listarporzona" method="POST">
+        <section class="principal registro">
+            <div class="container">
+                <form class="formulario">
+                    <h1>Busca a tu tatuador por zona </h1>
+                    <div class="input-contenedor">
+                        <i class="fas fa-user icon"></i>
+                        <input  type="text" placeholder="Localidad" required name="localidad">
+                    </div>
+                    <div class="input-contenedor">
+                        <i class="fas fa-user icon"></i>
+                        <input  type="text" placeholder="Barrio" required name="barrio">
+                    </div> 
+                    <input type="submit" value="Buscar" class="button" formaction="/proveedor/listarporzona" method="POST">
 
-<!--                                 <div class="input-contenedor">
-                                    <i class="fas fa-user icon"></i>
-                                    <input  type="text" placeholder="Estilo" required name="estilo">
-                                </div>                                 -->
-                           </form>
-                        </div>   
-                    </section>
-        
-                   
-        
-        
-        
-        
-        
-        
-    </body>
+                    <!--                                 <div class="input-contenedor">
+                                                        <i class="fas fa-user icon"></i>
+                                                        <input  type="text" placeholder="Estilo" required name="estilo">
+                                                    </div>                                 -->
+                </form>
+            </div>   
+        </section>
+
+    </section>
+    <section class="principal registro">
+        <div class="container">
+            <form class="formulario">
+                <h1>Busca a tu tatuador por estilo </h1>
+                <div class="input-contenedor">
+                    <i class="fas fa-user icon"></i>
+                <input type="text" list="tatuaje" name =estilo>
+                    <datalist id="tatuaje">
+                        Opciones de la lista 
+                        <option>Abstracto</option>
+                        <option>Animales</option>
+                        <option>Biomecánicos</option>
+                        <option>Blanco y Negro</option>
+                        <option>Chicano</option>
+                        <option>Cover Up</option>
+                        <option>Geométrico y Puntillismo</option>
+                        <option>Horror</option>
+                        <option>NewSchool</option>
+                        <option>Japonés</option>
+                        <option>Realismo</option>
+                        <option>Religioso</option>
+                        <option>Retrato</option>
+                        <option>Trash Polka</option>
+                        <option>Tribal</option>
+                        <option>Old School</option>
+                        <option>Polinesio</option>
+                        <option>New Tradicional</option>
+                        <option>Lettering</option>
+                        <option>Wstercolor</option>
+                        <option>Ilustración y Bosquejo</option>
+                </div>
+                <input type="submit" value="Buscar" class="button" formaction="/proveedor/listarporestilo" method="POST">
+
+                <!--                                 <div class="input-contenedor">
+                                                    <i class="fas fa-user icon"></i>
+                                                    <input  type="text" placeholder="Estilo" required name="estilo">
+                                                </div>                                 -->
+            </form>
+        </div>   
+    </section>
+
+
+
+
+
+
+
+</body>
 
 </html>
 
@@ -128,17 +169,17 @@
                         <h1>Busca a tu tatuador</h1>
                         <div class="contenedor">
 
-			<div class="input-contenedor">
-				<i class="fas fa-envelope icon"></i>
-				<input type="text" placeholder="Estilo"  name="estilo">
-			</div>
-			
-			<div class="input-contenedor" action="">
-				<i class="fas fa-key icon"></i>
-				<input type="text" placeholder="Provicia" name="provincia">
-			</div>
-			
-			<input type="submit" value="Buscar" class="button" action="/proveedor/listar" method="GET">
+                        <div class="input-contenedor">
+                                <i class="fas fa-envelope icon"></i>
+                                <input type="text" placeholder="Estilo"  name="estilo">
+                        </div>
+                        
+                        <div class="input-contenedor" action="">
+                                <i class="fas fa-key icon"></i>
+                                <input type="text" placeholder="Provicia" name="provincia">
+                        </div>
+                        
+                        <input type="submit" value="Buscar" class="button" action="/proveedor/listar" method="GET">
                         </div>
                   </form>
     </div>  
@@ -202,7 +243,7 @@
                         <div class="contenedor">
 
   <h2>Selecciona el departamento:</h2>
-			<div class="input-contenedor">
+                        <div class="input-contenedor">
  <form name="formulario" method="post" action="http://pagina.com/send.php">
         <input type="text" list="departamento">
   <datalist id="departamento">
@@ -227,13 +268,13 @@
     <option value="Tupungato">Tupungato</option>
     <datalist>
 </form>
-			</div>
+                        </div>
 
 
-			  <h2>Selecciona la localidad:</h2>
+                          <h2>Selecciona la localidad:</h2>
 
-			<div class="input-contenedor">
-	<form name="formulario" method="post" action="http://pagina.com/send.php">
+                        <div class="input-contenedor">
+        <form name="formulario" method="post" action="http://pagina.com/send.php">
 <input type="text" list="localidad">
   <datalist id="localidad">
 
@@ -318,12 +359,12 @@
 
 
 
-			
-			<input type="submit" value="Buscar" class="button">
+                        
+                        <input type="submit" value="Buscar" class="button">
                         </div>
         
-    -->
-       
+-->
+
 
 
 <!--

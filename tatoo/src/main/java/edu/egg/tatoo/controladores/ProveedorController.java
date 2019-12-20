@@ -143,6 +143,18 @@ public class ProveedorController {
         
         return "proveedorlistarporZona.html";
     }
+   
+    @GetMapping("/listarporestilo")
+    public String listar2 (@RequestParam String estilo,
+                           Model modelo){
+        List <Proveedor> tatuadores;
+        tatuadores = proveedorservicio.listarporEstilo(estilo);
+        modelo.addAttribute("tatuadores", tatuadores);
+        
+        return "proveedorlistaporEstilo.html";
+        
+    }
+    
     
     @GetMapping("/eliminar")
     public String eliminar (@RequestParam String id) throws errorServicios{
